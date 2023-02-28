@@ -110,7 +110,7 @@ public class VoiceRecog : MonoBehaviour
                             {
                                 bools.NullBools();
                                 InitByIntent.InitOtaLaita(mummo, "Kahvinpurut", "Pöytä3");   //vaiha interactiksi, kahvipurut -> interactwith suodatinpussi !!!!!
-                                InitByIntent.InitInteract(mummo, "Suodatinpussi_Interact", false);
+                                InitByIntent.InitInteract(mummo, "SuodatinpussiInteract", false);
                                 mummo.KahviDo(1, 3); //Laita purut suodatinpussiin
                                 break;
                             }
@@ -186,7 +186,7 @@ public class VoiceRecog : MonoBehaviour
                         {
                             Debug.Log("kaadetaan kahvi mukiin");
                             bools.NullBools();
-                            InitByIntent.InitInteract(mummo, "Kahvikuppi_Interact", false);
+                            InitByIntent.InitInteract(mummo, "KahvikuppiInteract", false);
                             InitByIntent.InitOtaLaita(mummo, "Kahvipannu", "PannunPaikka");
                             //  InitByIntent.InitOtaLaita(mummo, "")
                             mummo.KahviDo(1, 12); //T�yt� kahvikuppi kahvilla
@@ -198,7 +198,7 @@ public class VoiceRecog : MonoBehaviour
                         if (bools.IsThisTrue("KahvinKaato"))
                         {
                             bools.NullBools();
-                            InitByIntent.InitInteract(mummo, "Tahra_Spot", false);
+                            InitByIntent.InitInteract(mummo, "TahraSpot", false);
                             InitByIntent.InitOtaLaita(mummo, "Kahvipannu", "PannunPaikka");
                             mummo.GeneralDo(1, false);
                             break;
@@ -207,7 +207,7 @@ public class VoiceRecog : MonoBehaviour
                         {
                             UnityEngine.Debug.Log("Vesi huti");
                             bools.NullBools();
-                            InitByIntent.InitInteract(mummo, "Tahra_Spot", false);
+                            InitByIntent.InitInteract(mummo, "TahraSpot", false);
                             InitByIntent.InitOtaLaita(mummo, "Vesikannu", "Pöytä4");
                             mummo.GeneralDo(1, false);
                             break;
@@ -237,7 +237,7 @@ public class VoiceRecog : MonoBehaviour
                         {
                             bools.NullBools();
                             InitByIntent.InitOtaLaita(mummo, "Virtajohto", "Pistorasia");
-                            InitByIntent.InitInteract(mummo, "Virtajohto_Interact", false);
+                            InitByIntent.InitInteract(mummo, "VirtajohtoInteract", false);
                             mummo.KahviDo(1, 8); //Laita johto pistorasiaan   
                             break;
                         }

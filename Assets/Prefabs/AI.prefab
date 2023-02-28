@@ -1,0 +1,233 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7345419268604595476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7345419268604595478}
+  - component: {fileID: 7345419268604595479}
+  m_Layer: 0
+  m_Name: TaskHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7345419268604595478
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7345419268604595476}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7345419269687101459}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7345419268604595479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7345419268604595476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cea428d5516dcee46a04df2916b29fc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskList: []
+--- !u!1 &7345419269687101457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7345419269687101459}
+  - component: {fileID: 7345419269687101458}
+  - component: {fileID: 101088370321746386}
+  m_Layer: 0
+  m_Name: AI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7345419269687101459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7345419269687101457}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7345419268604595478}
+  - {fileID: 7345419269774516891}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7345419269687101458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7345419269687101457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d4a72c927541384dbb9cde37ce1434f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabTargets:
+  - name: Suodatinpussi
+    target: {fileID: 0}
+  - name: Kahvikuppi
+    target: {fileID: 0}
+  - name: Kahvinpurut
+    target: {fileID: 0}
+  - name: Vesikannu
+    target: {fileID: 0}
+  - name: Lusikka
+    target: {fileID: 0}
+  - name: Kahvipannu
+    target: {fileID: 0}
+  - name: Virtajohto
+    target: {fileID: 0}
+  - name: Virtajohto
+    target: {fileID: 0}
+  dropTargets:
+  - name: "P\xF6yt\xE41"
+    target: {fileID: 0}
+  - name: "P\xF6yt\xE42"
+    target: {fileID: 0}
+  - name: "P\xF6yt\xE43"
+    target: {fileID: 0}
+  - name: "P\xF6yt\xE44"
+    target: {fileID: 0}
+  - name: LeftHand
+    target: {fileID: 0}
+  - name: Suppilo
+    target: {fileID: 0}
+  - name: PannunPaikka
+    target: {fileID: 0}
+  - name: Pistorasia
+    target: {fileID: 0}
+  - name: LusikkaMukissa
+    target: {fileID: 0}
+  interactTargets:
+  - name: SuodatinpussiInteract
+    target: {fileID: 0}
+  - name: Vesihana
+    target: {fileID: 0}
+  - name: Kansi
+    target: {fileID: 0}
+  - name: "Vesis\xE4ili\xF6"
+    target: {fileID: 0}
+  - name: KahvikuppiInteract
+    target: {fileID: 0}
+  - name: TahraSpot
+    target: {fileID: 0}
+  - name: VirtajohtoInteract
+    target: {fileID: 0}
+  - name: Virtakytkin
+    target: {fileID: 0}
+  grabThis: {fileID: 0}
+  dropHere: {fileID: 0}
+  lookTarget: {fileID: 0}
+  moveTowardsThis: {fileID: 0}
+  interactThis: {fileID: 0}
+  taskHolder: {fileID: 7345419268604595476}
+  tracker: {fileID: 7345419269774516890}
+  tasks: {fileID: 0}
+  taskInit: {fileID: 0}
+  currentTask: Kahvinkeitto
+  mummoGrabber: {fileID: 0}
+  mummoHead: {fileID: 0}
+  mummoBody: {fileID: 0}
+  mummoOrigin: {fileID: 0}
+  isListening: 1
+  hasItem: 0
+  aiTools: {fileID: 101088370321746386}
+  aiDialog: {fileID: 0}
+  bodyAngle: 0
+  turnSpeed: 0
+  headAngle: 0
+  handDir: {x: 0, y: 0, z: 0}
+--- !u!114 &101088370321746386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7345419269687101457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f20ef04042a70c42860b20f61827a9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tools:
+  - toolName: Paksunnos
+    toolObj: {fileID: 0}
+    toolLearned: 0
+  - toolName: Liukueste
+    toolObj: {fileID: 0}
+    toolLearned: 0
+--- !u!1 &7345419269774516889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7345419269774516891}
+  - component: {fileID: 7345419269774516890}
+  m_Layer: 0
+  m_Name: TaskTracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7345419269774516891
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7345419269774516889}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7345419269687101459}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7345419269774516890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7345419269774516889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 244d45dfe652ddc489caa2f46ae6806f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doingNow: 0
