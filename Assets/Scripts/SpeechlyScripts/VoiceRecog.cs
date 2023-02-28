@@ -76,9 +76,9 @@ public class VoiceRecog : MonoBehaviour
                                 if (bools.ToolLearned("Paksunnos"))
                                 {
                                     bools.NullBools();
-                                    GameObject iPak;   //// TÄÄ ENABLOINNIKS SALEE AITOOLS KAUT
+                                   /* GameObject iPak;   //// uus setuptools aitoolsissa vvvvv
                                     iPak = mummo.aiTools.SetUpTool("Paksunnos", mummo.dropTargets.Find(target => target.name == "LeftHand").target.transform);
-                                    mummo.interactThis = iPak;
+                                    mummo.interactThis = iPak;*/
                                     InitByIntent.InitOtaLaita(mummo, "Lusikka", "Pöytä1");
                                     mummo.ToolsDo(0);
                                     break;
