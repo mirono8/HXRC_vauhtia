@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.AI;
 
 
 
@@ -95,7 +96,8 @@ public class AI : MonoBehaviour
     private Quaternion quatHead;
     private Quaternion quatBody;
     private Quaternion quatOrigin;
-
+    public NavMeshAgent agent;
+    
     //public int i = 0;
 
     public bool debugOnce = false;
@@ -104,17 +106,22 @@ public class AI : MonoBehaviour
         tasks = taskHolder.AddComponent<Tasks>();
         taskInit = taskHolder.AddComponent<TaskInit>();
         aiTools = this.GetComponent<AITools>();
-        switch (currentTask) {
+        switch (currentTask)
+        {
             case "Kahvinkeitto":
                 {
                     taskInit.TaskListInitialization(0);
                     //initTargets.InitKahvinkeittoTargets();
-                   // TargetsByTask.targetInitInstance.InitKahvinkeittoTargets();
+                    // TargetsByTask.targetInitInstance.InitKahvinkeittoTargets();
                     break;
                 }
         }
     }
 
+    private void Start()
+    {
+        agent.stoppingDistance = 0.9f;  //paranna grabbing distancea tai navmesh bakee!!
+    }
     private void Update()
     {
         var step = movementSpd * Time.deltaTime;
@@ -131,7 +138,7 @@ public class AI : MonoBehaviour
                  Debug.Log("distance not acceptable, should move");
                  debugOnce = true;
              }*/
-            if (movementOk)
+           /* if (movementOk)
                 MoveTowardsTarget(step);
 
 
@@ -139,7 +146,7 @@ public class AI : MonoBehaviour
             {
                 moveTowardsThis = null;
                 movementOk = false;
-            }
+            }*/
 
         }
         // FacePlayer();
@@ -166,6 +173,8 @@ public class AI : MonoBehaviour
         if (currentDistance > acceptableDistance)
         {
             Debug.Log("movement is necessary");
+            agent.SetDestination(new Vector3(moveTowardsThis.position.x, 0f, moveTowardsThis.position.z));
+
             movementOk = true;
             return true;
         }
@@ -174,14 +183,16 @@ public class AI : MonoBehaviour
 
 
     }
-    public void MoveTowardsTarget(float step)
+   /* public void MoveTowardsTarget(float step)
     {
         
-        transform.position = Vector3.MoveTowards(transform.position, new Vector3(moveTowardsThis.position.x, 0f, moveTowardsThis.position.z), step);
+      //  transform.position = Vector3.MoveTowards(transform.position, new Vector3(moveTowardsThis.position.x, 0f, moveTowardsThis.position.z), step);
+
+        if(agent.pathStatus == NavMeshPathStatus.PathComplete)
+            agent.Move(agent.destination);
 
 
-
-    }
+    }*/
     public void KahviDo(int toDo, int stepIndex)
     {
         var currentStep = TaskList._taskListInstance.taskList[tracker.doingNow].stepsList[stepIndex];

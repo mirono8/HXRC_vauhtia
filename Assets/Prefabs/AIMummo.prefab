@@ -166,7 +166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7768797752334113000, guid: a887b8dcff7b58e43b4ad38797c6e1d8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.33
+      value: -2.237
       objectReference: {fileID: 0}
     - target: {fileID: 7768797752334113000, guid: a887b8dcff7b58e43b4ad38797c6e1d8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -235,9 +235,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4a72c927541384dbb9cde37ce1434f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabTargets: {fileID: 11400000, guid: 1573dc5b5be4e114f8b186efdcd8ee08, type: 2}
-  dropTargets: {fileID: 11400000, guid: 1573dc5b5be4e114f8b186efdcd8ee08, type: 2}
-  interactTargets: {fileID: 11400000, guid: 1573dc5b5be4e114f8b186efdcd8ee08, type: 2}
+  grabTargets: {fileID: 0}
+  dropTargets: {fileID: 0}
+  interactTargets: {fileID: 0}
   grabThis: {fileID: 0}
   dropHere: {fileID: 0}
   lookTarget: {fileID: 0}
@@ -258,12 +258,13 @@ MonoBehaviour:
   aiTools: {fileID: 8896710623660025889}
   aiDialog: {fileID: 0}
   movementSpd: 1
-  acceptableDistance: 1.2
+  acceptableDistance: 1.1
   currentDistance: 0
   bodyAngle: 0
   turnSpeed: 0
   headAngle: 0
   handDir: {x: 0, y: 0, z: 0}
+  agent: {fileID: 2009286907}
   debugOnce: 0
 --- !u!114 &8896710623660025889
 MonoBehaviour:
@@ -285,3 +286,25 @@ MonoBehaviour:
   - toolName: Liukueste
     toolObj: {fileID: 0}
     toolLearned: 0
+--- !u!195 &2009286907
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4591039349654961104}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.4
+  m_Speed: 1
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
