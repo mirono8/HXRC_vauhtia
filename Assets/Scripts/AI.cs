@@ -1,13 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Speechly.SLUClient;
 using TMPro;
-using System.Diagnostics;
-using System.Linq;
-using Unity.VisualScripting;
-using static UnityEngine.GraphicsBuffer;
-using System;
 
 
 
@@ -15,13 +9,13 @@ public class AI : MonoBehaviour
 {
     [Header("AI Targets")]
     [Tooltip("Possible grab targets")]
-    public List<TaskTargets.GrabTargets> grabTargets;
+    public TaskTargetsToList grabTargets;
 
     [Tooltip("Possible drop targets")]
-    public List<TaskTargets.DropTargets> dropTargets;
+    public TaskTargetsToList dropTargets;
 
     [Tooltip("Possible general interaction targets")]
-    public List<TaskTargets.InteractTargets> interactTargets;
+    public TaskTargetsToList interactTargets;
 
 
     [Space(10)]
@@ -46,7 +40,7 @@ public class AI : MonoBehaviour
     [Tooltip("TaskHolder")]
     public GameObject taskHolder;
     public TaskTracker tracker;
-
+    //public TargetsByTask initTargets;
 
     [HideInInspector]
     public Tasks tasks;
@@ -101,8 +95,13 @@ public class AI : MonoBehaviour
         taskInit = taskHolder.AddComponent<TaskInit>();
         aiTools = this.GetComponent<AITools>();
         switch (currentTask) {
-            case "Kahvinkeitto": taskInit.KahviInit(0); break;
-                
+            case "Kahvinkeitto":
+                {
+                    taskInit.TaskListInitialization(0);
+                    //initTargets.InitKahvinkeittoTargets();
+                   // TargetsByTask.targetInitInstance.InitKahvinkeittoTargets();
+                    break;
+                }
         }
     }
 
@@ -110,11 +109,11 @@ public class AI : MonoBehaviour
     {
         // FacePlayer();
        handDir = mummoGrabber.transform.forward;
-       if (Input.GetButtonDown("TestInput"))
+      /* if (Input.GetButtonDown("TestInput"))
         {
             UnityEngine.Debug.Log("Testing");
             //SetUpTool("Paksunnos", dropHere);
-        }
+        }*/
     }
 
     [Tooltip("Give the AI a target")]

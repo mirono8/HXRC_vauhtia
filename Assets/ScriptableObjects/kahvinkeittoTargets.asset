@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640684853712ebb469cbd54a996440c6, type: 3}
+  m_Name: kahvinkeittoTargets
+  m_EditorClassIdentifier: 
+  grabTargets:
+  - name: suodatinpussi
+    target: {fileID: 0}
+  - name: kahvikuppi
+    target: {fileID: 0}
+  - name: kahvinpurut
+    target: {fileID: 0}
+  - name: vesikannu
+    target: {fileID: 0}
+  - name: lusikka
+    target: {fileID: 0}
+  - name: kahvipannu
+    target: {fileID: 0}
+  - name: virtajohto
+    target: {fileID: 0}
+  dropTargets:
+  - name: "P\xF6yt\xE41"
+    target: {fileID: 0}
+  - name: "P\xF6yt\xE42"
+    target: {fileID: 0}
+  - name: "P\xF6yt\xE43"
+    target: {fileID: 0}
+  - name: "P\xF6yt\xE44"
+    target: {fileID: 0}
+  - name: LeftHand
+    target: {fileID: 0}
+  - name: Suppilo
+    target: {fileID: 0}
+  - name: PannunPaikka
+    target: {fileID: 0}
+  - name: Pistorasia
+    target: {fileID: 0}
+  - name: LusikkaMukissa
+    target: {fileID: 0}
+  interactTargets:
+  - name: SuodatinpussiInteract
+    target: {fileID: 0}
+  - name: Vesihana
+    target: {fileID: 0}
+  - name: Kansi
+    target: {fileID: 0}
+  - name: "Vesis\xE4ili\xF6"
+    target: {fileID: 0}
+  - name: KahvikuppiInteract
+    target: {fileID: 0}
+  - name: TahraSpot
+    target: {fileID: 0}
+  - name: VirtajohtoInteract
+    target: {fileID: 0}
+  - name: Virtakytkin
+    target: {fileID: 0}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TaskInit : MonoBehaviour
 {
-    [SerializeField]
+    //[SerializeField]
     [HideInInspector]
     public TaskListItem taskListItem;
     [HideInInspector]
@@ -18,7 +18,7 @@ public class TaskInit : MonoBehaviour
         step = new();
 
     }
-    public void KahviInit(int task_id)
+    public void TaskListInitialization(int task_id)
     {
         //Debug.Log("kahvi_init: " + TaskList._taskListInstance.taskList.Count);
         /*  taskListItem.t_name = "Kahvinkeitto";
@@ -178,6 +178,8 @@ public class TaskInit : MonoBehaviour
         {
             Debug.Log(step.stepName);
         }
+
+    
     }
 
     private void OnApplicationQuit() //pit‰‰ ehk‰ vaihtaa onapplicationfocus kun buildaa?

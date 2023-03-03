@@ -2,6 +2,7 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using Speechly.Types;
+using System.Linq;
 
 namespace Speechly.SLUClient {
 
@@ -39,13 +40,22 @@ namespace Speechly.SLUClient {
 
       lock(this) {
         var entityIds = new string[words.Length];
-        foreach (KeyValuePair<string, Entity> entity in entities) {
+      /*  foreach (KeyValuePair<string, Entity> entity in entities) {
           for (var i = entity.Value.startPosition; i < entity.Value.endPosition; i++) {
             entityIds[i] = entity.Key;
           }
-        }
+        }*/ //foreach hajoo, muutin for loopiks
 
-        sb.Append(intentTag(this.intent.intent));
+      for (int i = 0; i < entities.Count; i++)
+      {
+        KeyValuePair<string, Entity> entityKVP = entities.ElementAt(i);
+        for (var x = entityKVP.Value.startPosition; x < entityKVP.Value.endPosition; x++)
+        {
+            entityIds[x] = entityKVP.Key;
+        }
+      }
+
+       sb.Append(intentTag(this.intent.intent));
         
         bool firstWord = sb.Length == 0;
         string lastEntityId = null;
@@ -119,36 +129,51 @@ namespace Speechly.SLUClient {
       }
     }
 
-    internal void EndSegment() {
-      lock(this) {
-        // Filter away any entities which were not finalized.
-        foreach (KeyValuePair<string, Entity> entity in entities) {
-          if (!entity.Value.isFinal) {
-            this.entities.Remove(entity.Key);
-          }
-        }
+        internal void EndSegment()
+        {
+            lock (this)
+            {
+                // Filter away any entities which were not finalized.
+                /*  foreach (KeyValuePair<string, Entity> entity in entities) {   //muutin tän for-loop koska hajos, vitun foreach
+                    if (!entity.Value.isFinal) {
+                      this.entities.Remove(entity.Key);
+                    }
+                  }*/
+                for (int i = 0; i < entities.Count; i++) //muutin foreach-lopin for loopiksi, en saanut enää Exceptionia testaamalla. Toimii?
+                {
+                    KeyValuePair<string, Entity> entityKVP = entities.ElementAt(i);
+                    if (!entityKVP.Value.isFinal)
+                    {
+                        this.entities.Remove(entityKVP.Key);
+                    }
 
-        // Filter away any transcripts which were not finalized. Keep indices intact.
-        for (int i = 0; i < words.Length; i++) {
-          if (words[i] != null) {
-            if (!words[i].isFinal) {
-              words[i] = null;
+                }
+
+                // Filter away any transcripts which were not finalized. Keep indices intact.
+                for (int i = 0; i < words.Length; i++)
+                {
+                    if (words[i] != null)
+                    {
+                        if (!words[i].isFinal)
+                        {
+                            words[i] = null;
+                        }
+                    }
+                }
+
+                if (!this.intent.isFinal)
+                {
+                    this.intent.intent = "";
+                    this.intent.isFinal = true;
+                }
+                // Mark as final.
+                this.isFinal = true;
+
             }
-          }
         }
-
-        if (!this.intent.isFinal) {
-          this.intent.intent = "";
-          this.intent.isFinal = true;
+        private string EntityMapKey(Entity e)
+        {
+            return $"{e.startPosition}:${e.endPosition}";
         }
-        // Mark as final.
-        this.isFinal = true;
-      }
     }
-
-    private string EntityMapKey(Entity e) {
-      return $"{e.startPosition}:${e.endPosition}";
-    }
- 
-  }
 }

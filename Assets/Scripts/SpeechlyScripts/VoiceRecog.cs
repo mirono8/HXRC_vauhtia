@@ -42,14 +42,14 @@ public class VoiceRecog : MonoBehaviour
                         if (bools.IsThisTrue("Suodatinpussi"))
                         {
                             bools.NullBools();
-                            InitByIntent.InitOtaLaita(mummo, "Suodatinpussi", "Pöytä1");
+                            InitByIntent.InitOtaLaita(mummo, "suodatinpussi", "Pöytä1");
                             mummo.KahviDo(0, 0); //Ota suodatinpussi kaapista 
                             break;
                         }
                         if (bools.IsThisTrue("Kahvikuppi"))
                         {
                             bools.NullBools();
-                            InitByIntent.InitOtaLaita(mummo, "Kahvikuppi", "Pöytä2");
+                            InitByIntent.InitOtaLaita(mummo, "kahvikuppi", "Pöytä2");
                             mummo.KahviDo(0, 11); //Ota kahvikuppi kaapista
                             break;
                         }
@@ -58,14 +58,14 @@ public class VoiceRecog : MonoBehaviour
                             Debug.Log("haloohaloohaloo");
                             bools.NullBools();
 
-                            InitByIntent.InitOtaLaita(mummo, "Kahvinpurut", "Pöytä3");
+                            InitByIntent.InitOtaLaita(mummo, "kahvinpurut", "Pöytä3");
                             mummo.KahviDo(0, 2); //Ota kahvinpurut kaapista
                             break;
                         }
                         if (bools.IsThisTrue("Vesikannu"))
                         {
                             bools.NullBools();
-                            InitByIntent.InitOtaLaita(mummo, "Vesikannu", "Pöytä4");
+                            InitByIntent.InitOtaLaita(mummo, "vesikannu", "Pöytä4");
                             mummo.KahviDo(0, 4); //Ota vesikannu kaapista
                             break;
                         }
@@ -76,10 +76,10 @@ public class VoiceRecog : MonoBehaviour
                                 if (bools.ToolLearned("Paksunnos"))
                                 {
                                     bools.NullBools();
-                                    GameObject iPak;   //// TÄÄ ENABLOINNIKS SALEE AITOOLS KAUT
+                                   /* GameObject iPak;   //// uus setuptools aitoolsissa vvvvv
                                     iPak = mummo.aiTools.SetUpTool("Paksunnos", mummo.dropTargets.Find(target => target.name == "LeftHand").target.transform);
-                                    mummo.interactThis = iPak;
-                                    InitByIntent.InitOtaLaita(mummo, "Lusikka", "Pöytä1");
+                                    mummo.interactThis = iPak;*/
+                                    InitByIntent.InitOtaLaita(mummo, "lusikka", "Pöytä1");
                                     mummo.ToolsDo(0);
                                     break;
                                 }
@@ -95,7 +95,7 @@ public class VoiceRecog : MonoBehaviour
                             {
                                 Debug.Log("Meni paksunnos not true vaik sanoit paksunnos");
                                 bools.NullBools();
-                                InitByIntent.InitOtaLaita(mummo, "Lusikka", "Pöytä1");
+                                InitByIntent.InitOtaLaita(mummo, "lusikka", "Pöytä1");
                                 mummo.GeneralDo(2,false); //Ota lusikka kaapista 
                                 break;
                             }
@@ -109,7 +109,7 @@ public class VoiceRecog : MonoBehaviour
                             if (bools.IsThisTrue("Kahvinpurut") && !bools.IsThisTrue("Kahvinkeitin"))
                             {
                                 bools.NullBools();
-                                InitByIntent.InitOtaLaita(mummo, "Kahvinpurut", "Pöytä3");   //vaiha interactiksi, kahvipurut -> interactwith suodatinpussi !!!!!
+                                InitByIntent.InitOtaLaita(mummo, "kahvinpurut", "Pöytä3");   //vaiha interactiksi, kahvipurut -> interactwith suodatinpussi !!!!!
                                 InitByIntent.InitInteract(mummo, "SuodatinpussiInteract", false);
                                 mummo.KahviDo(1, 3); //Laita purut suodatinpussiin
                                 break;
@@ -117,7 +117,7 @@ public class VoiceRecog : MonoBehaviour
                             else if (bools.IsThisTrue("Kahvinkeitin"))
                             {
                                 bools.NullBools();
-                                InitByIntent.InitOtaLaita(mummo, "Suodatinpussi", "Suppilo");
+                                InitByIntent.InitOtaLaita(mummo, "suodatinpussi", "Suppilo");
                                 mummo.KahviDo(1, 1); //Laita suodatinpussi kahvinkeittimeen
                                 break;
                             }
@@ -148,7 +148,7 @@ public class VoiceRecog : MonoBehaviour
                             bools.NullBools();
                             // mummo.interactThis = mummo.interactTargets.vesihana;
                             InitByIntent.InitInteract(mummo, "Vesihana", true);
-                            InitByIntent.InitOtaLaita(mummo, "Vesikannu", "Pöytä4");
+                            InitByIntent.InitOtaLaita(mummo, "vesikannu", "Pöytä4");
                             mummo.KahviDo(1, 5); //T�yt� vesikannu vedell�
                             break;
                         }
@@ -156,7 +156,7 @@ public class VoiceRecog : MonoBehaviour
                         {
                             bools.NullBools();
                             InitByIntent.InitInteract(mummo, "Vesisäiliö", false);
-                            InitByIntent.InitOtaLaita(mummo, "Vesikannu", "Pöytä4");
+                            InitByIntent.InitOtaLaita(mummo, "vesikannu", "Pöytä4");
                             mummo.KahviDo(1, 6); //kaadetaan vesi kahvinkeittimeen
                         }
                         /* else
@@ -187,7 +187,7 @@ public class VoiceRecog : MonoBehaviour
                             Debug.Log("kaadetaan kahvi mukiin");
                             bools.NullBools();
                             InitByIntent.InitInteract(mummo, "KahvikuppiInteract", false);
-                            InitByIntent.InitOtaLaita(mummo, "Kahvipannu", "PannunPaikka");
+                            InitByIntent.InitOtaLaita(mummo, "kahvipannu", "PannunPaikka");
                             //  InitByIntent.InitOtaLaita(mummo, "")
                             mummo.KahviDo(1, 12); //T�yt� kahvikuppi kahvilla
                             break;
@@ -199,7 +199,7 @@ public class VoiceRecog : MonoBehaviour
                         {
                             bools.NullBools();
                             InitByIntent.InitInteract(mummo, "TahraSpot", false);
-                            InitByIntent.InitOtaLaita(mummo, "Kahvipannu", "PannunPaikka");
+                            InitByIntent.InitOtaLaita(mummo, "kahvipannu", "PannunPaikka");
                             mummo.GeneralDo(1, false);
                             break;
                         }
@@ -208,7 +208,7 @@ public class VoiceRecog : MonoBehaviour
                             UnityEngine.Debug.Log("Vesi huti");
                             bools.NullBools();
                             InitByIntent.InitInteract(mummo, "TahraSpot", false);
-                            InitByIntent.InitOtaLaita(mummo, "Vesikannu", "Pöytä4");
+                            InitByIntent.InitOtaLaita(mummo, "vesikannu", "Pöytä4");
                             mummo.GeneralDo(1, false);
                             break;
                         }
@@ -236,7 +236,7 @@ public class VoiceRecog : MonoBehaviour
                         if (bools.IsThisTrue("Virtajohto"))
                         {
                             bools.NullBools();
-                            InitByIntent.InitOtaLaita(mummo, "Virtajohto", "Pistorasia");
+                            InitByIntent.InitOtaLaita(mummo, "virtajohto", "Pistorasia");
                             InitByIntent.InitInteract(mummo, "VirtajohtoInteract", false);
                             mummo.KahviDo(1, 8); //Laita johto pistorasiaan   
                             break;
@@ -258,7 +258,7 @@ public class VoiceRecog : MonoBehaviour
                         if (bools.IsThisTrue("Lusikka"))
                         {
                             bools.NullBools();
-                            InitByIntent.InitOtaLaita(mummo, "Lusikka", "LusikkaMukissa");
+                            InitByIntent.InitOtaLaita(mummo, "lusikka", "LusikkaMukissa");
                             mummo.KahviDo(1, 14); //Sekoita kahvi lusikalla
                             break;
                         }

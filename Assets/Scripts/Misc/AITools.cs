@@ -86,5 +86,7 @@ public class AITools : MonoBehaviour
                 tools[i].toolObj.SetActive(false);
             }
         }
+
+        toolIsActive = false;
     }
 }
