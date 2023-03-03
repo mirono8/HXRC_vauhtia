@@ -62,16 +62,23 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
         return false;
     }
 
+    
+
     public bool GrabObject()
     {
         if (!mummo.hasItem)
         {
+            
             if (!DoesThisHaveRequiredSteps(mummo, step_id_value))
             {
-                mummo.grabThis.transform.parent = mummo.mummoGrabber;
-                mummo.grabThis.transform.localPosition = new Vector3(0, 0, 0);
-                mummo.grabThis.transform.localRotation = Quaternion.Euler(new Vector3(72.2023849f, 114.251907f, 203.216797f));
-                mummo.hasItem = true;
+                
+                
+                
+                    mummo.grabThis.transform.parent = mummo.mummoGrabber;
+                    mummo.grabThis.transform.localPosition = new Vector3(0, 0, 0);
+                    mummo.grabThis.transform.localRotation = Quaternion.Euler(new Vector3(72.2023849f, 114.251907f, 203.216797f));
+                    mummo.hasItem = true;
+                
 
                 return true;
             }
@@ -79,6 +86,8 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
             {
                 if (CheckReqCompletion(mummo, step_id_value))
                 {
+                    
+                    
                     mummo.grabThis.transform.parent = mummo.mummoGrabber;
                     mummo.grabThis.transform.localPosition = new Vector3(0, 0, 0);
                     mummo.grabThis.transform.localRotation = Quaternion.Euler(new Vector3(72.2023849f, 114.251907f, 203.216797f));
@@ -105,12 +114,16 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
     {
         if (mummo.hasItem)
         {
+            
             mummo.grabThis.transform.parent = mummo.dropHere;
             mummo.grabThis.transform.localPosition = new Vector3(0, 0, 0);
             mummo.grabThis.transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
             mummo.hasItem = false;
             mummo.grabThis = null;
             mummo.dropHere = null;
+            
         }
     }
+
+    
 }

@@ -200,6 +200,12 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
 
         g.mummo.isListening = false;
 
+        if (g.mummo.IsMovementNecessary(grabTarget))
+        {
+            yield return new WaitUntil(g.mummo.CloseEnough);
+        }
+
+        yield return new WaitForSeconds(2);  //animaatio
         if (g.GrabObject())
         {
             if (g.DoesThisHaveRequiredSteps(g.mummo, stepIndex))
@@ -207,8 +213,12 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
                 if (g.CheckReqCompletion(g.mummo, stepIndex))
                 {
 
-                    //animaatio vvv
-                    yield return new WaitForSeconds(2);
+                    
+                    if (g.mummo.IsMovementNecessary(g.mummo.dropHere))
+                    {
+                        yield return new WaitUntil(g.mummo.CloseEnough);
+                    }
+                    yield return new WaitForSeconds(2);//animaatio
                     g.DropObject();
                     g.SendCompletedTask(stepIndex);
 
@@ -218,7 +228,12 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
             else
             {
                 //animaatio vvv
-                yield return new WaitForSeconds(2);
+                if (g.mummo.IsMovementNecessary(g.mummo.dropHere))
+                {
+                    yield return new WaitUntil(g.mummo.CloseEnough);
+                }
+                
+                yield return new WaitForSeconds(2); //animaatio vvv
                 g.DropObject();
                 g.SendCompletedTask(stepIndex);
             }

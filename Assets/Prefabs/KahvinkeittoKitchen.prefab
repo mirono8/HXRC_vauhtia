@@ -11,9 +11,13 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6815505425962613847, guid: 7b5d10df2b613bb498f47c7ef8f45411, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8478306967253536382, guid: 7b5d10df2b613bb498f47c7ef8f45411, type: 3}
       propertyPath: m_Name
-      value: kahvinkeittoKitchen
+      value: KahvinkeittoKitchen
       objectReference: {fileID: 0}
     - target: {fileID: 9143204345686103236, guid: 7b5d10df2b613bb498f47c7ef8f45411, type: 3}
       propertyPath: m_RootOrder

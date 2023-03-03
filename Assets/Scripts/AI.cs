@@ -67,12 +67,18 @@ public class AI : MonoBehaviour
     public bool isListening = true;
     [Tooltip("Holds something")]
     public bool hasItem = false;
-
+    [Tooltip("Permission to move")]
+    public bool movementOk = false;
     [Space(10)]
     public AITools aiTools;
     public TMP_Text aiDialog;
-
+    [Space(10)]
+    public float movementSpd = 1.0f;
+    public float acceptableDistance = 0.03f;
+    public float currentDistance;
+    [Space(10)]
     private Vector3 bodyDir;
+    
     [SerializeField]
     private float bodyAngle;
     public  float turnSpeed;
@@ -82,6 +88,8 @@ public class AI : MonoBehaviour
     private float headAngle;
 
     public Vector3 handDir;
+
+
     private Vector3 originDir;
 
     private Quaternion quatHead;
@@ -89,6 +97,8 @@ public class AI : MonoBehaviour
     private Quaternion quatOrigin;
 
     //public int i = 0;
+
+    public bool debugOnce = false;
     private void Awake()
     {
         tasks = taskHolder.AddComponent<Tasks>();
@@ -107,29 +117,71 @@ public class AI : MonoBehaviour
 
     private void Update()
     {
-        // FacePlayer();
-       handDir = mummoGrabber.transform.forward;
-      /* if (Input.GetButtonDown("TestInput"))
+        var step = movementSpd * Time.deltaTime;
+
+
+        if (moveTowardsThis != null)  ////ei toimi oikein ja jostain pitää togglee movementOk ja movetowardsthis vaihto
         {
+            
+            currentDistance = Vector3.Distance(transform.position, new Vector3(moveTowardsThis.position.x, 0f, moveTowardsThis.position.z));
+
+
+            /* if (!debugOnce)
+             {
+                 Debug.Log("distance not acceptable, should move");
+                 debugOnce = true;
+             }*/
+            if (movementOk)
+                MoveTowardsTarget(step);
+
+
+            if (CloseEnough())
+            {
+                moveTowardsThis = null;
+                movementOk = false;
+            }
+
+        }
+        // FacePlayer();
+        handDir = mummoGrabber.transform.forward;
+       if (Input.GetButtonDown("TestInput"))
+        {
+            KahviDo(0,0);
             UnityEngine.Debug.Log("Testing");
             //SetUpTool("Paksunnos", dropHere);
-        }*/
+        }
+      
     }
-
-    [Tooltip("Give the AI a target")]
-    public void GetTarget(Transform t)
+    public bool CloseEnough()
     {
-        grabThis = t;
+        return currentDistance <= acceptableDistance;
     }
 
-    public void MoveTarget()
+    public bool IsMovementNecessary(Transform moveTowards)
+    {
+        moveTowardsThis = moveTowards;
+
+        currentDistance = Vector3.Distance(transform.position, new Vector3(moveTowardsThis.position.x, 0f, moveTowardsThis.position.z));
+
+        if (currentDistance > acceptableDistance)
+        {
+            Debug.Log("movement is necessary");
+            movementOk = true;
+            return true;
+        }
+        else
+            return false;
+
+
+    }
+    public void MoveTowardsTarget(float step)
     {
         
-        newVector += new Vector3(0, 0, +20f);
-        grabThis.transform.localPosition = newVector;
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(moveTowardsThis.position.x, 0f, moveTowardsThis.position.z), step);
+
+
 
     }
-    
     public void KahviDo(int toDo, int stepIndex)
     {
         var currentStep = TaskList._taskListInstance.taskList[tracker.doingNow].stepsList[stepIndex];
