@@ -1,4 +1,5 @@
 using Fusion.Sockets;
+using Fusion.XR.Host.Rig;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -6,8 +7,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-namespace Fusion.XR.Host
-{
+namespace Fusion.XR.Host {
     /**
      * 
      * Handles:
@@ -17,11 +17,11 @@ namespace Fusion.XR.Host
      * 
      **/
 
-    public class ConnectionManager : MonoBehaviour, INetworkRunnerCallbacks
-    {
+    public class ConnectionManager : MonoBehaviour, INetworkRunnerCallbacks {
         [Header("Room configuration")]
         public GameMode mode = GameMode.AutoHostOrClient;
-        public string roomName = "SampleFusionVR";
+        public string roomName;
+        public GameObject roomNameSaver;
         public bool connectOnStart = false;
 
         [Header("Fusion settings")]
@@ -30,16 +30,27 @@ namespace Fusion.XR.Host
         public INetworkSceneManager sceneManager;
 
         [Header("Local user spawner")]
-        public NetworkObject userPrefab;
+        public NetworkObject hostPrefab;
+        public NetworkObject clientPrefab;
 
         [Header("Event")]
         public UnityEvent onWillConnect = new UnityEvent();
 
         // Dictionary of spawned user prefabs, to destroy them on disconnection
-        private Dictionary<PlayerRef, NetworkObject> _spawnedUsers = new Dictionary<PlayerRef, NetworkObject>();
+        public Dictionary<PlayerRef, NetworkObject> _spawnedUsers = new Dictionary<PlayerRef, NetworkObject>();
 
-        private void Awake()
-        {
+        private void Awake() {
+            roomNameSaver = GameObject.Find("RoomNameSaver");
+            if (roomNameSaver != null) {
+                roomName = roomNameSaver.GetComponent<RoomNameDDOL>().customRoomName;
+            }
+            else if (roomName == "Lobby") {
+                roomName = "Lobby";
+            }
+            else {
+                roomName = "DefaultRoom";
+            }
+
             // Check if a runner exist on the same game object
             if (runner == null) runner = GetComponent<NetworkRunner>();
 
@@ -48,21 +59,18 @@ namespace Fusion.XR.Host
             runner.ProvideInput = true;
         }
 
-        private async void Start()
-        {
+        private async void Start() {
             // Launch the connection at start
             if (connectOnStart) await Connect();
         }
 
-        public async Task Connect()
-        {
+        public async Task Connect() {
             // Create the scene manager if it does not exist
             if (sceneManager == null) sceneManager = gameObject.AddComponent<NetworkSceneManagerDefault>();
 
             if (onWillConnect != null) onWillConnect.Invoke();
             // Start or join (depends on gamemode) a session with a specific name
-            var args = new StartGameArgs()
-            {
+            var args = new StartGameArgs() {
                 GameMode = mode,
                 SessionName = roomName,
                 Scene = SceneManager.GetActiveScene().buildIndex,
@@ -73,27 +81,34 @@ namespace Fusion.XR.Host
 
 
         #region INetworkRunnerCallbacks
-        public void OnPlayerJoined(NetworkRunner runner, PlayerRef player)
-        {
+        public void OnPlayerJoined(NetworkRunner runner, PlayerRef player) {
             // The user's prefab has to be spawned by the host
-            if (runner.IsServer)
-            {
+            if (runner.IsServer) {
+                NetworkObject userPrefab = hostPrefab;
+
+                if (_spawnedUsers.Count > 0) {
+                    userPrefab = clientPrefab;
+                }
                 Debug.Log($"OnPlayerJoined {player.PlayerId}/Local id: ({runner.LocalPlayer.PlayerId})");
                 // We make sure to give the input authority to the connecting player for their user's object
-                NetworkObject networkPlayerObject = runner.Spawn(userPrefab, position: transform.position, rotation: transform.rotation, inputAuthority: player, (runner, obj) => { 
+                NetworkObject networkPlayerObject = runner.Spawn(userPrefab, position: transform.position, rotation: transform.rotation, inputAuthority: player, (runner, obj) => {
                 });
 
                 // Keep track of the player avatars so we can remove it when they disconnect
                 _spawnedUsers.Add(player, networkPlayerObject);
+
+                // Stop host's camera from rendering 'Host Occlusion Mask' layer (aka client players)
+                if (userPrefab == hostPrefab) {
+                    Camera hostCam = networkPlayerObject.gameObject.GetComponent<NetworkRig>().hardwareRig.GetComponentInChildren<Camera>();
+                    hostCam.cullingMask &= ~(1 << LayerMask.NameToLayer("Host Occlusion Mask"));
+                }
             }
         }
 
         // Despawn the user object upon disconnection
-        public void OnPlayerLeft(NetworkRunner runner, PlayerRef player)
-        {
+        public void OnPlayerLeft(NetworkRunner runner, PlayerRef player) {
             // Find and remove the players avatar (only the host would have stored the spawned game object)
-            if (_spawnedUsers.TryGetValue(player, out NetworkObject networkObject))
-            {
+            if (_spawnedUsers.TryGetValue(player, out NetworkObject networkObject)) {
                 runner.Despawn(networkObject);
                 _spawnedUsers.Remove(player);
             }
@@ -103,10 +118,10 @@ namespace Fusion.XR.Host
 
         #region Unused INetworkRunnerCallbacks 
         public void OnConnectedToServer(NetworkRunner runner) { }
-        public void OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason) {}
+        public void OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason) { }
         public void OnDisconnectedFromServer(NetworkRunner runner) { }
         public void OnConnectFailed(NetworkRunner runner, NetAddress remoteAddress, NetConnectFailedReason reason) { }
-        public void OnInput(NetworkRunner runner, NetworkInput input) {}
+        public void OnInput(NetworkRunner runner, NetworkInput input) { }
         public void OnInputMissing(NetworkRunner runner, PlayerRef player, NetworkInput input) { }
         public void OnConnectRequest(NetworkRunner runner, NetworkRunnerCallbackArgs.ConnectRequest request, byte[] token) { }
         public void OnUserSimulationMessage(NetworkRunner runner, SimulationMessagePtr message) { }

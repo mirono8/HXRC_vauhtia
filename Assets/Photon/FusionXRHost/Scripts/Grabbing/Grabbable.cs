@@ -28,8 +28,8 @@ namespace Fusion.XR.Host.Grabbing
         public virtual void Grab(Grabber newGrabber)
         {
             // Find grabbable position/rotation in grabber referential
-            localPositionOffset = newGrabber.transform.InverseTransformPoint(transform.position);
-            localRotationOffset = Quaternion.Inverse(newGrabber.transform.rotation) * transform.rotation;
+            localPositionOffset = Vector3.zero; //newGrabber.transform.InverseTransformPoint(transform.position);
+            localRotationOffset = Quaternion.identity; //Quaternion.Inverse(newGrabber.transform.rotation) * transform.rotation;
             currentGrabber = newGrabber;
         }
 
