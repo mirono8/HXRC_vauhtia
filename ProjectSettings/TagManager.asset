@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - RoomLight
-  - SamplesInfoPanel
+  - Mummo
+  - TaskTracker
   layers:
   - Default
   - TransparentFX
@@ -13,8 +13,8 @@ TagManager:
   - 
   - Water
   - UI
-  - Locomotion
-  - Host Occlusion Mask
+  - 
+  - 
   - 
   - 
   - 
