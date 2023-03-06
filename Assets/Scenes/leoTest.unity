@@ -716,5 +716,9 @@ PrefabInstance:
       propertyPath: vrCam
       value: 
       objectReference: {fileID: 830411726}
+    - target: {fileID: 7758691082759053585, guid: 0e7382578aab7b243affcb6f7f4f8c2c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e7382578aab7b243affcb6f7f4f8c2c, type: 3}
