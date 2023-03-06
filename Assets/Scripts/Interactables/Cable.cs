@@ -8,7 +8,6 @@ public class Cable : Triggerable
     private LineRenderer lineRenderer;
     private Vector3 parentStartLoc;
 
-    Vector3 originalStartPos = new Vector3();
     Vector3 myPos = new Vector3();
     Vector3 nextPos = new Vector3();
 
@@ -69,9 +68,9 @@ public class Cable : Triggerable
     }
     private void Line()  //   korjaa צהצצצהצ
     {
-        if (plug.parent.transform == outlet.transform)
-        {
-
+        
+        
+            Debug.Log("drawing a line");
 
 
             // Distance moved equals elapsed time times speed..
@@ -160,9 +159,15 @@ public class Cable : Triggerable
                             break;
                         }
                     }
+                else
+                {
+                    lineRenderer.SetPosition(i, plug.position);
+                    Debug.Log("stopped printing cable");
+                    break;
                 }
             }
-        }
+            }
+        
 
         triggered = true;
 

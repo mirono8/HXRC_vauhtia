@@ -158,7 +158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7768797752334113000, guid: a887b8dcff7b58e43b4ad38797c6e1d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.76
+      value: -4.56
       objectReference: {fileID: 0}
     - target: {fileID: 7768797752334113000, guid: a887b8dcff7b58e43b4ad38797c6e1d8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -166,7 +166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7768797752334113000, guid: a887b8dcff7b58e43b4ad38797c6e1d8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.237
+      value: -0.58
       objectReference: {fileID: 0}
     - target: {fileID: 7768797752334113000, guid: a887b8dcff7b58e43b4ad38797c6e1d8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -223,6 +223,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6961299252174258770, guid: a887b8dcff7b58e43b4ad38797c6e1d8, type: 3}
   m_PrefabInstance: {fileID: 6858178761662937474}
   m_PrefabAsset: {fileID: 0}
+--- !u!195 &2009286907
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4591039349654961104}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.25
+  m_Speed: 1
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0.5
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 0
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &4319024118879139079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,7 +280,7 @@ MonoBehaviour:
   aiTools: {fileID: 8896710623660025889}
   aiDialog: {fileID: 0}
   movementSpd: 1
-  acceptableDistance: 1.1
+  acceptableDistance: 1.2
   currentDistance: 0
   bodyAngle: 0
   turnSpeed: 0
@@ -286,25 +308,3 @@ MonoBehaviour:
   - toolName: Liukueste
     toolObj: {fileID: 0}
     toolLearned: 0
---- !u!195 &2009286907
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4591039349654961104}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.4
-  m_Speed: 1
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4

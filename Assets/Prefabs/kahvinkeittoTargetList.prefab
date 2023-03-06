@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5717565874807432505, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
       propertyPath: interactTargets.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5717565874807432505, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
       propertyPath: dropTargets.Array.data[0].name
@@ -77,7 +77,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5717565874807432505, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
       propertyPath: grabTargets.Array.data[6].name
-      value: Virtajohto
+      value: virtajohto
       objectReference: {fileID: 0}
     - target: {fileID: 5717565874807432505, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
       propertyPath: grabTargets.Array.data[7].name
@@ -117,7 +117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5717565874807432505, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
       propertyPath: interactTargets.Array.data[8].name
-      value: virtajohtoInteract
+      value: virtakytkin
       objectReference: {fileID: 0}
     - target: {fileID: 8093065483354980796, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
       propertyPath: m_Name

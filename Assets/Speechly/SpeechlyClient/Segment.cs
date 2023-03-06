@@ -51,7 +51,7 @@ namespace Speechly.SLUClient {
         KeyValuePair<string, Entity> entityKVP = entities.ElementAt(i);
         for (var x = entityKVP.Value.startPosition; x < entityKVP.Value.endPosition; x++)
         {
-            entityIds[x] = entityKVP.Key;
+            entityIds[x] = entityKVP.Key;  //antaa indexoutofrangeexception välil??
         }
       }
 

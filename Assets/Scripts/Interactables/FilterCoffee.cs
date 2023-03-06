@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class FilterCoffee : Triggerable
 {
+    public GameObject groundCoffee;
+    public Transform filter;  //Avattu filter (Filterbag)
     private void OnEnable()
     {
-        GetComponent<MeshRenderer>().enabled = true;
+        groundCoffee.GetComponent<MeshRenderer>().enabled = true;
+        groundCoffee.GetComponent<Transform>().position = filter.position;
         triggered = true;
     }
 }
