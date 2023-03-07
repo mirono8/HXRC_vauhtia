@@ -265,15 +265,22 @@ public class VoiceRecog : MonoBehaviour
                         }
                         break;
 
-                    case "lisää":
+                    case "lisaa":
                         if (bools.IsThisTrue("Maito"))
                         {
+                            Debug.Log("lisää maitoa");
                             bools.NullBools();
+                            InitByIntent.InitOtaLaita(mummo, "maito", "pöytä5");
+                            mummo.KahviDo(1, 13);
                             break;
                         }
                         if (bools.IsThisTrue("Sokeri"))
                         {
+                            
                             bools.NullBools();
+                            InitByIntent.InitOtaLaita(mummo, "sokeri", "pöytä6");
+                            InitByIntent.InitInteract(mummo, "kahvikuppiInteract", false);
+                            mummo.GeneralDo(3,false);
                             break;
                         }
                         break;

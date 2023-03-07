@@ -154,7 +154,7 @@ public class TaskInit : MonoBehaviour
         TaskList._taskListInstance.taskList[task_id].stepsList[i].requiredSteps.Add(11);
         i++;
 
-        step = new TaskListItem.Steps();
+        step = new TaskListItem.Steps(); // vois ottaa kokonaan pois listalta ja ollaa vaa general juttu?
         step.requiredSteps = new List<int>();
         step.stepName = "Lis‰t‰‰n mahdolliset lis‰ykset kahviin";
         step.rigid_order = true; step.isOptional = true;

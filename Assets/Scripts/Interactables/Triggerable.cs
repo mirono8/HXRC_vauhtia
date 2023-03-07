@@ -5,4 +5,6 @@ using UnityEngine;
 public abstract class Triggerable :  MonoBehaviour
 {
     public bool triggered;
+
+    public int counter = 0;
 }
