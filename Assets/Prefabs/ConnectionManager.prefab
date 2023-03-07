@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 5845397242056086307}
   - component: {fileID: 9220895014584491710}
   - component: {fileID: 7377515310394990834}
+  - component: {fileID: 1216475459482340555}
   m_Layer: 0
   m_Name: ConnectionManager
   m_TagString: Untagged
@@ -122,12 +123,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 6
-  roomName: 0
+  roomName: 
   roomNameSaver: {fileID: 0}
-  connectOnStart: 0
-  runner: {fileID: 0}
-  hostPrefab: {fileID: 0}
-  clientPrefab: {fileID: 0}
+  connectOnStart: 1
+  runner: {fileID: 5845397242056086307}
+  hostPrefab: {fileID: 2549000073306557744, guid: e263782ae517b5e46a1d6228d8ee88b7, type: 3}
+  clientPrefab: {fileID: 6957770240048013721, guid: 5fc23b29a1c8d3940b30d5ec097bceaf, type: 3}
   onWillConnect:
     m_PersistentCalls:
       m_Calls: []
@@ -256,8 +257,8 @@ MonoBehaviour:
   ApplyDontDestroyOnLoad: 1
   runInBackground: 1
   statsResetInterval: 1000
-  speakerPrefab: {fileID: 0}
-  primaryRecorder: {fileID: 0}
+  speakerPrefab: {fileID: 5947097724825286896, guid: 74d3f5789ce48c041b35b67b9f1e8064, type: 3}
+  primaryRecorder: {fileID: 7342336421167710383}
   usePrimaryRecorder: 0
   Settings:
     AppIdRealtime: 
@@ -278,3 +279,23 @@ MonoBehaviour:
   ShowSettings: 1
   UseFusionAppSettings: 1
   UseFusionAuthValues: 1
+--- !u!114 &1216475459482340555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4221810062764199515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da09451c7f7bf224eab3bfe9ab2c86a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  connectedToServer: {fileID: 8300000, guid: a1adfc3408a7cec45bdc4de6c30ffe0e, type: 3}
+  disconnectedFromServer: {fileID: 8300000, guid: 842401821d22f1c45a0ac05c475370f0, type: 3}
+  shutdown: {fileID: 8300000, guid: c14998421118088488e7b9fce047ea95, type: 3}
+  connectFailed: {fileID: 8300000, guid: 16baf54c25368b84d93dfb63d2042d3f, type: 3}
+  localUserSpawned: {fileID: 8300000, guid: 2312ee273bb507a4ab61e96acbbffc8a, type: 3}
+  playerJoined: {fileID: 8300000, guid: 2312ee273bb507a4ab61e96acbbffc8a, type: 3}
+  playerLeft: {fileID: 8300000, guid: c14998421118088488e7b9fce047ea95, type: 3}
+  sessionStatus: {fileID: 0}

@@ -51,6 +51,9 @@ public class CustomVRUIMenuController : MonoBehaviour {
                     lastHitObject = null;
                 }
                 isClicking = false;
+
+                // Set the lineRenderer to not show the ray if it doesn't hit anything
+                lineRenderer.enabled = false;
             }
 
         }
