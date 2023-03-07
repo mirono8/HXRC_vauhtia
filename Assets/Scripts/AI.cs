@@ -89,7 +89,7 @@ public class AI : MonoBehaviour
     private float headAngle;
 
     public Vector3 handDir;
-
+    
 
     private Vector3 originDir;
 
@@ -118,10 +118,6 @@ public class AI : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        agent.stoppingDistance = 0.9f;  //paranna grabbing distancea tai navmesh bakee!!
-    }
     private void Update()
     {
         var step = movementSpd * Time.deltaTime;

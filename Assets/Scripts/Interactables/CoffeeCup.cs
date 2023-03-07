@@ -13,6 +13,5 @@ public class CoffeeCup : Triggerable
 
     private void OnEnable()
     {
-        
     }
 }

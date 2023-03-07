@@ -7,5 +7,6 @@ public class PowerButton : Triggerable
     private void OnEnable()
     {
         triggered = true;
+        //vihree valo ja sihin‰‰
     }
 }

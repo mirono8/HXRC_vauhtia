@@ -257,17 +257,32 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
 
         g.mummo.isListening = false;
 
+        if (g.mummo.IsMovementNecessary(grabTarget))
+        {
+            yield return new WaitUntil(g.mummo.CloseEnough);
+        }
+
         if (g.GrabObject())
         {
             //animaatio vvv
             yield return new WaitForSeconds(5);
             if (g.InteractWithGrabbed(stepIndex))
             {
+                if (g.mummo.IsMovementNecessary(g.mummo.dropHere))
+                {
+                    yield return new WaitUntil(g.mummo.CloseEnough);
+                }
+
                 g.DropObject();
                 g.SendCompletedTask(stepIndex);
             }
             else
             {
+                if (g.mummo.IsMovementNecessary(g.mummo.dropHere))
+                {
+                    yield return new WaitUntil(g.mummo.CloseEnough);
+                }
+
                 g.DropObject();
                 Debug.Log("Could not interact");
             }
@@ -290,7 +305,12 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
 
         iw.mummo.isListening = false;
 
-        yield return new WaitForSeconds(5);
+        if (iw.mummo.IsMovementNecessary(target.transform))
+        {
+            yield return new WaitUntil(iw.mummo.CloseEnough);
+        }
+
+        yield return new WaitForSeconds(2);
         iw.InteractBinary(closed,openable);
         if (stepIndex > -1)
         {
@@ -309,6 +329,11 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
 
         f.mummo.isListening = false;
 
+        if (f.mummo.IsMovementNecessary(target.transform))
+        {
+            yield return new WaitUntil(f.mummo.CloseEnough);
+        }
+
         if (!f.GrabObject())
         {
             Debug.Log("Mummo already has item, called from InteractFail");
@@ -316,6 +341,12 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
         }
     
         f.TooVagueFail();
+
+        if (f.mummo.IsMovementNecessary(f.mummo.dropHere))
+        {
+            yield return new WaitUntil(f.mummo.CloseEnough);
+        }
+
         f.DropObject();
 
         
@@ -340,6 +371,11 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
             {
                 if (to.CheckReqCompletion(to.mummo, stepIndex))
                 {
+                    if (to.mummo.IsMovementNecessary(target.transform))
+                    {
+                        yield return new WaitUntil(to.mummo.CloseEnough);
+                    }
+
                     to.InteractBinary(false, false);
                     to.SendCompletedTask(stepIndex);
                 }
@@ -347,6 +383,11 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
             }
             else
             {
+                if (to.mummo.IsMovementNecessary(target.transform))
+                {
+                    yield return new WaitUntil(to.mummo.CloseEnough);
+                }
+
                 to.InteractBinary(false, false);
                 to.SendCompletedTask(stepIndex);
             }
@@ -415,9 +456,20 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
 
         fgd.mummo.isListening = false;
 
+        if (fgd.mummo.IsMovementNecessary(grabThis))
+        {
+            yield return new WaitUntil(fgd.mummo.CloseEnough);
+        }
+
         fgd.GrabObject();
 
-        yield return new WaitForSeconds(5); //anim
+        yield return new WaitForSeconds(2); //anim
+
+
+        if (fgd.mummo.IsMovementNecessary(fgd.mummo.dropHere))
+        {
+            yield return new WaitUntil(fgd.mummo.CloseEnough);
+        }
 
         fgd.DropObject();
 
