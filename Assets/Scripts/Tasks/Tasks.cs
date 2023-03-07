@@ -329,7 +329,7 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
 
         f.mummo.isListening = false;
 
-        if (f.mummo.IsMovementNecessary(target.transform))
+        if (f.mummo.IsMovementNecessary(f.mummo.grabThis))
         {
             yield return new WaitUntil(f.mummo.CloseEnough);
         }
@@ -339,7 +339,9 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
             Debug.Log("Mummo already has item, called from InteractFail");
             f.mummo.InstructionMiss(4);
         }
-    
+
+        yield return new WaitForSeconds(2);
+
         f.TooVagueFail();
 
         if (f.mummo.IsMovementNecessary(f.mummo.dropHere))
@@ -350,7 +352,7 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
         f.DropObject();
 
         
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         f.mummo.isListening = true;
 
         Destroy(f);
