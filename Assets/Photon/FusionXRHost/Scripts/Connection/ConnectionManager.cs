@@ -23,6 +23,7 @@ namespace Fusion.XR.Host {
         public string roomName;
         public GameObject roomNameSaver;
         public bool connectOnStart = false;
+        public GameObject speechly;  // sit ku host on tullu servulle voi laittaa speechlyn p‰‰lle (?)
 
         [Header("Fusion settings")]
         [Tooltip("Fusion runner. Automatically created if not set")]
@@ -77,6 +78,7 @@ namespace Fusion.XR.Host {
                 SceneManager = sceneManager
             };
             await runner.StartGame(args);
+            speechly.SetActive(true);
         }
 
 
@@ -101,6 +103,7 @@ namespace Fusion.XR.Host {
                 if (userPrefab == hostPrefab) {
                     Camera hostCam = networkPlayerObject.gameObject.GetComponent<NetworkRig>().hardwareRig.GetComponentInChildren<Camera>();
                     hostCam.cullingMask &= ~(1 << LayerMask.NameToLayer("Host Occlusion Mask"));
+                    
                 }
             }
         }

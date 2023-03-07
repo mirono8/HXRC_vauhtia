@@ -3,6 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using Speechly.Types;
 using System.Linq;
+using UnityEngine;
 
 namespace Speechly.SLUClient {
 
@@ -48,12 +49,21 @@ namespace Speechly.SLUClient {
 
       for (int i = 0; i < entities.Count; i++)
       {
-        KeyValuePair<string, Entity> entityKVP = entities.ElementAt(i);
-        for (var x = entityKVP.Value.startPosition; x < entityKVP.Value.endPosition; x++)
-        {
-            entityIds[x] = entityKVP.Key;  //antaa indexoutofrangeexception välil??
-        }
-      }
+                    KeyValuePair<string, Entity> entityKVP = entities.ElementAt(i);
+                    for (var x = entityKVP.Value.startPosition; x < entityKVP.Value.endPosition; x++)
+                    {
+                        try
+                        {
+                            entityIds[x] = entityKVP.Key;  //antaa indexoutofrangeexception välil??
+
+                        }
+                        catch(IndexOutOfRangeException)
+                        {
+                            Debug.Log("restarting speechly");
+                            SpeechlyRestarter._restarterInstance.RestartSpeechly();
+                        }
+                    }
+                }
 
        sb.Append(intentTag(this.intent.intent));
         

@@ -379,7 +379,7 @@ public class VoiceRecog : MonoBehaviour
     {
 
         client = MicToSpeechly.Instance.SpeechlyClient;
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) || Input.GetButton("XRI_Left_SecondaryButton") || Input.GetButton("XRI_Right_SecondaryButton"))
         {
             if (!client.IsActive && client.IsReady)
             {
