@@ -76,7 +76,7 @@ namespace Fusion.XR.Host
 
         public virtual void Start()
         {
-            rayAction.EnableWithDefaultXRBindings(hand.side, new List<string> { "thumbstickClicked", "primaryButton", "secondaryButton" });
+            rayAction.EnableWithDefaultXRBindings(hand.side, new List<string> { "thumbstickClicked", "primaryButton"/*, "secondaryButton"*/ });
         }
 
         public bool BeamCast(out RaycastHit hitInfo, Vector3 origin, Vector3 direction)

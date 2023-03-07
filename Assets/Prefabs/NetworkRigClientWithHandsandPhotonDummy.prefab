@@ -2511,6 +2511,7 @@ GameObject:
   - component: {fileID: 2151784551516345903}
   - component: {fileID: 1932539949848459992}
   - component: {fileID: 7720916994107088812}
+  - component: {fileID: 8316861265280201981}
   m_Layer: 7
   m_Name: Speaker
   m_TagString: Untagged
@@ -2644,6 +2645,24 @@ MonoBehaviour:
   muteIndicator: {fileID: 104598594022184817}
   offMat: {fileID: 2100000, guid: 24b4fac2fe11d2a41a01d41590e64452, type: 2}
   onMat: {fileID: 2100000, guid: 102ecbeda6c1f304c937ee6fe70dec71, type: 2}
+--- !u!114 &8316861265280201981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652936356006643927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd7fea91fe63f4e1b884ef1e16a975c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playDelayConfig:
+    Low: 200
+    High: 400
+    Max: 1000
+    SpeedUpPerc: 5
+  restartOnDeviceChange: 1
 --- !u!1 &1762159632986920085
 GameObject:
   m_ObjectHideFlags: 0
@@ -5677,6 +5696,7 @@ GameObject:
   - component: {fileID: 6957770240048013799}
   - component: {fileID: 6957770240048013798}
   - component: {fileID: 6957770240048013721}
+  - component: {fileID: -8560241972753398005}
   m_Layer: 7
   m_Name: NetworkRigClientWithHandsandPhotonDummy
   m_TagString: Untagged
@@ -5774,6 +5794,7 @@ MonoBehaviour:
   NetworkedBehaviours:
   - {fileID: 6957770240048013799}
   - {fileID: 6957770240048013798}
+  - {fileID: -8560241972753398005}
   - {fileID: 6957770239398077805}
   - {fileID: 6957770239398077807}
   - {fileID: 6957770239258021068}
@@ -5783,6 +5804,19 @@ MonoBehaviour:
   - {fileID: 6957770239138465224}
   - {fileID: 7037053488758281740}
   SimulationBehaviours: []
+--- !u!114 &-8560241972753398005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6957770240048013720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6376dd7fc23b3764483a7349b58502e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
 --- !u!1 &7172130400142244924
 GameObject:
   m_ObjectHideFlags: 0
