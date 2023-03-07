@@ -5,7 +5,7 @@ using UnityEngine;
 public class CoffeePot : Triggerable
 {
     public CoffeeCup mugI;
-
+    public MeshRenderer mesh;
     private void Update()
     {
         if (triggered && !mugI.triggered)
@@ -13,5 +13,10 @@ public class CoffeePot : Triggerable
             mugI.Filled();
             
         }
+    }
+
+    private void OnEnable()
+    {
+        mesh.enabled = true;
     }
 }
