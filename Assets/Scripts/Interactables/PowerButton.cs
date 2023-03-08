@@ -8,5 +8,6 @@ public class PowerButton : Triggerable
     {
         triggered = true;
         //vihree valo ja sihin‰‰
+        SoundEffectsCoffee._instance.BrewSound();
     }
 }

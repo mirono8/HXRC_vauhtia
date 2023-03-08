@@ -68,7 +68,11 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
     {
         if (!mummo.hasItem)
         {
-            
+            if (mummo.grabThis.GetComponent<Collider>() != null)
+            {
+                mummo.grabThis.GetComponent<Collider>().enabled = true;
+            }
+
             if (!DoesThisHaveRequiredSteps(mummo, step_id_value))
             {
                 
@@ -114,7 +118,10 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
     {
         if (mummo.hasItem)
         {
-            
+            if(mummo.dropHere.GetComponent<Collider>() != null)
+            {
+                mummo.dropHere.GetComponent<Collider>().enabled = true;
+            }
             mummo.grabThis.transform.parent = mummo.dropHere;
             mummo.grabThis.transform.localPosition = new Vector3(0, 0, 0);
             mummo.grabThis.transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));

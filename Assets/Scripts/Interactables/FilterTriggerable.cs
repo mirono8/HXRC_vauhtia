@@ -13,6 +13,7 @@ public class FilterTriggerable : Triggerable
         closed.enabled = false;
         open.enabled = true;
         triggered = true;
-        open.GetComponentInParent<Transform>().position = drip.transform.position; 
+        open.GetComponentInParent<Transform>().position = drip.transform.position;
+        SoundEffectsCoffee._instance.FilterSound();
     }
 }

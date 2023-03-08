@@ -10,6 +10,7 @@ public class WaterCan : Triggerable
     {
         Debug.Log("water can full ");
         mesh.enabled = true;
+        SoundEffectsCoffee._instance.TapSound(true);
     }
 
     private void OnDisable()
