@@ -218,46 +218,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6308779722852742122, guid: fcf322397b7f9c941a8dc6e22295e6ea, type: 3}
-      propertyPath: dropTargets.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6308779722852742122, guid: fcf322397b7f9c941a8dc6e22295e6ea, type: 3}
-      propertyPath: grabTargets.Array.size
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6308779722852742122, guid: fcf322397b7f9c941a8dc6e22295e6ea, type: 3}
-      propertyPath: dropTargets.Array.data[4].name
-      value: "p\xF6yt\xE45"
-      objectReference: {fileID: 0}
-    - target: {fileID: 6308779722852742122, guid: fcf322397b7f9c941a8dc6e22295e6ea, type: 3}
-      propertyPath: dropTargets.Array.data[5].name
-      value: "p\xF6yt\xE46"
-      objectReference: {fileID: 0}
-    - target: {fileID: 6308779722852742122, guid: fcf322397b7f9c941a8dc6e22295e6ea, type: 3}
-      propertyPath: dropTargets.Array.data[6].name
-      value: suppilo
-      objectReference: {fileID: 0}
-    - target: {fileID: 6308779722852742122, guid: fcf322397b7f9c941a8dc6e22295e6ea, type: 3}
-      propertyPath: dropTargets.Array.data[7].name
-      value: pannunPaikka
-      objectReference: {fileID: 0}
-    - target: {fileID: 6308779722852742122, guid: fcf322397b7f9c941a8dc6e22295e6ea, type: 3}
-      propertyPath: dropTargets.Array.data[8].name
-      value: pistorasia
-      objectReference: {fileID: 0}
-    - target: {fileID: 6308779722852742122, guid: fcf322397b7f9c941a8dc6e22295e6ea, type: 3}
-      propertyPath: dropTargets.Array.data[9].name
-      value: lusikkaMukissa
-      objectReference: {fileID: 0}
-    - target: {fileID: 6308779722852742122, guid: fcf322397b7f9c941a8dc6e22295e6ea, type: 3}
-      propertyPath: grabTargets.Array.data[7].name
-      value: maito
-      objectReference: {fileID: 0}
-    - target: {fileID: 6308779722852742122, guid: fcf322397b7f9c941a8dc6e22295e6ea, type: 3}
-      propertyPath: grabTargets.Array.data[8].name
-      value: sokeri
-      objectReference: {fileID: 0}
-    - target: {fileID: 6308779722852742122, guid: fcf322397b7f9c941a8dc6e22295e6ea, type: 3}
       propertyPath: dropTargets.Array.data[0].target
       value: 
       objectReference: {fileID: 760117563}
@@ -613,18 +573,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 76847332, guid: 0a64a4f859569e44f873306180fe56d2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 76847332, guid: 0a64a4f859569e44f873306180fe56d2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 76847332, guid: 0a64a4f859569e44f873306180fe56d2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3818337089707467114, guid: 0a64a4f859569e44f873306180fe56d2, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1238,22 +1186,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1310013282, guid: 0f8a4475a1cc20e4bb9bbcc1d52c19d3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.9866
-      objectReference: {fileID: 0}
-    - target: {fileID: 1310013282, guid: 0f8a4475a1cc20e4bb9bbcc1d52c19d3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3.293
-      objectReference: {fileID: 0}
-    - target: {fileID: 1341263435, guid: 0f8a4475a1cc20e4bb9bbcc1d52c19d3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.057
-      objectReference: {fileID: 0}
-    - target: {fileID: 1793929805, guid: 0f8a4475a1cc20e4bb9bbcc1d52c19d3, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5838256699016591556, guid: 0f8a4475a1cc20e4bb9bbcc1d52c19d3, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1351,7 +1283,7 @@ GameObject:
   - component: {fileID: 1886769365}
   - component: {fileID: 1886769364}
   m_Layer: 5
-  m_Name: SpeechyOutput
+  m_Name: SpeechlyOutput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -18,5 +18,6 @@ public class CoffeePot : Triggerable
     private void OnEnable()
     {
         mesh.enabled = true;
+        SoundEffectsCoffee._instance.PotSound(true);
     }
 }

@@ -9,11 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5717565874807432505, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
       propertyPath: dropTargets.Array.size
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5717565874807432505, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
       propertyPath: grabTargets.Array.size
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5717565874807432505, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
       propertyPath: interactTargets.Array.size
@@ -37,18 +37,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5717565874807432505, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
       propertyPath: dropTargets.Array.data[4].name
-      value: suppilo
+      value: "p\xF6yt\xE45"
       objectReference: {fileID: 0}
     - target: {fileID: 5717565874807432505, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
       propertyPath: dropTargets.Array.data[5].name
-      value: pannunPaikka
+      value: "p\xF6yt\xE46"
       objectReference: {fileID: 0}
     - target: {fileID: 5717565874807432505, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
       propertyPath: dropTargets.Array.data[6].name
-      value: pistorasia
+      value: suppilo
       objectReference: {fileID: 0}
     - target: {fileID: 5717565874807432505, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
       propertyPath: dropTargets.Array.data[7].name
+      value: pannunPaikka
+      objectReference: {fileID: 0}
+    - target: {fileID: 5717565874807432505, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
+      propertyPath: dropTargets.Array.data[8].name
+      value: pistorasia
+      objectReference: {fileID: 0}
+    - target: {fileID: 5717565874807432505, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
+      propertyPath: dropTargets.Array.data[9].name
       value: lusikkaMukissa
       objectReference: {fileID: 0}
     - target: {fileID: 5717565874807432505, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
@@ -81,7 +89,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5717565874807432505, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
       propertyPath: grabTargets.Array.data[7].name
-      value: Virtajohto
+      value: maito
+      objectReference: {fileID: 0}
+    - target: {fileID: 5717565874807432505, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
+      propertyPath: grabTargets.Array.data[8].name
+      value: sokeri
       objectReference: {fileID: 0}
     - target: {fileID: 5717565874807432505, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
       propertyPath: interactTargets.Array.data[0].name

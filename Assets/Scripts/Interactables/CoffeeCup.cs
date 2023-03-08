@@ -9,6 +9,7 @@ public class CoffeeCup : Triggerable
         Debug.Log("Mug filled");
         GetComponent<MeshRenderer>().enabled = true;
         triggered = true;
+        SoundEffectsCoffee._instance.PourSound(false);
     }
 
     private void OnEnable()

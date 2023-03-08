@@ -10,6 +10,7 @@ public class WaterTank : Triggerable
         {
             Debug.Log("Tank filled");
             triggered= false;
+            SoundEffectsCoffee._instance.PourSound(true);
         }
     }
 }

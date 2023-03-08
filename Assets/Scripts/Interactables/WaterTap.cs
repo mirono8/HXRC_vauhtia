@@ -10,6 +10,8 @@ public class WaterTap : Triggerable
     {
         triggered = true;
 
+        SoundEffectsCoffee._instance.aSource.loop = true;
+        SoundEffectsCoffee._instance.TapSound(false);
         
 
         //vesijuttuja tähän
@@ -20,8 +22,10 @@ public class WaterTap : Triggerable
     {
         triggered = false;
 
-
-       
+        
+        SoundEffectsCoffee._instance.aSource.Stop();
+        SoundEffectsCoffee._instance.aSource.clip = null;
+        SoundEffectsCoffee._instance.aSource.loop = false;
         //vesijuttuja tähän
 
     }
@@ -36,4 +40,8 @@ public class WaterTap : Triggerable
         CloseWater();
     }
 
+    private void Update()
+    {
+        
+    }
 }
