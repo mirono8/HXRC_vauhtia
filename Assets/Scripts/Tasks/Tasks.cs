@@ -113,37 +113,39 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
             //Instanssin jälkeen initialisoidaan parametrit
         }
 
-        public void InteractBinary(bool t, bool o)  // avaa joku avattava obj
+        public void InteractBinary(bool closed, bool openable)  // avaa joku avattava obj
         {
-            var i = interactHere.GetComponent<Triggerable>();
+            var interactTarget = interactHere.GetComponent<Triggerable>();
 
-            Debug.Log("Interacting with " + i);
-            if (o)
+            Debug.Log("Interacting with " + interactTarget);
+            if (openable)
             {
-                if (t && !i.enabled)
+                if (!interactTarget.isOpen && !interactTarget.enabled)
                 {
 
-                    i.enabled = true; //open
+                    interactTarget.enabled = true; //open
+                    interactTarget.isOpen = true;
 
                 }
-                else if (t && i.enabled)
+                else
                 {
-                    Debug.Log("cant open that which is already open");
+                    interactTarget.isOpen = false;
+                    interactTarget.enabled = false; //close
                 }
-                else if (!t && !i.enabled)
+               /* else if (!closed && !interactTarget.enabled)
                 {
                     Debug.Log("cant close that which is already close");
                 }
                 else
                 {
-                    i.enabled = false; //close
-                }
+                    interactTarget.enabled = false; //close
+                }*/
             }
             else
             {
-                if (!i.enabled)
+                if (!interactTarget.enabled)
                 {
-                    i.enabled = true;
+                    interactTarget.enabled = true;
                 }
                 else
                 {

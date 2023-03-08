@@ -228,7 +228,8 @@ public class VoiceRecog : MonoBehaviour
                         {
                             bools.NullBools();
 
-                            mummo.GeneralDo(0, InitByIntent.InitInteract(mummo, "vesihana", false)); //Sulje vesihana, ei step
+                            mummo.GeneralDo(0, InitByIntent.InitInteract(mummo, "vesihana", true)); //Sulje vesihana, ei step
+
                             break;
                         }
                         break;

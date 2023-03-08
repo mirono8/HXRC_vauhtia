@@ -97,6 +97,8 @@ public class AI : MonoBehaviour
     private Quaternion quatBody;
     private Quaternion quatOrigin;
     public NavMeshAgent agent;
+
+    public CanUseVoiceIndicator voiceIndicator;
     
     //public int i = 0;
 
@@ -121,6 +123,9 @@ public class AI : MonoBehaviour
     private void Update()
     {
         var step = movementSpd * Time.deltaTime;
+
+        voiceIndicator.isOnTexture = isListening;
+
 
 
         if (moveTowardsThis != null)  ////ei toimi oikein ja jostain pitää togglee movementOk ja movetowardsthis vaihto

@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class CanUseVoiceIndicator : MonoBehaviour
 {
+    
     public Texture offTexture;
     public Texture onTexture;
-    private bool isOnTexture;
+    public bool isOnTexture;
 
     public void SwitchTexture() {
         if (isOnTexture) {
@@ -19,5 +20,10 @@ public class CanUseVoiceIndicator : MonoBehaviour
 
             isOnTexture = true;
         }
+    }
+
+    private void Update()
+    {
+        SwitchTexture();
     }
 }
