@@ -190,6 +190,14 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
             t.enabled= true;
 
         }
+
+        public void InsertAndCount()
+        {
+            var t = mummo.interactThis.GetComponent<Triggerable>();
+
+            
+            t.counter++;
+        }
     }
 
 
@@ -265,7 +273,12 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
         if (g.GrabObject())
         {
             //animaatio vvv
-            yield return new WaitForSeconds(5);
+            if (g.mummo.IsMovementNecessary(interactTarget))
+            {
+                yield return new WaitUntil(g.mummo.CloseEnough);
+            }
+            yield return new WaitForSeconds(2);
+
             if (g.InteractWithGrabbed(stepIndex))
             {
                 if (g.mummo.IsMovementNecessary(g.mummo.dropHere))
@@ -477,6 +490,38 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
 
         fgd.mummo.isListening = true;
 
-        Destroy (fgd);
+        Destroy(fgd);
+    }
+
+    public IEnumerator FreeGrabInsert(GameObject taskholder)
+    {
+        var fi = taskholder.AddComponent<GeneralInteraction>();
+
+        fi.Init(taskholder);
+
+        fi.mummo.isListening = false;
+
+        if (fi.mummo.IsMovementNecessary(fi.mummo.grabThis))
+        {
+            yield return new WaitUntil(fi.mummo.CloseEnough);
+        }
+
+        fi.GrabObject();
+
+        yield return new WaitForSeconds(2);
+
+        if (fi.mummo.IsMovementNecessary(fi.mummo.interactThis.transform))
+            yield return new WaitUntil(fi.mummo.CloseEnough);
+
+        fi.InsertAndCount();
+
+        if (fi.mummo.IsMovementNecessary(fi.mummo.dropHere.transform))
+            yield return new WaitUntil(fi.mummo.CloseEnough);
+
+        fi.DropObject();
+
+        fi.mummo.isListening = true;
+
+        Destroy(fi);
     }
 }

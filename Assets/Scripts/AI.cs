@@ -259,7 +259,8 @@ public class AI : MonoBehaviour
         {
             case 0: StartCoroutine(tasks.OpenCloseThis(interactThis, taskHolder, -10, open, true)); break;  //avaa tai sulje
             case 1: StartCoroutine(tasks.InteractFail(interactThis, taskHolder)); break; //liian vague k�sky
-            case 2: StartCoroutine(tasks.FreeGrabDrop(grabThis, taskHolder)); break;
+            case 2: StartCoroutine(tasks.FreeGrabDrop(grabThis, taskHolder)); break; //ota asioita ilman step
+            case 3: StartCoroutine(tasks.FreeGrabInsert(taskHolder)); break; //insert ilman step
         } //TOOLS INTERACTIONS
     }
 
