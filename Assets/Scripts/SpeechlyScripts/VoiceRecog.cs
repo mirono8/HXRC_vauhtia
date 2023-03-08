@@ -314,7 +314,7 @@ public class VoiceRecog : MonoBehaviour
                         }
                         break;
 
-                    default: bools.NullBools(); mummo.InstructionMiss(0); break;
+                    default: bools.NullBools(); mummo.InstructionMiss(1); break;
                 }
             }
         };

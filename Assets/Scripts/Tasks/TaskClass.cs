@@ -19,6 +19,7 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
 
     public void SendCompletedTask(int task_id_value)
     {
+        mummo.mummoDialog.FillerTalk(0);
         tracker.StepComplete(task_id_value);
     }
 
