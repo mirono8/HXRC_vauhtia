@@ -72,7 +72,7 @@ public class AI : MonoBehaviour
     public bool movementOk = false;
     [Space(10)]
     public AITools aiTools;
-    public TMP_Text aiDialog;
+    //public TMP_Text aiDialog;
     [Space(10)]
     public float movementSpd = 1.0f;
     public float acceptableDistance = 0.03f;
@@ -99,6 +99,8 @@ public class AI : MonoBehaviour
     public NavMeshAgent agent;
 
     public CanUseVoiceIndicator voiceIndicator;
+
+    public MummoDialog mummoDialog;
     
     //public int i = 0;
 
@@ -204,48 +206,52 @@ public class AI : MonoBehaviour
                 if (!currentStep.isCompleted)
                 {
                     StartCoroutine(tasks.GrabTargetPutDownStep(grabThis, dropHere, stepIndex, taskHolder)); // Ota target(valittu ��nikomennolla), ja laita muualle, merkkaa askeleen (stepIndex) tehdyksi
+                    mummoDialog.FillerTalk(1);
                     break;
                 }
                 else
                 {
                     UnityEngine.Debug.Log(currentStep.stepName + " is already completed");
-                    InstructionMiss(2);
+                    InstructionMiss(4);
                     break;
                 }
             case 1:
                 if (!currentStep.isCompleted)
                 {
                     StartCoroutine(tasks.GrabTargetInsert(grabThis, dropHere, stepIndex, taskHolder)); // Ota target(valittu ��nikomennolla) , ja suorita k�ytt�en target:ia ja merkkaa askel (stepIndex) tehdyksi
+                    mummoDialog.FillerTalk(1);
                     break;
                 }
                 else
                 {
                     UnityEngine.Debug.Log(currentStep.stepName + " is already completed");
-                    InstructionMiss(2);
+                    InstructionMiss(4);
                     break;
                 }
             case 2:
                 if (!currentStep.isCompleted)
                 {
                     StartCoroutine(tasks.OpenCloseThis(interactThis, taskHolder, stepIndex, false, true)); // sulje kansi ja suorita step :D
+                    mummoDialog.FillerTalk(1);
                     break;
                 }
                 else
                 {
                     UnityEngine.Debug.Log(currentStep.stepName + " is already completed");
-                    InstructionMiss(2);
+                    InstructionMiss(4);
                     break;
                 }
             case 3:
                 if(!currentStep.isCompleted)
                 {
                     StartCoroutine(tasks.ToggleOnce(interactThis, taskHolder, stepIndex));  //Laita jokin p��lle kerran
+                    mummoDialog.FillerTalk(1);
                     break;
                 }
                 else
                 {
                     UnityEngine.Debug.Log(currentStep.stepName + " is already completed");
-                    InstructionMiss(2);
+                    InstructionMiss(4);
                     break;
                 }
             case 4:
@@ -262,10 +268,10 @@ public class AI : MonoBehaviour
     {
         switch (toDo)
         {
-            case 0: StartCoroutine(tasks.OpenCloseThis(interactThis, taskHolder, -10, open, true)); break;  //avaa tai sulje
-            case 1: StartCoroutine(tasks.InteractFail(interactThis, taskHolder)); break; //liian vague k�sky
-            case 2: StartCoroutine(tasks.FreeGrabDrop(grabThis, taskHolder)); break; //ota asioita ilman step
-            case 3: StartCoroutine(tasks.FreeGrabInsert(taskHolder)); break; //insert ilman step
+            case 0: StartCoroutine(tasks.OpenCloseThis(interactThis, taskHolder, -10, open, true)); mummoDialog.FillerTalk(1); break;  //avaa tai sulje
+            case 1: StartCoroutine(tasks.InteractFail(interactThis, taskHolder)); mummoDialog.FillerTalk(1); break; //liian vague k�sky
+            case 2: StartCoroutine(tasks.FreeGrabDrop(grabThis, taskHolder)); mummoDialog.FillerTalk(1); break; //ota asioita ilman step
+            case 3: StartCoroutine(tasks.FreeGrabInsert(taskHolder)); mummoDialog.FillerTalk(1); break; //insert ilman step
         } //TOOLS INTERACTIONS
     }
 
@@ -290,11 +296,8 @@ public class AI : MonoBehaviour
 
         switch (i)
         {
-            case 0: aiDialog.text = "Voisitko toistaa?"; break;
-            case 1: aiDialog.text = "En kuullut"; break;
-            case 2: aiDialog.text = "Tein sen jo.."; break;
-            case 3: aiDialog.text = "???"; break;
-            case 4: aiDialog.text = "Mit� teen t�ll�?"; break;
+            case 1: mummoDialog.DontUnderstand();  break;
+            case 4: mummoDialog.AlreadyDone(); break;
         }
 
     }

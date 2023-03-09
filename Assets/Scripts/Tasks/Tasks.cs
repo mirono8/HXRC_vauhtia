@@ -429,6 +429,7 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
         {
             if (mw.CheckReqCompletion(mw.mummo, step))
             {
+                mw.mummo.mummoDialog.Monologue();
                 yield return new WaitForSeconds(13); //ODotusanimaatio
                 mw.SendCompletedTask(step);
             }

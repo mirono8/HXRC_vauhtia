@@ -491,6 +491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggered: 0
   counter: 0
+  isOpen: 0
   johto: {fileID: 1278841666}
 --- !u!114 &1278841666
 MonoBehaviour:
@@ -506,6 +507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggered: 0
   counter: 0
+  isOpen: 0
   startHere: {fileID: 1296826188}
   plug: {fileID: 1278841664}
   speed: 1
@@ -996,6 +998,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggered: 0
   counter: 0
+  isOpen: 0
   list:
   - stainObj: {fileID: 879146416}
   - stainObj: {fileID: 1492416989}
@@ -1046,6 +1049,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggered: 0
   counter: 0
+  isOpen: 0
 --- !u!1 &3668475313008836763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,6 +1127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggered: 0
   counter: 0
+  isOpen: 0
   closed: {fileID: 684504748530760529}
   open: {fileID: 1519770531257377775}
   drip: {fileID: 8060827185422944169}
@@ -1234,6 +1239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggered: 0
   counter: 0
+  isOpen: 0
   list:
   - stainObj: {fileID: 1579663070}
   - stainObj: {fileID: 1873836506}
@@ -1286,6 +1292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggered: 0
   counter: 0
+  isOpen: 0
 --- !u!23 &6165433272482919065
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1412,8 +1419,75 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggered: 0
   counter: 0
+  isOpen: 0
   groundCoffee: {fileID: 5153780499483659200}
   filter: {fileID: 5636624832622330364}
+--- !u!1001 &1447575023
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7942599852072187101}
+    m_Modifications:
+    - target: {fileID: 7127453811443884360, guid: 54df0ecf47334a948873c710673c3e94, type: 3}
+      propertyPath: m_Name
+      value: Water Particle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127453811443884360, guid: 54df0ecf47334a948873c710673c3e94, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282194817749059828, guid: 54df0ecf47334a948873c710673c3e94, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282194817749059828, guid: 54df0ecf47334a948873c710673c3e94, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0713
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282194817749059828, guid: 54df0ecf47334a948873c710673c3e94, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.164
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282194817749059828, guid: 54df0ecf47334a948873c710673c3e94, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.2466
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282194817749059828, guid: 54df0ecf47334a948873c710673c3e94, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282194817749059828, guid: 54df0ecf47334a948873c710673c3e94, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282194817749059828, guid: 54df0ecf47334a948873c710673c3e94, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282194817749059828, guid: 54df0ecf47334a948873c710673c3e94, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282194817749059828, guid: 54df0ecf47334a948873c710673c3e94, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282194817749059828, guid: 54df0ecf47334a948873c710673c3e94, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282194817749059828, guid: 54df0ecf47334a948873c710673c3e94, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 54df0ecf47334a948873c710673c3e94, type: 3}
+--- !u!1 &7127453812890393767 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7127453811443884360, guid: 54df0ecf47334a948873c710673c3e94, type: 3}
+  m_PrefabInstance: {fileID: 1447575023}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1960666277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1908,6 +1982,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggered: 0
   counter: 0
+  isOpen: 0
 --- !u!4 &1374585439089265709 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2247118116935576579, guid: e17a85a1b393a4b458585373df5e832c, type: 3}
@@ -1937,6 +2012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggered: 0
   counter: 0
+  isOpen: 0
   lid: {fileID: 3212696372280469855}
 --- !u!1 &4022513564252092313 stripped
 GameObject:
@@ -1957,7 +2033,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggered: 0
   counter: 0
+  isOpen: 0
   tap: {fileID: 4022513564252092313}
+  walter: {fileID: 7127453812890393767}
 --- !u!23 &4144116520419906188 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 3872532926372115106, guid: e17a85a1b393a4b458585373df5e832c, type: 3}
@@ -2041,11 +2119,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggered: 0
   counter: 0
+  isOpen: 0
   pourHere: {fileID: 1999872252309006797}
   mesh: {fileID: 4144116520419906188}
 --- !u!4 &7277768214287657077 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7548894480148170843, guid: e17a85a1b393a4b458585373df5e832c, type: 3}
+  m_PrefabInstance: {fileID: 881821695745007662}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7942599852072187101 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7063073936607024371, guid: e17a85a1b393a4b458585373df5e832c, type: 3}
   m_PrefabInstance: {fileID: 881821695745007662}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8060827185422944169 stripped
@@ -2106,5 +2190,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggered: 0
   counter: 0
+  isOpen: 0
   mugI: {fileID: 1874183021}
   mesh: {fileID: 7028466391654205898}
