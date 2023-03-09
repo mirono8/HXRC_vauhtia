@@ -45,9 +45,10 @@ public class AI : MonoBehaviour
 
     [HideInInspector]
     public Tasks tasks;
-    [HideInInspector]
+    
     public TaskInit taskInit;
 
+    public TaskList tasksList;
     [Tooltip("Task name here")]
     public string currentTask;
 
@@ -108,7 +109,6 @@ public class AI : MonoBehaviour
     private void Awake()
     {
         tasks = taskHolder.AddComponent<Tasks>();
-        taskInit = taskHolder.AddComponent<TaskInit>();
         aiTools = this.GetComponent<AITools>();
         switch (currentTask)
         {

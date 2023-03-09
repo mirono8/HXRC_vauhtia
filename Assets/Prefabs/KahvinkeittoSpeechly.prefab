@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KahvinkeittoSpeechly
       objectReference: {fileID: 0}
+    - target: {fileID: 2238053259677155662, guid: 84ef6b74c92d54cfcbd639dbf91128b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2238053259677155663, guid: 84ef6b74c92d54cfcbd639dbf91128b0, type: 3}
       propertyPath: AppId
       value: 2c8aee1b-ea66-402e-91d6-a7d2768041f5
@@ -66,6 +70,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2238053259677155662, guid: 84ef6b74c92d54cfcbd639dbf91128b0, type: 3}
   m_PrefabInstance: {fileID: 2121271062966326884}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1386455122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179982760865830698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a05ee0f362c9fe7439937014b88c59a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TranscriptText: {fileID: 0}
+  target: {fileID: 0}
+  bools: {fileID: 3667090105702339825}
+  mummo: {fileID: 0}
 --- !u!114 &3667090105702339825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,19 +147,3 @@ MonoBehaviour:
     value: 0
   - name: Liukueste
     value: 0
---- !u!114 &1386455122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179982760865830698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a05ee0f362c9fe7439937014b88c59a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TranscriptText: {fileID: 0}
-  target: {fileID: 0}
-  bools: {fileID: 3667090105702339825}
-  mummo: {fileID: 0}

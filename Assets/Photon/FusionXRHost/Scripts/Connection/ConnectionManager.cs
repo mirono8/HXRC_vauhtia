@@ -93,18 +93,26 @@ namespace Fusion.XR.Host {
                 }
                 Debug.Log($"OnPlayerJoined {player.PlayerId}/Local id: ({runner.LocalPlayer.PlayerId})");
                 // We make sure to give the input authority to the connecting player for their user's object
-                NetworkObject networkPlayerObject = runner.Spawn(userPrefab, position: transform.position, rotation: transform.rotation, inputAuthority: player, (runner, obj) => {
-                });
+                if (_spawnedUsers.Count == 0) // sallii vaan yhen pelaajan atm koska paska fusion
+                {
+                    NetworkObject networkPlayerObject = runner.Spawn(userPrefab, position: transform.position, rotation: transform.rotation, inputAuthority: player, (runner, obj) =>
+                    {
+                    });
 
+                    _spawnedUsers.Add(player, networkPlayerObject); //alunperin tän if-lauseen ulkopuolella  vvvv ja toi
+
+                    if (userPrefab == hostPrefab)
+                    {
+                        Camera hostCam = networkPlayerObject.gameObject.GetComponent<NetworkRig>().hardwareRig.GetComponentInChildren<Camera>();
+                        hostCam.cullingMask &= ~(1 << LayerMask.NameToLayer("Host Occlusion Mask"));
+
+                    }
+                }
                 // Keep track of the player avatars so we can remove it when they disconnect
-                _spawnedUsers.Add(player, networkPlayerObject);
+                
 
                 // Stop host's camera from rendering 'Host Occlusion Mask' layer (aka client players)
-                if (userPrefab == hostPrefab) {
-                    Camera hostCam = networkPlayerObject.gameObject.GetComponent<NetworkRig>().hardwareRig.GetComponentInChildren<Camera>();
-                    hostCam.cullingMask &= ~(1 << LayerMask.NameToLayer("Host Occlusion Mask"));
-                    
-                }
+                
             }
         }
 

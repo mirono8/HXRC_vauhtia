@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TaskInit : MonoBehaviour
+[CreateAssetMenu(fileName = "TaskInit", menuName = "ScriptableObjects/TaskInit")]
+public class TaskInit : ScriptableObject
 {
     //[SerializeField]
     [HideInInspector]

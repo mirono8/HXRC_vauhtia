@@ -81,7 +81,7 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
                 
                     mummo.grabThis.transform.parent = mummo.mummoGrabber;
                     mummo.grabThis.transform.localPosition = new Vector3(0, 0, 0);
-                    mummo.grabThis.transform.localRotation = Quaternion.Euler(new Vector3(72.2023849f, 114.251907f, 203.216797f));
+                    mummo.grabThis.transform.localRotation = mummo.mummoGrabber.localRotation; //Quaternion.Euler(new Vector3(72.2023849f, 114.251907f, 203.216797f));
                     mummo.hasItem = true;
                 
 
@@ -95,7 +95,7 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
                     
                     mummo.grabThis.transform.parent = mummo.mummoGrabber;
                     mummo.grabThis.transform.localPosition = new Vector3(0, 0, 0);
-                    mummo.grabThis.transform.localRotation = Quaternion.Euler(new Vector3(72.2023849f, 114.251907f, 203.216797f));
+                    mummo.grabThis.transform.localRotation = mummo.mummoGrabber.localRotation; //Quaternion.Euler(new Vector3(72.2023849f, 114.251907f, 203.216797f));
                     mummo.hasItem = true;
                     
                     return true;
