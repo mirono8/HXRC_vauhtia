@@ -48,9 +48,7 @@ namespace Fusion.XR.Host {
             else if (roomName == "Lobby") {
                 roomName = "Lobby";
             }
-            else {
-                roomName = "DefaultRoom";
-            }
+            else roomName ??= "DefaultRoom"; //if roomName is null, set it to "DefaultRoom"
 
             // Check if a runner exist on the same game object
             if (runner == null) runner = GetComponent<NetworkRunner>();

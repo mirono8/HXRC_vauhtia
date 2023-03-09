@@ -23,4 +23,15 @@ public class CustomVRUIActions : MonoBehaviour
             FindObjectOfType<RoomNameDDOL>().RoomNameChanged(changedRoomName);
         }
     }
+    public void ToggleCanvas(GameObject canvasObject)
+    {
+        if (canvasObject.GetComponent<Canvas>().enabled == false)
+        {
+            canvasObject.GetComponent<Canvas>().enabled = true;
+        }
+        else
+        {
+            canvasObject.GetComponent<Canvas>().enabled = false;
+        }
+    }
 }

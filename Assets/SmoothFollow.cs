@@ -6,6 +6,7 @@ public class SmoothFollow : MonoBehaviour {
 
     // The time it takes to smooth the movement
     public float smoothTime = 0.3f;
+    public float smoothRotationTime = 0.5f;
 
     // The current velocity of the movement
     private Vector3 velocity;
@@ -15,13 +16,13 @@ public class SmoothFollow : MonoBehaviour {
 
     void Update() {
         // Calculate the smoothed position of the camera
-        Vector3 smoothedPosition = Vector3.SmoothDamp(transform.position, targetTransform.position, ref velocity, smoothTime);
+        Vector3 smoothedPosition = Vector3.SmoothDamp(transform.position, (targetTransform.position), ref velocity, smoothTime);
 
         // Update the camera position
         transform.position = smoothedPosition;
 
         // Calculate the smoothed rotation of the camera
-        Quaternion smoothedRotation = Quaternion.Slerp(transform.rotation, targetTransform.rotation, smoothTime * Time.deltaTime);
+        Quaternion smoothedRotation = Quaternion.Slerp(transform.rotation, targetTransform.rotation, smoothRotationTime * Time.deltaTime);
 
         // Update the camera rotation
         transform.rotation = smoothedRotation;
