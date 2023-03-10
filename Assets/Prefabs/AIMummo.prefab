@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76847331}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.11, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: 0, y: 0.11, z: 0.025}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3151203984540550605}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
 --- !u!1 &433751022
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,7 +736,8 @@ MonoBehaviour:
   taskHolder: {fileID: 6051592487458664561}
   tracker: {fileID: 1703835128639157667}
   tasks: {fileID: 0}
-  taskInit: {fileID: 0}
+  taskInit: {fileID: 11400000, guid: 09431d639f35eae49a81b017f67c14ae, type: 2}
+  tasksList: {fileID: 0}
   currentTask: Kahvinkeitto
   mummoGrabber: {fileID: 76847332}
   mummoHead: {fileID: 1980744138279682043}
@@ -746,7 +747,6 @@ MonoBehaviour:
   hasItem: 0
   movementOk: 0
   aiTools: {fileID: 8896710623660025889}
-  aiDialog: {fileID: 0}
   movementSpd: 1
   acceptableDistance: 1.2
   currentDistance: 0

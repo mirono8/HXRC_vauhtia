@@ -31,7 +31,7 @@ public class VoiceRecog : MonoBehaviour
 
 
             //kaikki keissit suoritetaan muissa scripteiss�
-            if (segment.isFinal && mummo.isListening && !TaskList._taskListInstance.taskList[mummo.tracker.doingNow].t_isCompleted) //ilman segment.isFinal kaikki komennot looppaa
+            if (segment.isFinal && mummo.isListening) //ilman segment.isFinal kaikki komennot looppaa !TaskList._taskListInstance.taskList[mummo.tracker.doingNow].t_isCompleted
             {
                 AnalyzeSegment(segment);
 

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Mummo
   - TaskTracker
+  - DropTag
   layers:
   - Default
   - TransparentFX
