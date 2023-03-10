@@ -102,7 +102,7 @@ public class AI : MonoBehaviour
     public CanUseVoiceIndicator voiceIndicator;
 
     public MummoDialog mummoDialog;
-    
+    public AIAnimations anims;
     //public int i = 0;
 
     public bool debugOnce = false;
@@ -110,6 +110,8 @@ public class AI : MonoBehaviour
     {
         tasks = taskHolder.AddComponent<Tasks>();
         aiTools = this.GetComponent<AITools>();
+        anims = gameObject.GetComponent<AIAnimations>();
+
         switch (currentTask)
         {
             case "Kahvinkeitto":
@@ -156,8 +158,7 @@ public class AI : MonoBehaviour
         handDir = mummoGrabber.transform.forward;
        if (Input.GetButtonDown("TestInput"))
         {
-            KahviDo(0,0);
-            UnityEngine.Debug.Log("Testing");
+            anims.GrabAnim();
             //SetUpTool("Paksunnos", dropHere);
         }
       

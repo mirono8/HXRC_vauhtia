@@ -650,6 +650,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: AIMummo
       objectReference: {fileID: 0}
+    - target: {fileID: 7069905459914455824, guid: 0a64a4f859569e44f873306180fe56d2, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 898087ccf456fef4eb97008a1d558ff1, type: 3}
+    - target: {fileID: 7069905459914455824, guid: 0a64a4f859569e44f873306180fe56d2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a64a4f859569e44f873306180fe56d2, type: 3}
 --- !u!1 &599992517 stripped
@@ -1169,6 +1177,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KahvinkeittoSpeechly
       objectReference: {fileID: 0}
+    - target: {fileID: 179982760865830698, guid: c53e9e6b928333e42ab4f307867bc600, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3667090105702339825, guid: c53e9e6b928333e42ab4f307867bc600, type: 3}
       propertyPath: aiTools
       value: 
@@ -1321,9 +1333,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3473379888723901586, guid: b4e77e455b37a9342aac92b34fd9d85a, type: 3}
+      propertyPath: smoothTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473379888723901586, guid: b4e77e455b37a9342aac92b34fd9d85a, type: 3}
       propertyPath: targetTransform
       value: 
       objectReference: {fileID: 2015498579}
+    - target: {fileID: 3473379888723901586, guid: b4e77e455b37a9342aac92b34fd9d85a, type: 3}
+      propertyPath: smoothRotationTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3473379888723901596, guid: b4e77e455b37a9342aac92b34fd9d85a, type: 3}
       propertyPath: m_Name
       value: HeadUI
@@ -1376,6 +1396,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3473379889905724571, guid: b4e77e455b37a9342aac92b34fd9d85a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3473379889905724574, guid: b4e77e455b37a9342aac92b34fd9d85a, type: 3}
       propertyPath: m_Camera
       value: 
@@ -1408,6 +1432,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8667059831312856, guid: 0f8a4475a1cc20e4bb9bbcc1d52c19d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 881821696446408274, guid: 0f8a4475a1cc20e4bb9bbcc1d52c19d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3475362591577181691, guid: 0f8a4475a1cc20e4bb9bbcc1d52c19d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5838256699016591556, guid: 0f8a4475a1cc20e4bb9bbcc1d52c19d3, type: 3}
       propertyPath: m_RootOrder
       value: 14
