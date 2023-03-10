@@ -17,6 +17,9 @@ public class SpeechlyRestarter : MonoBehaviour
             _restarterInstance = this;
         }
 
+        if(speechly.activeInHierarchy)
+            speechly.SetActive(false);
+
     }
     public void RestartSpeechly()
     {

@@ -76,7 +76,8 @@ public partial class MicToSpeechly : MonoBehaviour
     );
 
     _instance = this;
-   // DontDestroyOnLoad(this.gameObject);  Speechlyt on scenekohtaisia, joten tätä ei tarvita
+            // DontDestroyOnLoad(this.gameObject);  Speechlyt on scenekohtaisia, joten tätä ei tarvita
+            
   }
 
   void OnEnable() {

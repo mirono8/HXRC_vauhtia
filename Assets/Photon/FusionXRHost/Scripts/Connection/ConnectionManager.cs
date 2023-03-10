@@ -76,7 +76,12 @@ namespace Fusion.XR.Host {
                 SceneManager = sceneManager
             };
             await runner.StartGame(args);
-            speechly.SetActive(true);
+            if (!speechly.activeInHierarchy)
+            {
+                speechly.SetActive(true);
+            }
+            else
+                SpeechlyRestarter._restarterInstance.RestartSpeechly();
         }
 
 
