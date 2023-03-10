@@ -1443,7 +1443,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8282194817749059828, guid: 54df0ecf47334a948873c710673c3e94, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0713
+      value: 0.093
       objectReference: {fileID: 0}
     - target: {fileID: 8282194817749059828, guid: 54df0ecf47334a948873c710673c3e94, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1451,7 +1451,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8282194817749059828, guid: 54df0ecf47334a948873c710673c3e94, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.2466
+      value: 0.247
       objectReference: {fileID: 0}
     - target: {fileID: 8282194817749059828, guid: 54df0ecf47334a948873c710673c3e94, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1835,7 +1835,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6229229305130435152, guid: e17a85a1b393a4b458585373df5e832c, type: 3}
       propertyPath: m_Name
-      value: kahvinkeittoKitchen
+      value: KahvinkeittoKitchen
       objectReference: {fileID: 0}
     - target: {fileID: 6231192882513705318, guid: e17a85a1b393a4b458585373df5e832c, type: 3}
       propertyPath: m_StaticEditorFlags
