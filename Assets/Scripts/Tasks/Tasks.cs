@@ -216,10 +216,13 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
             yield return new WaitUntil(g.mummo.CloseEnough);
         }
 
-        yield return new WaitForSeconds(2.5f);  //animaatio
-        if (g.GrabObject())
-        {
-            if (g.DoesThisHaveRequiredSteps(g.mummo, stepIndex))
+        //animaatio
+        //yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
+        StartCoroutine(g.GrabObject());
+
+        yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
+
+        if (g.DoesThisHaveRequiredSteps(g.mummo, stepIndex))
             {
                 if (g.CheckReqCompletion(g.mummo, stepIndex))
                 {
@@ -229,9 +232,10 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
                     {
                         yield return new WaitUntil(g.mummo.CloseEnough);
                     }
-                    yield return new WaitForSeconds(2.5f);//animaatio
-                    g.DropObject();
-                    g.SendCompletedTask(stepIndex);
+                // yield return new WaitForSeconds(2.5f);//animaatio
+                StartCoroutine(g.DropObject());
+                yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
+                g.SendCompletedTask(stepIndex);
 
                 }
                 
@@ -243,18 +247,15 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
                 {
                     yield return new WaitUntil(g.mummo.CloseEnough);
                 }
-                
-                yield return new WaitForSeconds(2.5f); //animaatio vvv
-                g.DropObject();
+
+            // yield return new WaitForSeconds(2.5f); //animaatio vvv
+            yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
+            StartCoroutine(g.DropObject());
                 g.SendCompletedTask(stepIndex);
             }
             
-        }
-        else
-        {
-            Debug.Log("Mummo already has item, called from GrabTargetPutDown");
-            g.mummo.InstructionMiss(4);
-        }
+        
+        
 
         g.mummo.isListening = true;
 
@@ -273,41 +274,41 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
             yield return new WaitUntil(g.mummo.CloseEnough);
         }
 
-        if (g.GrabObject())
+        StartCoroutine(g.GrabObject());
+
+        yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
+        //animaatio vvv
+
+        if (g.mummo.IsMovementNecessary(interactTarget))
         {
-            //animaatio vvv
-            if (g.mummo.IsMovementNecessary(interactTarget))
+            yield return new WaitUntil(g.mummo.CloseEnough);
+        }
+
+
+
+        if (g.InteractWithGrabbed(stepIndex))
+        {
+            if (g.mummo.IsMovementNecessary(g.mummo.dropHere))
             {
                 yield return new WaitUntil(g.mummo.CloseEnough);
             }
-            yield return new WaitForSeconds(2.5f);
 
-            if (g.InteractWithGrabbed(stepIndex))
-            {
-                if (g.mummo.IsMovementNecessary(g.mummo.dropHere))
-                {
-                    yield return new WaitUntil(g.mummo.CloseEnough);
-                }
-
-                g.DropObject();
-                g.SendCompletedTask(stepIndex);
-            }
-            else
-            {
-                if (g.mummo.IsMovementNecessary(g.mummo.dropHere))
-                {
-                    yield return new WaitUntil(g.mummo.CloseEnough);
-                }
-
-                g.DropObject();
-                Debug.Log("Could not interact");
-            }
+            StartCoroutine(g.DropObject());
+            yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
+            g.SendCompletedTask(stepIndex);
         }
         else
         {
-            Debug.Log("Mummo already has item or prerequisites are not done, called from GrabTargetInsert");
-            g.mummo.InstructionMiss(4);
+            if (g.mummo.IsMovementNecessary(g.mummo.dropHere))
+            {
+                yield return new WaitUntil(g.mummo.CloseEnough);
+            }
+
+            StartCoroutine(g.DropObject());
+            yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
+            Debug.Log("Could not interact");
         }
+         // KAIKKI GRABOBJ JA DROPOBJ --> COROUTINEIKSI, JA WAITUNTILENDANIMRESUMETASK, NÄYTTÄS TOIMIVBAN
 
         g.mummo.isListening = true;
 
@@ -350,11 +351,11 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
             yield return new WaitUntil(f.mummo.CloseEnough);
         }
 
-        if (!f.GrabObject())
+        /*if (!f.GrabObject())
         {
             Debug.Log("Mummo already has item, called from InteractFail");
             f.mummo.InstructionMiss(4);
-        }
+        }*/
 
         yield return new WaitForSeconds(2);
 
