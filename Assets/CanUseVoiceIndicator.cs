@@ -9,21 +9,32 @@ public class CanUseVoiceIndicator : MonoBehaviour
     public Texture offTexture;
     public Texture onTexture;
     public bool isOnTexture;
+    public bool toggledOn;
+    public bool toggledOff;
 
-    public void SwitchTexture() {
-        if (isOnTexture) {
-            GetComponent<RawImage>().texture = offTexture;
-            isOnTexture = false;
-        }
-        else {
-            GetComponent<RawImage>().texture = onTexture;
-
-            isOnTexture = true;
-        }
+    public void TextureOn()
+    {
+        GetComponent<RawImage>().texture = offTexture;
+        toggledOn = true;
+        toggledOff = false;
+    }
+    public void TextureOff()
+    {
+        GetComponent<RawImage>().texture = onTexture;
+        toggledOff = true;
+        toggledOn = false;
     }
 
     private void Update()
     {
-        SwitchTexture();
+        if (isOnTexture)
+        {
+            if (!toggledOn)
+            TextureOn();
+        }
+        else if (!toggledOff)
+        {
+            TextureOff();
+        }
     }
 }
