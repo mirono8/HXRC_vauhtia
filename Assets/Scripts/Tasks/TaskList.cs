@@ -19,7 +19,11 @@ public class TaskList : MonoBehaviour
         }
         //taskList.Clear(); //Ei saa laittaa tasklistiin ennen buildia listoja, muuten tarvitsee tämän
     }
-    [Tooltip("Task list singleton")]
-    public List<TaskListItem> taskList = new();
-   
+    public List<TaskListItem> taskList;
+    private void Start()
+    {
+        
+        taskList = new List<TaskListItem>();
+    }
+
 }

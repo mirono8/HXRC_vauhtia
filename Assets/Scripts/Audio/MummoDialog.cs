@@ -46,18 +46,22 @@ public class MummoDialog : MonoBehaviour
 
     public void FillerTalk(int x)
     {
-        i = Random.Range(0, 4);
-        if(i == 2)
+        i = Random.Range(0, dialog.Count);
+        if (i == 2)
         {
-            if(x == 1)
+            if (x == 1)
             {
                 Agree();
             }
-            else if(x == 0) 
+            else if (x == 0)
             {
                 WhatNext();
             }
+            else
+                return;
         }
+        else
+            return;
         
     }
 }
