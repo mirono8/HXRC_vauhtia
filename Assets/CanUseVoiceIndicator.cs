@@ -14,13 +14,13 @@ public class CanUseVoiceIndicator : MonoBehaviour
 
     public void TextureOn()
     {
-        GetComponent<RawImage>().texture = offTexture;
+        GetComponent<RawImage>().texture = onTexture;
         toggledOn = true;
         toggledOff = false;
     }
     public void TextureOff()
     {
-        GetComponent<RawImage>().texture = onTexture;
+        GetComponent<RawImage>().texture = offTexture;
         toggledOff = true;
         toggledOn = false;
     }
