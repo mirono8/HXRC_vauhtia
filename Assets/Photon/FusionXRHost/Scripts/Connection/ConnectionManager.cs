@@ -79,6 +79,7 @@ namespace Fusion.XR.Host {
             if (!speechly.activeInHierarchy)
             {
                 speechly.SetActive(true);
+                Debug.Log("Restarting Speechly, " + TaskList._taskListInstance.taskList[0]);
             }
             else
                 SpeechlyRestarter._restarterInstance.RestartSpeechly();
