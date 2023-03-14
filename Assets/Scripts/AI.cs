@@ -141,7 +141,7 @@ public class AI : MonoBehaviour
         {
             
             currentDistance = Vector3.Distance(transform.position, new Vector3(moveTowardsThis.position.x, 0f, moveTowardsThis.position.z));
-
+            
 
             /* if (!debugOnce)
              {
@@ -185,10 +185,15 @@ public class AI : MonoBehaviour
             agent.SetDestination(new Vector3(moveTowardsThis.position.x, 0f, moveTowardsThis.position.z));
 
             movementOk = true;
+          
             return true;
         }
         else
+        {
+            
             return false;
+        }
+            
 
 
     }
