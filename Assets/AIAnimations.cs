@@ -10,10 +10,10 @@ public class AIAnimations : MonoBehaviour
     private bool done = false;
     private void Update()
     {
-        if(mummo.isListening)
+       /* if(mummo.isListening)
             LookTowardsPlayer(true);
         else
-            LookTowardsPlayer(false);
+            LookTowardsPlayer(false);*/
     }
 
     public void LookTowardsPlayer(bool x)

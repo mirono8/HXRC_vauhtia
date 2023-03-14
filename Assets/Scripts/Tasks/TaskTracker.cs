@@ -22,11 +22,11 @@ public class TaskTracker : MonoBehaviour  //Initializes task for scene, tracks i
 
     private void Start()
     {
-      // _taskList=
-      // ();
-      /* taskListItem = new();
-       step = new();*/
-       
+        // _taskList=
+        // ();
+        /* taskListItem = new();
+         step = new();*/
+        doingNow = 0;
     }
     public void StepComplete(int step_id_value)
     {

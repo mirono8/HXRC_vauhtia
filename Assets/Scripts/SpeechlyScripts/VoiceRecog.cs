@@ -109,7 +109,7 @@ public class VoiceRecog : MonoBehaviour
                             if (bools.IsThisTrue("Kahvinpurut") && !bools.IsThisTrue("Kahvinkeitin"))
                             {
                                 bools.NullBools();
-                                InitByIntent.InitOtaLaita(mummo, "kahvinpurut", "pöytä3");   //vaiha interactiksi, kahvipurut -> interactwith suodatinpussi !!!!!  tää laittaa kahvin näkymään
+                                InitByIntent.InitOtaLaita(mummo, "kahvinpurut", "pöytä3");   //vaiha interactiksi, kahvipurut -> interactwith suodatinpussi !!!!!  tää laittaa kahvin näkymään // tää onki ok
                                 InitByIntent.InitInteract(mummo, "suodatinpussiInteract", false);
                                 mummo.KahviDo(1, 3); //Laita purut suodatinpussiin
                                 break;

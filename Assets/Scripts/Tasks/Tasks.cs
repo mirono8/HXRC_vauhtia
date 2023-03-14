@@ -218,27 +218,28 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
 
         //animaatio
         //yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
-        StartCoroutine(g.GrabObject());
+        if (g.GrabObject())
+        {
 
-        yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
+            //yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
 
-        if (g.DoesThisHaveRequiredSteps(g.mummo, stepIndex))
+            if (g.DoesThisHaveRequiredSteps(g.mummo, stepIndex))
             {
                 if (g.CheckReqCompletion(g.mummo, stepIndex))
                 {
 
-                    
+
                     if (g.mummo.IsMovementNecessary(g.mummo.dropHere))
                     {
                         yield return new WaitUntil(g.mummo.CloseEnough);
                     }
-                // yield return new WaitForSeconds(2.5f);//animaatio
-                StartCoroutine(g.DropObject());
-                yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
-                g.SendCompletedTask(stepIndex);
+                    // yield return new WaitForSeconds(2.5f);//animaatio
+                    g.DropObject();
+                    // yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
+                    g.SendCompletedTask(stepIndex);
 
                 }
-                
+
             }
             else
             {
@@ -248,14 +249,14 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
                     yield return new WaitUntil(g.mummo.CloseEnough);
                 }
 
-            // yield return new WaitForSeconds(2.5f); //animaatio vvv
-            yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
-            StartCoroutine(g.DropObject());
+                // yield return new WaitForSeconds(2.5f); //animaatio vvv
+                //yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
+                g.DropObject();
                 g.SendCompletedTask(stepIndex);
             }
-            
-        
-        
+
+
+        }
 
         g.mummo.isListening = true;
 
@@ -274,45 +275,49 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
             yield return new WaitUntil(g.mummo.CloseEnough);
         }
 
-        StartCoroutine(g.GrabObject());
-
-        yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
-        //animaatio vvv
-
-        if (g.mummo.IsMovementNecessary(interactTarget))
+        if (g.GrabObject())
         {
-            yield return new WaitUntil(g.mummo.CloseEnough);
-        }
 
+           // yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
+            //animaatio vvv
 
-
-        if (g.InteractWithGrabbed(stepIndex))
-        {
-            if (g.mummo.IsMovementNecessary(g.mummo.dropHere))
+            if (g.mummo.IsMovementNecessary(interactTarget))
             {
                 yield return new WaitUntil(g.mummo.CloseEnough);
             }
 
-            StartCoroutine(g.DropObject());
-            yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
-            g.SendCompletedTask(stepIndex);
+
+
+            if (g.InteractWithGrabbed(stepIndex))
+            {
+                if (g.mummo.IsMovementNecessary(g.mummo.dropHere))
+                {
+                    yield return new WaitUntil(g.mummo.CloseEnough);
+                }
+
+                g.DropObject();
+               // yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
+                g.SendCompletedTask(stepIndex);
+            }
+            else
+            {
+                if (g.mummo.IsMovementNecessary(g.mummo.dropHere))
+                {
+                    yield return new WaitUntil(g.mummo.CloseEnough);
+                }
+
+                g.DropObject();
+                //yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
+                Debug.Log("Could not interact");
+            }
+            // KAIKKI GRABOBJ JA DROPOBJ --> COROUTINEIKSI, JA WAITUNTILENDANIMRESUMETASK, NÄYTTÄS TOIMIVBAN
+
+            g.mummo.isListening = true;
+
+            Destroy(g);
         }
         else
-        {
-            if (g.mummo.IsMovementNecessary(g.mummo.dropHere))
-            {
-                yield return new WaitUntil(g.mummo.CloseEnough);
-            }
-
-            StartCoroutine(g.DropObject());
-            yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
-            Debug.Log("Could not interact");
-        }
-         // KAIKKI GRABOBJ JA DROPOBJ --> COROUTINEIKSI, JA WAITUNTILENDANIMRESUMETASK, NÄYTTÄS TOIMIVBAN
-
-        g.mummo.isListening = true;
-
-        Destroy(g);
+            g.mummo.InstructionMiss(4);
     }
 
     public IEnumerator OpenCloseThis(GameObject target, GameObject taskHolder, int stepIndex, bool closed, bool openable) //avaa avatta asia
