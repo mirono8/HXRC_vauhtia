@@ -11,6 +11,10 @@ public class PauseMenuToggler : MonoBehaviour
     public bool menuActive = false;
     public float menuDist = 1.1f;
 
+    private void Start()
+    {
+        DisableMenu();
+    }
     void Update()
     {
         if (Input.GetButtonDown("XRI_Left_MenuButton")) //|| Input.GetButtonDown("XRI_Right_PrimaryButton"))

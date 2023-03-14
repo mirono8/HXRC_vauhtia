@@ -11,7 +11,6 @@ public class TaskInit : ScriptableObject
     [HideInInspector]
     public TaskListItem.Steps step;
 
-    
     private void Start()
     {
         // _taskList= new();
@@ -180,7 +179,7 @@ public class TaskInit : ScriptableObject
             Debug.Log(step.stepName);
         }
 
-    
+        
     }
 
     private void OnApplicationQuit() //pit‰‰ ehk‰ vaihtaa onapplicationfocus kun buildaa?

@@ -5,7 +5,6 @@ using UnityEngine;
 public class CoffeePot : Triggerable
 {
     public CoffeeCup mugI;
-    public MeshRenderer mesh;
     private void Update()
     {
         if (triggered && !mugI.triggered)
@@ -17,7 +16,7 @@ public class CoffeePot : Triggerable
 
     private void OnEnable()
     {
-        mesh.enabled = true;
+        
         SoundEffectsCoffee._instance.PotSound(true);
     }
 }

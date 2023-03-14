@@ -31,7 +31,7 @@ public class VoiceRecog : MonoBehaviour
 
 
             //kaikki keissit suoritetaan muissa scripteiss�
-            if (segment.isFinal && mummo.isListening) //ilman segment.isFinal kaikki komennot looppaa !TaskList._taskListInstance.taskList[mummo.tracker.doingNow].t_isCompleted
+            if (segment.isFinal && mummo.isListening && !TaskList._taskListInstance.taskList[mummo.tracker.doingNow].t_isCompleted) //ilman segment.isFinal kaikki komennot looppaa !TaskList._taskListInstance.taskList[mummo.tracker.doingNow].t_isCompleted
             {
                 AnalyzeSegment(segment);
 
@@ -247,7 +247,7 @@ public class VoiceRecog : MonoBehaviour
 
                     case "paina":
 
-                        if (bools.IsThisTrue("Virtakytkin") && bools.IsThisTrue("Kahvinkeitin"))
+                        if (bools.IsThisTrue("Virtakytkin") || bools.IsThisTrue("Kahvinkeitin"))
                         {
                             bools.NullBools();
                             InitByIntent.InitInteract(mummo, "virtakytkin", false);

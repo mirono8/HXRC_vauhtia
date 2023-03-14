@@ -424,6 +424,9 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
 
         f.mummo.anims.WalkAnim(false);
 
+        StartCoroutine(f.GrabObject());
+
+        yield return new WaitUntil(f.mummo.anims.EndAnimResumeTask);
         /*if (!f.GrabObject())
         {
             Debug.Log("Mummo already has item, called from InteractFail");
@@ -446,7 +449,6 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
         f.DropObject();
         yield return new WaitUntil(f.mummo.anims.EndAnimResumeTask);
 
-        yield return new WaitForSeconds(2);
         f.mummo.isListening = true;
 
         Destroy(f);
