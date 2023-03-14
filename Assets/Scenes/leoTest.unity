@@ -817,7 +817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4208948369037581450, guid: 72aacf5ad018ef84f8c2f1796da09345, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4208948369037581450, guid: 72aacf5ad018ef84f8c2f1796da09345, type: 3}
       propertyPath: m_LocalPosition.y
@@ -825,7 +825,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4208948369037581450, guid: 72aacf5ad018ef84f8c2f1796da09345, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4208948369037581450, guid: 72aacf5ad018ef84f8c2f1796da09345, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2136,6 +2136,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 42023790}
+    - target: {fileID: 6271247946975765981, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6271247947158035312, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -2184,13 +2188,98 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenuV2
       objectReference: {fileID: 0}
+    - target: {fileID: 6271247947158035326, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6271247947158035327, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
       propertyPath: vrCam
       value: 
       objectReference: {fileID: 830411726}
+    - target: {fileID: 6271247947340549138, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6271247947340549143, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 830411727}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
+--- !u!1001 &6653522654669544842
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 841208209598723280, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 841208209598723280, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.346
+      objectReference: {fileID: 0}
+    - target: {fileID: 841208209598723280, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.138
+      objectReference: {fileID: 0}
+    - target: {fileID: 841208209598723280, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.409
+      objectReference: {fileID: 0}
+    - target: {fileID: 841208209598723280, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 841208209598723280, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 841208209598723280, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 841208209598723280, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 841208209598723280, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 841208209598723280, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 841208209598723280, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 841208209598723281, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
+      propertyPath: vrCam
+      value: 
+      objectReference: {fileID: 830411726}
+    - target: {fileID: 841208209598723294, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
+      propertyPath: m_Name
+      value: GameOverCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 841208209785342589, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 841208209949008823, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 830411727}
+    - target: {fileID: 6554547033384165171, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653522655455422928, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
