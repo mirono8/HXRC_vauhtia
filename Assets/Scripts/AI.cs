@@ -106,6 +106,9 @@ public class AI : MonoBehaviour
     //public int i = 0;
 
     public bool debugOnce = false;
+
+    public GameObject cheatsheet;
+
     private void Awake()
     {
         tasks = taskHolder.AddComponent<Tasks>();
@@ -124,6 +127,8 @@ public class AI : MonoBehaviour
                     taskInit.TaskListInitialization(0);
                     //initTargets.InitKahvinkeittoTargets();
                     // TargetsByTask.targetInitInstance.InitKahvinkeittoTargets();
+                    
+                    cheatsheet.SetActive(true);
                     break;
                 }
         }
@@ -161,11 +166,11 @@ public class AI : MonoBehaviour
         }
         // FacePlayer();
         handDir = mummoGrabber.transform.forward;
-       /*if (Input.GetButtonDown("TestInput"))
+       if (Input.GetButtonDown("TestInput"))
         {
-            anims.GrabAnim();
+            tracker.PlayerFeedback(0);
             //SetUpTool("Paksunnos", dropHere);
-        }*/
+        }
       
     }
     public bool CloseEnough()

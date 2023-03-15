@@ -19,7 +19,8 @@ public class TaskTracker : MonoBehaviour  //Initializes task for scene, tracks i
     */
 
     public int doingNow;
-
+    public GameObject victoryCanvas;
+    public GameObject speechlyCanvas;
     private void Start()
     {
         // _taskList=
@@ -131,6 +132,9 @@ public class TaskTracker : MonoBehaviour  //Initializes task for scene, tracks i
         }
 
         currentTask.t_isCompleted = true;
+
+        victoryCanvas.SetActive(true);
+        speechlyCanvas.SetActive(false);
     }
 
     private void Update()
