@@ -215,55 +215,58 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
         {
             g.mummo.anims.WalkAnim(true);
             yield return new WaitUntil(g.mummo.CloseEnough);
+            g.mummo.anims.WalkAnim(false);
         }
 
-        g.mummo.anims.WalkAnim(false);
+        
         //animaatio
         //yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
-        StartCoroutine(g.GrabObject());  //KAIKISTA GRABOBJECT COROUTINE -> DROPOBJECT MYÖS, TESTAA TOIMIIKOO HAJOOMATTA, VÄLILLÄ JÄÄ JUNTTURAAN, TOIMIVA APK ATM LAITTEESSA
+        StartCoroutine(g.GrabObject()); 
         
 
             yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
 
-            if (g.DoesThisHaveRequiredSteps(g.mummo, stepIndex))
+        if (g.DoesThisHaveRequiredSteps(g.mummo, stepIndex))
+        {
+            if (g.CheckReqCompletion(g.mummo, stepIndex))
             {
-                if (g.CheckReqCompletion(g.mummo, stepIndex))
-                {
 
 
-                    if (g.mummo.IsMovementNecessary(g.mummo.dropHere))
-                    {
-                        g.mummo.anims.WalkAnim(true);
-                        yield return new WaitUntil(g.mummo.CloseEnough);
-                    }
-
-                    g.mummo.anims.WalkAnim(false);
-                    // yield return new WaitForSeconds(2.5f);//animaatio
-                    g.DropObject();
-                    yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
-                    g.SendCompletedTask(stepIndex);
-
-                }
-
-            }
-            else
-            {
-                //animaatio vvv
                 if (g.mummo.IsMovementNecessary(g.mummo.dropHere))
                 {
                     g.mummo.anims.WalkAnim(true);
                     yield return new WaitUntil(g.mummo.CloseEnough);
+                    g.mummo.anims.WalkAnim(false);
                 }
-                g.mummo.anims.WalkAnim(false);
-                // yield return new WaitForSeconds(2.5f); //animaatio vvv
 
+
+                // yield return new WaitForSeconds(2.5f);//animaatio
                 g.DropObject();
-                yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
+
                 g.SendCompletedTask(stepIndex);
+
             }
 
+        }
+        else
+        {
+            //animaatio vvv
+            if (g.mummo.IsMovementNecessary(g.mummo.dropHere))
+            {
+                g.mummo.anims.WalkAnim(true);
+                yield return new WaitUntil(g.mummo.CloseEnough);
+                g.mummo.anims.WalkAnim(false);
+            }
+           
+            // yield return new WaitForSeconds(2.5f); //animaatio vvv
 
-        
+            g.DropObject();
+            //  yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
+            g.SendCompletedTask(stepIndex);
+        }
+
+
+
 
         g.mummo.isListening = true;
 
@@ -281,9 +284,10 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
         {
             g.mummo.anims.WalkAnim(true);
             yield return new WaitUntil(g.mummo.CloseEnough);
+            g.mummo.anims.WalkAnim(false);
         }
 
-        g.mummo.anims.WalkAnim(false);
+       
 
         if (g.DoesThisHaveRequiredSteps(g.mummo, stepIndex))
         {
@@ -295,13 +299,14 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
                 yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
                 //animaatio vvv
 
-                if (g.mummo.IsMovementNecessary(interactTarget))
+                if (g.mummo.IsMovementNecessary(g.mummo.interactThis.transform))
                 {
                     g.mummo.anims.WalkAnim(true);
                     yield return new WaitUntil(g.mummo.CloseEnough);
+                    g.mummo.anims.WalkAnim(false);
                 }
 
-                g.mummo.anims.WalkAnim(false);
+                
 
                 if (g.InteractWithGrabbed(stepIndex))
                 {
@@ -312,12 +317,12 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
                     {
                         g.mummo.anims.WalkAnim(true);
                         yield return new WaitUntil(g.mummo.CloseEnough);
+                        g.mummo.anims.WalkAnim(false);
                     }
 
-                    g.mummo.anims.WalkAnim(false);
+                    
 
                     g.DropObject();
-                    yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
                     g.SendCompletedTask(stepIndex);
                 }
                 else
@@ -326,13 +331,14 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
                     {
                         g.mummo.anims.WalkAnim(true);
                         yield return new WaitUntil(g.mummo.CloseEnough);
+                        g.mummo.anims.WalkAnim(false);
                     }
 
-                    g.mummo.anims.WalkAnim(false);
+                    
 
                     g.DropObject();
-                    yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
                     Debug.Log("Could not interact");
+                    g.mummo.mummoDialog.DontUnderstand();
                 }
             }
             else
@@ -349,13 +355,14 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
             yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
             //animaatio vvv
 
-            if (g.mummo.IsMovementNecessary(interactTarget))
+            if (g.mummo.IsMovementNecessary(g.mummo.interactThis.transform))
             {
                 g.mummo.anims.WalkAnim(true);
                 yield return new WaitUntil(g.mummo.CloseEnough);
+                g.mummo.anims.WalkAnim(false);
             }
 
-            g.mummo.anims.WalkAnim(false);
+           
 
             if (g.InteractWithGrabbed(stepIndex))
             {
@@ -366,12 +373,13 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
                 {
                     g.mummo.anims.WalkAnim(true);
                     yield return new WaitUntil(g.mummo.CloseEnough);
+                    g.mummo.anims.WalkAnim(false);
                 }
 
-                g.mummo.anims.WalkAnim(false);
+                
 
                 g.DropObject();
-                yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
+
                 g.SendCompletedTask(stepIndex);
             }
         }
@@ -392,12 +400,14 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
         {
             iw.mummo.anims.WalkAnim(true);
             yield return new WaitUntil(iw.mummo.CloseEnough);
+            iw.mummo.anims.WalkAnim(false);
         }
-        iw.mummo.anims.WalkAnim(false);
+        
 
         iw.mummo.anims.ActionAnim();
 
         yield return new WaitUntil(iw.mummo.anims.EndAnimResumeTask);
+
         iw.InteractBinary(closed,openable);
         if (stepIndex > -1)
         {
@@ -420,9 +430,10 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
         {
             f.mummo.anims.WalkAnim(true);
             yield return new WaitUntil(f.mummo.CloseEnough);
+            f.mummo.anims.WalkAnim(false);
         }
 
-        f.mummo.anims.WalkAnim(false);
+        
 
         StartCoroutine(f.GrabObject());
 
@@ -443,11 +454,12 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
         {   
             f.mummo.anims.WalkAnim(true);
             yield return new WaitUntil(f.mummo.CloseEnough);
+            f.mummo.anims.WalkAnim(false);
         }
 
-        f.mummo.anims.WalkAnim(false);
+
         f.DropObject();
-        yield return new WaitUntil(f.mummo.anims.EndAnimResumeTask);
+
 
         f.mummo.isListening = true;
 
@@ -473,13 +485,17 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
                     {   
                         to.mummo.anims.WalkAnim(true);
                         yield return new WaitUntil(to.mummo.CloseEnough);
+                        to.mummo.anims.WalkAnim(false);
                     }
 
-                    to.mummo.anims.WalkAnim(false);
+                    
+
                     to.mummo.anims.ActionAnim();
 
                     yield return new WaitUntil(to.mummo.anims.EndAnimResumeTask);
+
                     to.InteractBinary(false, false);
+
                     to.SendCompletedTask(stepIndex);
                 }
 
@@ -490,8 +506,9 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
                 {   
                     to.mummo.anims.WalkAnim(true);
                     yield return new WaitUntil(to.mummo.CloseEnough);
+                    to.mummo.anims.WalkAnim(false);
                 }
-                to.mummo.anims.WalkAnim(false);
+                
 
                 to.mummo.anims.ActionAnim();
 
@@ -507,8 +524,9 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
             {
                 to.mummo.anims.WalkAnim(true);
                 yield return new WaitUntil(to.mummo.CloseEnough);
+                to.mummo.anims.WalkAnim(false);
             }
-            to.mummo.anims.WalkAnim(false);
+            
 
             to.mummo.anims.ActionAnim();
 
@@ -558,7 +576,7 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
         chi.Init(interactThis,taskholder, -10, false, false);
         chi.mummo.isListening = false;
 
-        chi.GrabObject();
+        StartCoroutine(chi.GrabObject());
 
         yield return new WaitForSeconds(5); //Animaatio
 
@@ -583,9 +601,10 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
         {
             fgd.mummo.anims.WalkAnim(true);
             yield return new WaitUntil(fgd.mummo.CloseEnough);
+            fgd.mummo.anims.WalkAnim(false);
         }
 
-        fgd.mummo.anims.WalkAnim(false);
+        
 
         StartCoroutine(fgd.GrabObject());
 
@@ -596,12 +615,11 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
         {
             fgd.mummo.anims.WalkAnim(true);
             yield return new WaitUntil(fgd.mummo.CloseEnough);
+            fgd.mummo.anims.WalkAnim(false);
         }
-        fgd.mummo.anims.WalkAnim(false);
+        
 
         fgd.DropObject();
-
-        yield return new WaitUntil(fgd.mummo.anims.EndAnimResumeTask);
 
         fgd.mummo.isListening = true;
 
@@ -620,9 +638,10 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
         {
             fi.mummo.anims.WalkAnim(true);
             yield return new WaitUntil(fi.mummo.CloseEnough);
+            fi.mummo.anims.WalkAnim(false);
         }
 
-        fi.mummo.anims.WalkAnim(false);
+        
 
         StartCoroutine(fi.GrabObject());
 
@@ -632,8 +651,9 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
         {
             fi.mummo.anims.WalkAnim(true);
             yield return new WaitUntil(fi.mummo.CloseEnough);
+            fi.mummo.anims.WalkAnim(false);
         }
-        fi.mummo.anims.WalkAnim(false);
+        
 
         fi.mummo.anims.ActionAnim();
         yield return new WaitUntil(fi.mummo.anims.EndAnimResumeTask);
@@ -644,11 +664,12 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
         {
             fi.mummo.anims.WalkAnim(true);
             yield return new WaitUntil(fi.mummo.CloseEnough);
+            fi.mummo.anims.WalkAnim(false);
         }
-        fi.mummo.anims.WalkAnim(false);
+        
 
         fi.DropObject();
-        yield return new WaitUntil(fi.mummo.anims.EndAnimResumeTask);
+       
         
 
         fi.mummo.isListening = true;

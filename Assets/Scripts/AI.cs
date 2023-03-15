@@ -171,7 +171,8 @@ public class AI : MonoBehaviour
         handDir = mummoGrabber.transform.forward;
        if (Input.GetButtonDown("TestInput"))
         {
-            tracker.PlayerFeedback(0);
+            InitByIntent.InitOtaLaita(this, "suodatinpussi", "pöytä1");
+            KahviDo(0, 0);
             //SetUpTool("Paksunnos", dropHere);
         }
       
@@ -322,6 +323,7 @@ public class AI : MonoBehaviour
             case 4: mummoDialog.AlreadyDone(); break;
         }
 
+        anims.WhatAnim();
     }
 
    /* public void FacePlayer() // kokeile animaattoria ja ik-manipulointia lookat sun muut
