@@ -15,6 +15,7 @@ public class AIAnimations : MonoBehaviour
         
     }
 
+    
     public void LookTowardsPlayer()
     {
            mummo.mummoHead.LookAt(Camera.main.transform.position);      
@@ -25,8 +26,8 @@ public class AIAnimations : MonoBehaviour
     {
         done = false;
        // animator.SetLayerWeight(2, 1);
+        animator.ResetTrigger("dropTrigger");
         animator.SetTrigger("grabTrigger");
-        //animator.ResetTrigger("grabTrigger");
          
     }
 
@@ -34,18 +35,21 @@ public class AIAnimations : MonoBehaviour
     {
         done = false;
         //animator.SetLayerWeight(2, 0);
+        animator.ResetTrigger("grabTrigger");
         animator.SetTrigger("dropTrigger");
-        //animator.ResetTrigger("dropTrigger");
     }
 
     public void WalkAnim(bool go)
     {
         done = false;
+        //animator.SetLayerWeight(0, 1);
         if (go)
             animator.SetTrigger("walkTrigger");
         else
         {
-            //SetDone();
+            //animator.SetLayerWeight(0, 0);
+            animator.SetTrigger("reset"); // t‰‰ j‰tt‰‰ mummon jumii
+            //SetDone(); 
         }//animator.ResetTrigger("dropTrigger");
     }
 
