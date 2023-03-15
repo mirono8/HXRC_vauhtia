@@ -109,7 +109,7 @@ public class VoiceRecog : MonoBehaviour
                             if (bools.IsThisTrue("Kahvinpurut") && !bools.IsThisTrue("Kahvinkeitin"))
                             {
                                 bools.NullBools();
-                                InitByIntent.InitOtaLaita(mummo, "kahvinpurut", "pöytä3");   //vaiha interactiksi, kahvipurut -> interactwith suodatinpussi !!!!!  tää laittaa kahvin näkymään
+                                InitByIntent.InitOtaLaita(mummo, "kahvinpurut", "pöytä3");   //vaiha interactiksi, kahvipurut -> interactwith suodatinpussi !!!!!  tää laittaa kahvin näkymään // tää onki ok
                                 InitByIntent.InitInteract(mummo, "suodatinpussiInteract", false);
                                 mummo.KahviDo(1, 3); //Laita purut suodatinpussiin
                                 break;
@@ -247,7 +247,7 @@ public class VoiceRecog : MonoBehaviour
 
                     case "paina":
 
-                        if (bools.IsThisTrue("Virtakytkin"))
+                        if (bools.IsThisTrue("Virtakytkin") && bools.IsThisTrue("Kahvinkeitin"))
                         {
                             bools.NullBools();
                             InitByIntent.InitInteract(mummo, "virtakytkin", false);
@@ -286,12 +286,12 @@ public class VoiceRecog : MonoBehaviour
                         }
                         break;
 
-                    case "odota":
+                   /* case "odota":
                         bools.NullBools();
                         mummo.KahviDo(4, 10); //Odoteta kahvin tippumista                    
-                        break;
+                        break;*/
 
-                    case "apuvaline":
+                   /* case "apuvaline":
                         if (bools.IsThisTrue("Paksunnos"))
                         {
                             if (bools.ToolLearned("Paksunnos"))
@@ -312,7 +312,7 @@ public class VoiceRecog : MonoBehaviour
                             else
                                 Debug.Log("Tool not learned"); break;
                         }
-                        break;
+                        break;*/
 
                     default: bools.NullBools(); mummo.InstructionMiss(1); break;
                 }

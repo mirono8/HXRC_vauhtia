@@ -25,6 +25,7 @@ public class SpeechlyRestarter : MonoBehaviour
     {
         speechly.SetActive(false);
         speechly.SetActive(true);
+        Debug.Log("Restarting Speechly");
     }
     
 }

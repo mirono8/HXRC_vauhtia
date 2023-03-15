@@ -99,26 +99,26 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
                     mummo.grabThis.transform.localRotation = mummo.mummoGrabber.localRotation; //Quaternion.Euler(new Vector3(72.2023849f, 114.251907f, 203.216797f));
                     mummo.hasItem = true;
                     
-                   // return true;
+                   //return true;
                 }
                 else
                 {
                     Debug.Log("Cant grab object, not retrieved. called from GrabObject");
-                    mummo.InstructionMiss(4);
-                  //  return false;
+                    mummo.InstructionMiss(1);
+                    //return false;
                 }
             }
         }
         else
         {
             Debug.Log("mummo already has item, called from GrabObject");
-            mummo.InstructionMiss(4);
-            //return false;
+            mummo.InstructionMiss(1);
+           // return false;
         }
     }
 
 
-    public IEnumerator DropObject()
+    public void DropObject()
     {
         if (mummo.hasItem)
         {
@@ -128,7 +128,7 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
             }
 
             mummo.anims.DropAnim();
-            yield return new WaitUntil(mummo.anims.EndAnimResumeTask);
+            //yield return new WaitUntil(mummo.anims.EndAnimResumeTask);
             mummo.grabThis.transform.parent = mummo.dropHere;
             mummo.grabThis.transform.localPosition = new Vector3(0, 0, 0);
             mummo.grabThis.transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));

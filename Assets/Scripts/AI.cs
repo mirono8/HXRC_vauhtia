@@ -112,6 +112,11 @@ public class AI : MonoBehaviour
         aiTools = this.GetComponent<AITools>();
         anims = gameObject.GetComponent<AIAnimations>();
 
+        
+    }
+
+    private void Start()
+    {
         switch (currentTask)
         {
             case "Kahvinkeitto":
@@ -136,7 +141,7 @@ public class AI : MonoBehaviour
         {
             
             currentDistance = Vector3.Distance(transform.position, new Vector3(moveTowardsThis.position.x, 0f, moveTowardsThis.position.z));
-
+            
 
             /* if (!debugOnce)
              {
@@ -156,11 +161,11 @@ public class AI : MonoBehaviour
         }
         // FacePlayer();
         handDir = mummoGrabber.transform.forward;
-       if (Input.GetButtonDown("TestInput"))
+       /*if (Input.GetButtonDown("TestInput"))
         {
             anims.GrabAnim();
             //SetUpTool("Paksunnos", dropHere);
-        }
+        }*/
       
     }
     public bool CloseEnough()
@@ -176,14 +181,19 @@ public class AI : MonoBehaviour
 
         if (currentDistance > acceptableDistance)
         {
-            Debug.Log("movement is necessary");
+            
             agent.SetDestination(new Vector3(moveTowardsThis.position.x, 0f, moveTowardsThis.position.z));
 
             movementOk = true;
+          
             return true;
         }
         else
+        {
+            
             return false;
+        }
+            
 
 
     }
@@ -199,7 +209,7 @@ public class AI : MonoBehaviour
     }*/
     public void KahviDo(int toDo, int stepIndex)
     {
-        var currentStep = TaskList._taskListInstance.taskList[tracker.doingNow].stepsList[stepIndex];
+       var currentStep = TaskList._taskListInstance.taskList[tracker.doingNow].stepsList[stepIndex];
 
         switch (toDo)
         {

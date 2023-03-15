@@ -37,6 +37,7 @@ public class Cable : Triggerable
 
 
     public GameObject outlet;
+
     private void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
@@ -107,7 +108,7 @@ public class Cable : Triggerable
 
              }
             */
-            journeyLength = Vector3.Distance(startHere.transform.position, plug.position); //n‰‰ oli local, testing
+            journeyLength = Vector3.Distance(startHere.transform.position, outlet.transform.position); //n‰‰ oli local, testing
             // journeyLengthPerVertex = journeyLength / segments;
 
             for (int i = 0; i < lineRenderer.positionCount; i++)
@@ -117,7 +118,7 @@ public class Cable : Triggerable
                 lineRenderer.SetPosition(0, parentStartLoc);
                 myPos = lineRenderer.GetPosition(i);
                 Debug.Log(myPos + " mypos at " + i);
-                nextPos = Vector3.MoveTowards(myPos, plug.position + deviation, journeyLengthPerVertex);
+                nextPos = Vector3.MoveTowards(myPos, outlet.transform.position + deviation, journeyLengthPerVertex);
 
                 /* GameObject instancedObj;
                  Debug.Log(cableSegmentPrefab.transform.rotation.z + " prefab Z");
@@ -128,7 +129,7 @@ public class Cable : Triggerable
                 {
                     if (journeyLength > currentLength)
                     {
-                        if (lineRenderer.positionCount < segments && (Vector3.Distance(myPos, plug.position) > 0.08f))
+                        if (lineRenderer.positionCount < segments && (Vector3.Distance(myPos, outlet.transform.position) > 0.08f))
                         {
                             lineRenderer.positionCount++;
 
@@ -154,14 +155,14 @@ public class Cable : Triggerable
                         }
                         else
                         {
-                            lineRenderer.SetPosition(i, plug.position);
+                            lineRenderer.SetPosition(i, outlet.transform.position);
                             Debug.Log("stopped printing cable");
                             break;
                         }
                     }
                 else
                 {
-                    lineRenderer.SetPosition(i, plug.position);
+                    lineRenderer.SetPosition(i, outlet.transform.position);
                     Debug.Log("stopped printing cable");
                     break;
                 }
