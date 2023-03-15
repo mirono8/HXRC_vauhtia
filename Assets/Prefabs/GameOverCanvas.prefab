@@ -48,7 +48,10 @@ MonoBehaviour:
   menuBg: {fileID: 841208209785342589}
   vrCam: {fileID: 0}
   menuDist: 1.1
-  timeText: {fileID: 6653522653991867504}
+  timeText: {fileID: 0}
+  commandsText: {fileID: 0}
+  doneCmdsText: {fileID: 0}
+  gradeText: {fileID: 0}
 --- !u!1 &841208209785342589
 GameObject:
   m_ObjectHideFlags: 0
@@ -81,8 +84,8 @@ RectTransform:
   m_Children:
   - {fileID: 2904037197914614749}
   - {fileID: 6653522653991867507}
-  - {fileID: 6653522654667647314}
   - {fileID: 6653522653782058072}
+  - {fileID: 6653522654667647314}
   - {fileID: 6653522655361581781}
   m_Father: {fileID: 841208209949008712}
   m_RootOrder: 0
@@ -469,7 +472,7 @@ GameObject:
   - component: {fileID: 6653522653782058078}
   - component: {fileID: 6653522653782058073}
   m_Layer: 5
-  m_Name: Annetut Ohjeet
+  m_Name: Stat1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -489,11 +492,11 @@ RectTransform:
   m_Children:
   - {fileID: 6653522654817086484}
   m_Father: {fileID: 841208209785342590}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 160, y: -44}
+  m_AnchoredPosition: {x: 160, y: 26}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6653522653782058078
@@ -605,7 +608,7 @@ GameObject:
   - component: {fileID: 6653522653991867505}
   - component: {fileID: 6653522653991867504}
   m_Layer: 5
-  m_Name: Aika
+  m_Name: Stat0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -741,7 +744,7 @@ GameObject:
   - component: {fileID: 6653522654667647312}
   - component: {fileID: 6653522654667647315}
   m_Layer: 5
-  m_Name: Ymmarretyt ohjeet
+  m_Name: Stat2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -761,11 +764,11 @@ RectTransform:
   m_Children:
   - {fileID: 6653522655455422928}
   m_Father: {fileID: 841208209785342590}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 160, y: 26}
+  m_AnchoredPosition: {x: 160, y: -44}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6653522654667647312
@@ -796,7 +799,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ymm\xE4rrettyj\xE4 ohjeita"
+  m_text: "Ymm\xE4rretyt ohjeet"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a6446991ef31ced4190c53c206cf4b3e, type: 2}
   m_sharedMaterial: {fileID: -9221056233183343877, guid: a6446991ef31ced4190c53c206cf4b3e, type: 2}
@@ -1282,7 +1285,7 @@ GameObject:
   - component: {fileID: 6653522655361581803}
   - component: {fileID: 6653522655361581802}
   m_Layer: 5
-  m_Name: Arvosana
+  m_Name: Stat3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1337,7 +1340,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Arvosana
+  m_text: Pisteet
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a6446991ef31ced4190c53c206cf4b3e, type: 2}
   m_sharedMaterial: {fileID: -9221056233183343877, guid: a6446991ef31ced4190c53c206cf4b3e, type: 2}

@@ -21,6 +21,7 @@ public class TaskTracker : MonoBehaviour  //Initializes task for scene, tracks i
     public int doingNow;
     public GameObject victoryCanvas;
     public GameObject speechlyCanvas;
+    public GameOverUI endCanvas;
     private void Start()
     {
         // _taskList=
@@ -135,6 +136,8 @@ public class TaskTracker : MonoBehaviour  //Initializes task for scene, tracks i
 
         victoryCanvas.SetActive(true);
         speechlyCanvas.SetActive(false);
+        if (endCanvas!= null)
+        endCanvas.ActivateMenu();
     }
 
     private void Update()

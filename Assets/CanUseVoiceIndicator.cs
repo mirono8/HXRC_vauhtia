@@ -11,6 +11,11 @@ public class CanUseVoiceIndicator : MonoBehaviour
     public bool isOnTexture;
     public bool toggledOn;
     public bool toggledOff;
+    public GameOverUI endScreen;
+    private void Start()
+    {
+        endScreen = GameObject.Find("GameOverCanvas").GetComponent<GameOverUI>();
+    }
 
     public void TextureOn()
     {
@@ -23,16 +28,17 @@ public class CanUseVoiceIndicator : MonoBehaviour
         GetComponent<RawImage>().texture = offTexture;
         toggledOff = true;
         toggledOn = false;
+        endScreen.NewCommandGiven();
     }
 
     private void Update()
     {
         if (isOnTexture)
         {
-            if (!toggledOn)
+            if (toggledOff)
             TextureOn();
         }
-        else if (!toggledOff)
+        else if (toggledOn)
         {
             TextureOff();
         }

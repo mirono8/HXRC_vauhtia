@@ -2265,18 +2265,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOverCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 841208209785342589, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 841208209949008823, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 830411727}
-    - target: {fileID: 6554547033384165171, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6653522655455422928, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
       propertyPath: m_RootOrder
       value: 1

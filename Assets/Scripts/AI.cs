@@ -109,6 +109,8 @@ public class AI : MonoBehaviour
 
     public GameObject cheatsheet;
 
+    public GameOverUI endScreen;
+
     private void Awake()
     {
         tasks = taskHolder.AddComponent<Tasks>();
@@ -132,6 +134,7 @@ public class AI : MonoBehaviour
                     break;
                 }
         }
+        endScreen = GameObject.Find("GameOverCanvas").GetComponent<GameOverUI>();
     }
 
     private void Update()
@@ -278,6 +281,7 @@ public class AI : MonoBehaviour
         }
 
         UnityEngine.Debug.Log("Kahvi DO: " + toDo);
+        endScreen.NewCommandUnderstood();
     }
 
     public void GeneralDo(int toDo, bool open) //Asioita mit� AI voi tehd� mit� ei lasketa askeleiksi
@@ -289,6 +293,7 @@ public class AI : MonoBehaviour
             case 2: StartCoroutine(tasks.FreeGrabDrop(grabThis, taskHolder)); mummoDialog.FillerTalk(1); break; //ota asioita ilman step
             case 3: StartCoroutine(tasks.FreeGrabInsert(taskHolder)); mummoDialog.FillerTalk(1); break; //insert ilman step
         } //TOOLS INTERACTIONS
+        endScreen.NewCommandUnderstood();
     }
 
     public void ToolsDo(int toDo)
@@ -297,6 +302,7 @@ public class AI : MonoBehaviour
         {
             case 0: StartCoroutine(tasks.CombineHoldingItems(interactThis, grabThis, taskHolder)); break; // Asia vasemmasta kädestä kiinni oikeaan käteen (grabThis)
         }
+        endScreen.NewCommandUnderstood();
     }
    /* public void SetUpTool(string toolName, Transform dropHere)
     {
