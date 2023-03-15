@@ -317,6 +317,7 @@ public class AI : MonoBehaviour
             case 4: mummoDialog.AlreadyDone(); break;
         }
 
+        anims.WhatAnim();
     }
 
    /* public void FacePlayer() // kokeile animaattoria ja ik-manipulointia lookat sun muut

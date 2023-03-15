@@ -374,6 +374,11 @@ public class VoiceRecog : MonoBehaviour
         if (segment.entities.Select(entry => entry.Value).ToList().Where(entity => entity.type == "liukueste").Select(entity => entity.value).Reverse().ToArray().FirstOrDefault() != null)
             bools.SetTrue("Liukueste");
         //odota ei ole entity vaan intent joten ei ole t��ll� :)
+
+        if (bools.wasEmpty)
+        {
+            bools.NullBools(); mummo.InstructionMiss(1);
+        }
     }
 
     void Update()

@@ -59,6 +59,12 @@ public class AIAnimations : MonoBehaviour
         animator.SetTrigger("actionTrigger");
         //animator.ResetTrigger("dropTrigger");
     }
+    public void WhatAnim()
+    {
+        done = false;
+        animator.SetTrigger("whatTrigger");
+        //animator.ResetTrigger("dropTrigger");
+    }
 
     public void SetDone()
     {

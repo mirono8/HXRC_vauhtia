@@ -1616,10 +1616,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: KahvinkeittoSpeechly
       objectReference: {fileID: 0}
-    - target: {fileID: 179982760865830698, guid: c53e9e6b928333e42ab4f307867bc600, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3667090105702339825, guid: c53e9e6b928333e42ab4f307867bc600, type: 3}
       propertyPath: aiTools
       value: 

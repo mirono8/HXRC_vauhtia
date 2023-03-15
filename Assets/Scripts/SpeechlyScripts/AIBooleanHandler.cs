@@ -6,12 +6,14 @@ public class AIBooleanHandler : MonoBehaviour
 {
     public AITools aiTools;
 
+    public bool wasEmpty = true;
     [System.Serializable]
     public class CommonBools
     {
         public string name;
         public bool value;
         public string tool;
+
     }
 
     [System.Serializable]
@@ -31,6 +33,7 @@ public class AIBooleanHandler : MonoBehaviour
             if (common[i].name == name)
             {
                 common[i].value = true;
+                wasEmpty = false;
             }
         }
 
@@ -54,6 +57,8 @@ public class AIBooleanHandler : MonoBehaviour
         {
             tools[x].value = false;
         }
+
+        wasEmpty = true;
     }
 
     public bool IsThisTrue(string name)
