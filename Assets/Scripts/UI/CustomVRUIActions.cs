@@ -41,7 +41,7 @@ public class CustomVRUIActions : MonoBehaviour
     {
         TextMeshProUGUI text = GetComponentInChildren<TextMeshProUGUI>();
         var audio = GetComponentInParent<PauseMenuToggler>().vrCam.GetComponent<AudioListener>();
-        if (audio != null)
+        if (audio.enabled == true)
         {
             audio.enabled = false;
             text.text = "Unmute";
