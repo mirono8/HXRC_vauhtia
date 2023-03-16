@@ -18,6 +18,8 @@ public class AI : MonoBehaviour
     [Tooltip("Possible general interaction targets")]
     public TaskTargetsToList interactTargets;
 
+    [Tooltip("Patrol points")]
+    public PatrolManager patrolManager;
 
     [Space(10)]
     [SerializeField]
@@ -193,13 +195,15 @@ public class AI : MonoBehaviour
             
             agent.SetDestination(new Vector3(moveTowardsThis.position.x, 0f, moveTowardsThis.position.z));
 
+            agent.isStopped = false;
+
             movementOk = true;
           
             return true;
         }
         else
         {
-            
+            agent.isStopped = true;
             return false;
         }
             
@@ -320,13 +324,20 @@ public class AI : MonoBehaviour
         switch (i)
         {
             case 1: mummoDialog.DontUnderstand();  break;
+            case 2: mummoDialog.Whoops(); break;
             case 4: mummoDialog.AlreadyDone(); break;
         }
 
         anims.WhatAnim();
     }
 
-   /* public void FacePlayer() // kokeile animaattoria ja ik-manipulointia lookat sun muut
+    public void CreateChaos()
+    {
+        Debug.Log("chaos");
+        patrolManager.StartPatrol();
+    }
+
+    public float CalculateHeadAngle() // kokeile animaattoria ja ik-manipulointia lookat sun muut
     {
         originDir = mummoOrigin.transform.forward;
         bodyDir = mummoBody.transform.forward;
@@ -339,7 +350,9 @@ public class AI : MonoBehaviour
         quatHead = Quaternion.LookRotation(Camera.main.transform.position - mummoHead.transform.position);
         quatBody = Quaternion.LookRotation(Camera.main.transform.position - mummoBody.transform.position);
 
-        if (headAngle > 15f && bodyAngle < 60 && isListening)
+
+        return headAngle;
+       /* if (headAngle > 15f && bodyAngle < 60 && isListening)
         {
             quatBody.x = 0f;
             quatBody.z = 0f;
@@ -366,10 +379,10 @@ public class AI : MonoBehaviour
         else
         {
             ResetHeadRotation(quatOrigin);
-        }
+        }*/
     }
 
-    public void ResetHeadRotation(Quaternion origin)
+   /* public void ResetHeadRotation(Quaternion origin)
     {
         mummoHead.transform.rotation = Quaternion.Slerp(mummoHead.transform.rotation, origin, (1.2f * turnSpeed) * Time.deltaTime);
     }*/
