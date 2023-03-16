@@ -16,37 +16,63 @@ public class MummoDialog : MonoBehaviour
     private int x;
     public void DontUnderstand()
     {
-        clip = dialog[1];
+        i = Random.Range(0, 3);
+        if (i == 0)
+            clip = dialog[1];
+        else if (i == 1)
+            clip = dialog[5];
+        else
+            clip = dialog[6];
+
         aSource.PlayOneShot(clip);
     }
 
     public void Agree()
     {
-        clip = dialog[0];
+        i = Random.Range(0, 2);
+        if (i == 0)
+            clip = dialog[7];
+        else
+            clip = dialog[0];
+
         aSource.PlayOneShot(clip);
     }
 
     public void Monologue()
     {
         clip = dialog[2];
+
         aSource.PlayOneShot(clip);
     }
 
     public void WhatNext()
     {
         clip = dialog[3];
+
         aSource.PlayOneShot(clip);
     }
 
     public void AlreadyDone()
     {
         clip = dialog[4];
+
+        aSource.PlayOneShot(clip);
+    }
+
+    public void Whoops()
+    {
+        i = Random.Range(0, 2);
+        if (i == 0)
+            clip = dialog[8];
+        else
+            clip = dialog[9];
+
         aSource.PlayOneShot(clip);
     }
 
     public void FillerTalk(int x)
     {
-        i = Random.Range(0, dialog.Count);
+        i = Random.Range(0, 4);
         if (i == 2)
         {
             if (x == 1)

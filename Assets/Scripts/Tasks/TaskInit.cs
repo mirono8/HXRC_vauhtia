@@ -27,6 +27,7 @@ public class TaskInit : ScriptableObject
 
         
         int i = 0;
+        int a = 0;
         TaskList._taskListInstance.taskList.Add(new TaskListItem() // lis‰t‰‰n singleton task-listaan uusi task
         {
             t_name = "Kahvinkeitto",
@@ -174,9 +175,14 @@ public class TaskInit : ScriptableObject
 
         Debug.Log(TaskList._taskListInstance.taskList[task_id].t_name);
 
-        foreach (var step in TaskList._taskListInstance.taskList[task_id].stepsList)
+        for (int x = 0; x < TaskList._taskListInstance.taskList[task_id].t_stepTotal; x++)
         {
-            Debug.Log(step.stepName);
+            a = Random.Range(0, 6);
+
+            if(a == 4)
+                TaskList._taskListInstance.taskList[task_id].stepsList[x].isLearned = true;
+
+            Debug.Log(TaskList._taskListInstance.taskList[task_id].stepsList[x].stepName + ", is this learned? Status: " + TaskList._taskListInstance.taskList[task_id].stepsList[x].isLearned);
         }
 
         

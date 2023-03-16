@@ -460,7 +460,7 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
 
         f.DropObject();
 
-
+        f.mummo.InstructionMiss(2);
         f.mummo.isListening = true;
 
         Destroy(f);

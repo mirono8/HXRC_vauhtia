@@ -8,20 +8,21 @@ public class AIAnimations : MonoBehaviour
     public Animator animator;
 
     private bool done = false;
-    private void Update()
-    {
-       /* if(mummo.isListening)
-            LookTowardsPlayer();*/
-        
-    }
 
-    
-    public void LookTowardsPlayer()
+    private void OnAnimatorIK()
     {
-           mummo.mummoHead.LookAt(Camera.main.transform.position);      
-        
-    }
 
+        if (mummo.isListening && (mummo.CalculateHeadAngle() < 70f))
+        {
+            
+            animator.SetLookAtWeight(1);
+            animator.SetLookAtPosition(Camera.main.transform.position);
+        }
+        else
+        {
+            animator.SetLookAtWeight(0);
+        }
+    }
     public void GrabAnim()
     {
         done = false;

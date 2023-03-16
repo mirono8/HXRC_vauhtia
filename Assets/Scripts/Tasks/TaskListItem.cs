@@ -40,6 +40,9 @@ public class TaskListItem //Body for task in a list, contains a list for steps
         [Tooltip("True = requiredSteps have to be done first, False = can be done in any order (other steps may require this step)")]
         public bool rigid_order;
 
+        [Tooltip("Can the AI complete this ón it's own?")]
+        public bool isLearned = false;
+
         [Tooltip("Final step before task is complete")]
         public bool isFinal = false;
 

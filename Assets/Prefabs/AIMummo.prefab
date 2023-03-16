@@ -463,6 +463,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doingNow: 0
+  victoryCanvas: {fileID: 0}
+  speechlyCanvas: {fileID: 0}
 --- !u!1 &6051592487458664561
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,13 +569,17 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4409161137309319826, guid: a887b8dcff7b58e43b4ad38797c6e1d8, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 2d0ecc7adbad1634b870289e0b554ab5, type: 3}
+    - target: {fileID: 4409161137309319826, guid: a887b8dcff7b58e43b4ad38797c6e1d8, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4409161137309319826, guid: a887b8dcff7b58e43b4ad38797c6e1d8, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 5ca7e4355c312c343b3a9ce4f05d1524, type: 2}
+      objectReference: {fileID: 9100000, guid: 25b46c2a5b8021d479fdda188e27a2f1, type: 2}
     - target: {fileID: 4409161137309319826, guid: a887b8dcff7b58e43b4ad38797c6e1d8, type: 3}
       propertyPath: m_WarningMessage
       value: 
@@ -608,7 +614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7768797752334113000, guid: a887b8dcff7b58e43b4ad38797c6e1d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.94
+      value: -4.386
       objectReference: {fileID: 0}
     - target: {fileID: 7768797752334113000, guid: a887b8dcff7b58e43b4ad38797c6e1d8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -774,6 +780,7 @@ MonoBehaviour:
   grabTargets: {fileID: 0}
   dropTargets: {fileID: 0}
   interactTargets: {fileID: 0}
+  patrolManager: {fileID: 0}
   grabThis: {fileID: 0}
   dropHere: {fileID: 0}
   lookTarget: {fileID: 0}
@@ -794,7 +801,7 @@ MonoBehaviour:
   movementOk: 0
   aiTools: {fileID: 8896710623660025889}
   movementSpd: 1
-  acceptableDistance: 1.2
+  acceptableDistance: 1.3
   currentDistance: 0
   bodyAngle: 0
   turnSpeed: 0
@@ -805,6 +812,7 @@ MonoBehaviour:
   mummoDialog: {fileID: 2009286905}
   anims: {fileID: 2009286911}
   debugOnce: 0
+  cheatsheet: {fileID: 0}
 --- !u!114 &8896710623660025889
 MonoBehaviour:
   m_ObjectHideFlags: 0
