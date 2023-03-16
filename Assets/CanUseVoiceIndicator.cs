@@ -28,7 +28,7 @@ public class CanUseVoiceIndicator : MonoBehaviour
         GetComponent<RawImage>().texture = offTexture;
         toggledOff = true;
         toggledOn = false;
-        endScreen.NewCommandGiven();
+        endScreen.commandsGiven++;
     }
 
     private void Update()

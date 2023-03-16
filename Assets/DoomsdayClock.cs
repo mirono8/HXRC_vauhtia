@@ -13,10 +13,13 @@ public class DoomsdayClock : MonoBehaviour
     private AI mummo;
 
     public float triggerSeconds;
+
+    public GameOverUI endScreen;
     private void Start()
     {
         var temp = GameObject.FindGameObjectWithTag("Mummo");
         mummo = temp.GetComponent<AI>();
+        endScreen = GameObject.Find("GameOverCanvas").GetComponent<GameOverUI>();
     }
     void Update()
     {
@@ -38,6 +41,8 @@ public class DoomsdayClock : MonoBehaviour
             
             mummo.CreateChaos();
             mummo.isListening = false;
+
+            endScreen.chaosesCaused++;
         }
     }
 }

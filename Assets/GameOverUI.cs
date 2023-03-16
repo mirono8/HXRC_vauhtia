@@ -9,13 +9,14 @@ public class GameOverUI : MonoBehaviour
     public GameObject vrCam;
     public float menuDist = 1.1f;
 
-    private int commandsGiven;
-    private int commandsUnderstood;
+    public int commandsGiven;
+    public int commandsUnderstood;
+    public int chaosesCaused;
 
-    public TextMeshProUGUI timeText;
-    public TextMeshProUGUI commandsText;
-    public TextMeshProUGUI doneCmdsText;
-    public TextMeshProUGUI gradeText;
+    private TextMeshProUGUI timeText;
+    private TextMeshProUGUI commandsText;
+    private TextMeshProUGUI doneCmdsText;
+    private TextMeshProUGUI gradeText;
 
     private void Start()
     {
@@ -23,14 +24,6 @@ public class GameOverUI : MonoBehaviour
         commandsText = GameObject.Find("Stat1").GetComponentInChildren<TextMeshProUGUI>();
         doneCmdsText = GameObject.Find("Stat2").GetComponentInChildren<TextMeshProUGUI>();
         gradeText = GameObject.Find("Stat3").GetComponentInChildren<TextMeshProUGUI>();
-    }
-    public void NewCommandGiven()
-    {
-        commandsGiven++;
-    }
-    public void NewCommandUnderstood()
-    {
-        commandsUnderstood++;
     }
 
     public void ActivateMenu() {
