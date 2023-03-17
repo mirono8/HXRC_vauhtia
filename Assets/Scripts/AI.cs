@@ -89,7 +89,7 @@ public class AI : MonoBehaviour
     private Vector3 headDir;
 
     [SerializeField]
-    private float headAngle;
+    private float angleVSPlayer;
 
     public Vector3 handDir;
     
@@ -331,13 +331,15 @@ public class AI : MonoBehaviour
         patrolManager.StartPatrol();
     }
 
-    public float CalculateHeadAngle() // kokeile animaattoria ja ik-manipulointia lookat sun muut
+    public float CalculateHeadVsPlayer() // kokeile animaattoria ja ik-manipulointia lookat sun muut
     {
         originDir = mummoOrigin.transform.forward;
         bodyDir = mummoBody.transform.forward;
         headDir = mummoHead.transform.forward;
 
-        headAngle = Vector3.Angle(headDir, originDir);
+        var offset = Camera.main.transform.position - gameObject.transform.position;
+
+        angleVSPlayer = Vector3.Angle(originDir, offset);
         bodyAngle = Vector3.Angle(bodyDir, originDir);
 
         quatOrigin = Quaternion.Euler(originDir);
@@ -345,7 +347,7 @@ public class AI : MonoBehaviour
         quatBody = Quaternion.LookRotation(Camera.main.transform.position - mummoBody.transform.position);
 
 
-        return headAngle;
+        return angleVSPlayer;
        /* if (headAngle > 15f && bodyAngle < 60 && isListening)
         {
             quatBody.x = 0f;

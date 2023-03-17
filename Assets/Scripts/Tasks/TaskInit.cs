@@ -102,10 +102,10 @@ public class TaskInit : ScriptableObject
         step = new TaskListItem.Steps();
         step.requiredSteps = new List<int>();
         step.stepName = "Kannen sulkeminen";
-        step.rigid_order = true; step.isOptional = false;
+        step.rigid_order = false; step.isOptional = false;
         step.myIndex = i;
         TaskList._taskListInstance.taskList[task_id].stepsList.Add(step);
-        TaskList._taskListInstance.taskList[task_id].stepsList[i].requiredSteps.Add(6);
+       // TaskList._taskListInstance.taskList[task_id].stepsList[i].requiredSteps.Add(6);
         i++;
 
         step = new TaskListItem.Steps();

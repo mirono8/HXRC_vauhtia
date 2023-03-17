@@ -652,6 +652,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8461498018701211659, guid: a887b8dcff7b58e43b4ad38797c6e1d8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9392951
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461498018701211659, guid: a887b8dcff7b58e43b4ad38797c6e1d8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.34311047
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461498018701211659, guid: a887b8dcff7b58e43b4ad38797c6e1d8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461498018701211659, guid: a887b8dcff7b58e43b4ad38797c6e1d8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461498018701211659, guid: a887b8dcff7b58e43b4ad38797c6e1d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a887b8dcff7b58e43b4ad38797c6e1d8, type: 3}
 --- !u!4 &1911274164964719551 stripped
@@ -765,6 +785,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mummo: {fileID: 4319024118879139079}
   animator: {fileID: 7069905459914455824}
+  ikActive: 1
+  dampVelocity: 0
 --- !u!114 &4319024118879139079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -805,7 +827,7 @@ MonoBehaviour:
   currentDistance: 0
   bodyAngle: 0
   turnSpeed: 0
-  headAngle: 0
+  angleVSPlayer: 0
   handDir: {x: 0, y: 0, z: 0}
   agent: {fileID: 2009286907}
   voiceIndicator: {fileID: 0}

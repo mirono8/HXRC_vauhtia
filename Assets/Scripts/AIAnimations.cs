@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,19 +9,52 @@ public class AIAnimations : MonoBehaviour
     public Animator animator;
 
     private bool done = false;
+    public  bool ikActive = false;
+    private float lookAtWeight;
 
-    private void OnAnimatorIK()
+    private bool headReset;
+
+    [SerializeField]
+    private float dampVelocity = 0;
+    private void Update()
     {
-
-        if (mummo.isListening && (mummo.CalculateHeadAngle() < 70f))
+        if (mummo.CalculateHeadVsPlayer() < 90 ) //90f(mummo.mummoHead.rotation.y < 0.45f) && (mummo.mummoHead.rotation.y > -0.45f)
         {
-            
-            animator.SetLookAtWeight(1);
-            animator.SetLookAtPosition(Camera.main.transform.position);
+            if ((mummo.mummoHead.rotation.y > 0.5f) || (mummo.mummoHead.rotation.y < -0.5f))
+            {
+                //Pää ei käänny enää
+                Debug.Log(lookAtWeight);
+              //  lookAtWeight = 0.5f;
+                lookAtWeight = Mathf.SmoothDamp(lookAtWeight, 0.5f, ref dampVelocity, 3f);  //kinda wonky
+
+            }
+            else
+            {
+                // lookAtWeight = Mathf.Lerp(lookAtWeight, 1, Time.deltaTime * 2.5f);
+                lookAtWeight = Mathf.SmoothDamp(lookAtWeight, 1, ref dampVelocity, 2f);
+            }
         }
         else
         {
-            animator.SetLookAtWeight(0);
+            headReset = true;
+            //lookAtWeight = Mathf.Lerp(lookAtWeight, 0, Time.deltaTime * 2.5f);   
+            lookAtWeight = Mathf.SmoothDamp(lookAtWeight, 0, ref dampVelocity, 2f);
+
+        }
+
+       
+    }
+
+    private void OnAnimatorIK()
+    {
+        if (ikActive)
+        {
+            if (mummo.isListening)
+            {
+
+                animator.SetLookAtWeight(lookAtWeight);
+                animator.SetLookAtPosition(Camera.main.transform.position);
+            }
         }
     }
     public void GrabAnim()
