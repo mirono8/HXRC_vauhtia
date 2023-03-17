@@ -2186,7 +2186,7 @@ PrefabInstance:
       objectReference: {fileID: 42023790}
     - target: {fileID: 6271247946975765981, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6271247947158035312, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
       propertyPath: m_RootOrder
@@ -2238,7 +2238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6271247947158035326, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6271247947158035327, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
       propertyPath: vrCam
@@ -2315,15 +2315,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 841208209785342589, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 841208209949008712, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 841208209949008823, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 830411727}
+    - target: {fileID: 3044429150502331660, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6653522655455422928, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9082728130332882832, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136060981231750014, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dd698cfa675ddc419ee952c0cbf764f, type: 3}

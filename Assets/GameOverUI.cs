@@ -13,18 +13,10 @@ public class GameOverUI : MonoBehaviour
     public int commandsUnderstood;
     public int chaosesCaused;
 
-    private TextMeshProUGUI timeText;
-    private TextMeshProUGUI commandsText;
-    private TextMeshProUGUI doneCmdsText;
-    private TextMeshProUGUI gradeText;
-
-    private void Start()
-    {
-        timeText = GameObject.Find("Stat0").GetComponentInChildren<TextMeshProUGUI>();
-        commandsText = GameObject.Find("Stat1").GetComponentInChildren<TextMeshProUGUI>();
-        doneCmdsText = GameObject.Find("Stat2").GetComponentInChildren<TextMeshProUGUI>();
-        gradeText = GameObject.Find("Stat3").GetComponentInChildren<TextMeshProUGUI>();
-    }
+    public TextMeshProUGUI timeText;
+    public TextMeshProUGUI commandsText;
+    public TextMeshProUGUI doneCmdsText;
+    public TextMeshProUGUI chaosText;
 
     public void ActivateMenu() {
         // Set the position of the canvas
@@ -35,9 +27,7 @@ public class GameOverUI : MonoBehaviour
         timeText.text = Time.time.ToString();
         commandsText.text = commandsGiven.ToString();
         doneCmdsText.text = commandsUnderstood.ToString();
-        //calculate end grading
-        int score = 1000 - (int)(Time.time % 60) - (5 * (commandsGiven - commandsUnderstood)); //1000:sta v‰hennet‰‰n kuluneet sekunnit ja ohi menneet ohjeet * 5 
-        gradeText.text = score.ToString();
+        chaosText.text = (chaosesCaused.ToString() + " kertaa");
 
         menuBg.SetActive(true);
     }
