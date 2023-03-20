@@ -133,7 +133,7 @@ public class VoiceRecog : MonoBehaviour
                             mummo.GeneralDo(0, InitByIntent.InitInteract(mummo, "vesihana", true)); //Avaa vesihana, ei step
                             break;
                         }
-                        else if (bools.IsThisTrue("Kansi"))
+                        else if (bools.IsThisTrue("Kansi"))   // tästä once jotenki
                         {
                             bools.NullBools();
 
