@@ -17,6 +17,7 @@ public class GameOverUI : MonoBehaviour
     public TextMeshProUGUI commandsText;
     public TextMeshProUGUI doneCmdsText;
     public TextMeshProUGUI chaosText;
+    public TextMeshProUGUI feedbackText;
 
     public void ActivateMenu() {
         // Set the position of the canvas

@@ -46,21 +46,21 @@ public class TaskTracker : MonoBehaviour  //Initializes task for scene, tracks i
             Debug.Log("No pre-requisite steps");
         }
 
-      /*  if (thisTask.tasksTotal != thisTask.tasksCurrent)
-        {
-            if (!thisTask.taskCompletionOrder.ContainsKey(currentTask))
-            {
-                thisTask.taskCompletionOrder.Add(currentTask, step_id_value);
-                
-                UnityEngine.Debug.Log("Dictionary " + thisTask.taskCompletionOrder.ElementAt(thisTask.tasksCurrent));
-                UnityEngine.Debug.Log("Dictionary count " + thisTask.taskCompletionOrder.Count());
-                thisTask.tasksCurrent++;
-            }
-        } 
-        else
-        {
-            Debug.Log("All tasks donered");
-        }*/
+        /*  if (thisTask.tasksTotal != thisTask.tasksCurrent)
+          {
+              if (!thisTask.taskCompletionOrder.ContainsKey(currentTask))
+              {
+                  thisTask.taskCompletionOrder.Add(currentTask, step_id_value);
+
+                  UnityEngine.Debug.Log("Dictionary " + thisTask.taskCompletionOrder.ElementAt(thisTask.tasksCurrent));
+                  UnityEngine.Debug.Log("Dictionary count " + thisTask.taskCompletionOrder.Count());
+                  thisTask.tasksCurrent++;
+              }
+          } 
+          else
+          {
+              Debug.Log("All tasks donered");
+          }*/
 
         if (currentTask.t_stepTotal != currentTask.t_stepsComplete)
         {
@@ -78,12 +78,12 @@ public class TaskTracker : MonoBehaviour  //Initializes task for scene, tracks i
 
                 for (int i = 0; i < currentStep.requiredSteps.Count; i++)
                 {
-                    if (!CheckPrerequisites(currentStep, currentTask, i)) 
+                    if (!CheckPrerequisites(currentStep, currentTask, i))
                     {
                         allPrereqsDone = false;
                     }
                 }
-                if (allPrereqsDone == true) 
+                if (allPrereqsDone == true)
                 {
                     currentStep.isCompleted = true;
                     currentStep.stepCompletionOrder = currentTask.t_stepsComplete;
@@ -124,30 +124,36 @@ public class TaskTracker : MonoBehaviour  //Initializes task for scene, tracks i
 
         for (int x = 0; x < currentTask.t_stepTotal; x++)
         {
-            if (x != currentTask.stepsList[x].stepCompletionOrder) //Onko askel listassa eri kohdassa kuin pitäisi?
+            if (x != currentTask.stepsList[x].stepCompletionOrder)
+            {  //Onko askel listassa eri kohdassa kuin pitäisi?
                 Debug.Log("Teit vaiheen numero " + (1 + currentTask.stepsList[x].stepCompletionOrder) + ": '" + currentTask.stepsList[currentTask.stepsList[x].stepCompletionOrder].stepName.ToString()
-                    + "' kohdassa numero " + (x+1) + ": '" + currentTask.stepsList[x].stepName.ToString() + "'");
-
+                    + "' kohdassa numero " + (x + 1) + ": '" + currentTask.stepsList[x].stepName.ToString() + "'");
+                endCanvas.feedbackText.text = "Teit vaiheen numero " + (1 + currentTask.stepsList[x].stepCompletionOrder) + ": '" + currentTask.stepsList[currentTask.stepsList[x].stepCompletionOrder].stepName.ToString()
+                    + "' kohdassa numero " + (x + 1) + ": '" + currentTask.stepsList[x].stepName.ToString() + "'";
+            }
             if (!currentTask.stepsList.Contains(currentTask.stepsList[x]))
+            {
                 Debug.Log("Jätit vaiheen numero " + ": '" + currentTask.stepsList[x].stepName.ToString() + "' tekemättä");
+                endCanvas.feedbackText.text = "Jätit vaiheen numero " + ": '" + currentTask.stepsList[x].stepName.ToString() + "' tekemättä";
+            }
         }
 
         currentTask.t_isCompleted = true;
 
         victoryCanvas.SetActive(true);
         speechlyCanvas.SetActive(false);
-        if (endCanvas!= null)
-        endCanvas.ActivateMenu();
+        if (endCanvas != null)
+            endCanvas.ActivateMenu();
     }
 
     private void Update()
     {
-      /*  if (!TaskList._taskListInstance.taskList[doingNow].t_isCompleted && (TaskList._taskListInstance.taskList[doingNow].t_stepsComplete == TaskList._taskListInstance.taskList[doingNow].t_stepTotal)) 
-            //kun tehty kaikki(?) askeleet, annetaan palaute
-        {
-            UnityEngine.Debug.Log("Feedback incoming");
-            PlayerFeedback(doingNow);
+        /*  if (!TaskList._taskListInstance.taskList[doingNow].t_isCompleted && (TaskList._taskListInstance.taskList[doingNow].t_stepsComplete == TaskList._taskListInstance.taskList[doingNow].t_stepTotal)) 
+              //kun tehty kaikki(?) askeleet, annetaan palaute
+          {
+              UnityEngine.Debug.Log("Feedback incoming");
+              PlayerFeedback(doingNow);
 
-        }*/
+          }*/
     }
 }
