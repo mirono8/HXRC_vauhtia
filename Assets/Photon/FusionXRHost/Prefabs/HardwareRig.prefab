@@ -259,6 +259,7 @@ GameObject:
   - component: {fileID: 4954029039916474049}
   - component: {fileID: 7680853947353542563}
   - component: {fileID: 5960360077711473317}
+  - component: {fileID: 1755100441361409706}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -462,6 +463,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &1755100441361409706
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4208948367510053347}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.01, y: 0.01, z: 1.5}
+  m_Center: {x: 0, y: 0, z: 0.9}
 --- !u!1 &4208948368294204020
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,6 +694,7 @@ GameObject:
   - component: {fileID: 5018684763187915462}
   - component: {fileID: 220218895530238414}
   - component: {fileID: 4386774654200255382}
+  - component: {fileID: 3254185523155121301}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -883,6 +898,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &3254185523155121301
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4208948368886931613}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.01, y: 0.01, z: 1.5}
+  m_Center: {x: 0, y: 0, z: 0.9}
 --- !u!1 &4208948369037581449
 GameObject:
   m_ObjectHideFlags: 0

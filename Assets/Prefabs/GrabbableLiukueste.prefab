@@ -43,8 +43,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0071520247, y: 0.25060424, z: 0.3493581}
-  m_Center: {x: 0.01920664, y: 0.0014345585, z: 0.20961618}
+  m_Size: {x: 0.012297326, y: 0.25060424, z: 0.3493581}
+  m_Center: {x: 0.01857879, y: 0.0014345563, z: 0.20961604}
 --- !u!1 &8547337893069270382
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 8547337894326116337}
   - component: {fileID: 8547337894326116336}
   - component: {fileID: 8547337894326116343}
+  - component: {fileID: 1774461156}
   m_Layer: 0
   m_Name: GrabbableLiukueste
   m_TagString: Untagged
@@ -265,7 +266,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0002249d89cd6479b4de9eefb8ccc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ghostMetarial: {fileID: 2100000, guid: 6ace20f02fe0f0c4f806636981788f97, type: 2}
+  ghostMaterial: {fileID: 2100000, guid: 6ace20f02fe0f0c4f806636981788f97, type: 2}
+--- !u!114 &1774461156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8547337894326116342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2bd5d615a0dde428bd492d93410adf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerHasBeenSet: 0
+  resetTime: 5
+  timeToReset: 0
 --- !u!1001 &4501755247217783113
 PrefabInstance:
   m_ObjectHideFlags: 0
