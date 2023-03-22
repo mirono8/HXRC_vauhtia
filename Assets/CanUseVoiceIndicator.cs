@@ -10,7 +10,6 @@ public class CanUseVoiceIndicator : MonoBehaviour
     public Texture onTexture;
     public bool isOnTexture;
     public bool toggledOn;
-    public bool toggledOff;
     public GameOverUI endScreen;
     private void Start()
     {
@@ -21,12 +20,10 @@ public class CanUseVoiceIndicator : MonoBehaviour
     {
         GetComponent<RawImage>().texture = onTexture;
         toggledOn = true;
-        toggledOff = false;
     }
     public void TextureOff()
     {
         GetComponent<RawImage>().texture = offTexture;
-        toggledOff = true;
         toggledOn = false;
         endScreen.commandsGiven++;
     }
@@ -35,7 +32,7 @@ public class CanUseVoiceIndicator : MonoBehaviour
     {
         if (isOnTexture)
         {
-            if (toggledOff)
+            if (toggledOn == false)
             TextureOn();
         }
         else if (toggledOn)
