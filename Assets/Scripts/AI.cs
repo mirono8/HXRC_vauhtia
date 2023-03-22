@@ -84,12 +84,12 @@ public class AI : MonoBehaviour
     private Vector3 bodyDir;
     
     [SerializeField]
-    private float bodyAngle;
+    private float bodyAngleVSPlayer;
     public  float turnSpeed;
     private Vector3 headDir;
 
     [SerializeField]
-    private float angleVSPlayer;
+    private float headAngleVSPlayer;
 
     public Vector3 handDir;
     
@@ -147,26 +147,26 @@ public class AI : MonoBehaviour
 
 
 
-        if (moveTowardsThis != null)  ////ei toimi oikein ja jostain pitää togglee movementOk ja movetowardsthis vaihto
+        if (moveTowardsThis != null)  
         {
             
             currentDistance = Vector3.Distance(transform.position, new Vector3(moveTowardsThis.position.x, 0f, moveTowardsThis.position.z));
-            
 
+            
             /* if (!debugOnce)
              {
                  Debug.Log("distance not acceptable, should move");
                  debugOnce = true;
              }*/
-           /* if (movementOk)
-                MoveTowardsTarget(step);
+                /* if (movementOk)
+                     MoveTowardsTarget(step);
 
 
-            if (CloseEnough())
-            {
-                moveTowardsThis = null;
-                movementOk = false;
-            }*/
+                 if (CloseEnough())
+                 {
+                     moveTowardsThis = null;
+                     movementOk = false;
+                 }*/
 
         }
         // FacePlayer();
@@ -190,6 +190,7 @@ public class AI : MonoBehaviour
 
         currentDistance = Vector3.Distance(transform.position, new Vector3(moveTowardsThis.position.x, 0f, moveTowardsThis.position.z));
 
+
         if (currentDistance > acceptableDistance)
         {
             
@@ -206,20 +207,9 @@ public class AI : MonoBehaviour
             agent.isStopped = true;
             return false;
         }
-            
-
-
     }
-   /* public void MoveTowardsTarget(float step)
-    {
-        
-      //  transform.position = Vector3.MoveTowards(transform.position, new Vector3(moveTowardsThis.position.x, 0f, moveTowardsThis.position.z), step);
-
-        if(agent.pathStatus == NavMeshPathStatus.PathComplete)
-            agent.Move(agent.destination);
 
 
-    }*/
     public void KahviDo(int toDo, int stepIndex)
     {
        var currentStep = TaskList._taskListInstance.taskList[tracker.doingNow].stepsList[stepIndex];
@@ -337,7 +327,7 @@ public class AI : MonoBehaviour
         patrolManager.StartPatrol();
     }
 
-    public float CalculateHeadVsPlayer() // kokeile animaattoria ja ik-manipulointia lookat sun muut
+    public float CalculateAngleVsPlayer() // kokeile animaattoria ja ik-manipulointia lookat sun muut
     {
         originDir = mummoOrigin.transform.forward;
         bodyDir = mummoBody.transform.forward;
@@ -345,15 +335,15 @@ public class AI : MonoBehaviour
 
         var offset = Camera.main.transform.position - gameObject.transform.position;
 
-        angleVSPlayer = Vector3.Angle(originDir, offset);
-        bodyAngle = Vector3.Angle(bodyDir, originDir);
+        headAngleVSPlayer = Vector3.Angle(originDir, offset);
+        bodyAngleVSPlayer = Vector3.Angle(originDir, offset);
 
         quatOrigin = Quaternion.Euler(originDir);
         quatHead = Quaternion.LookRotation(Camera.main.transform.position - mummoHead.transform.position);
         quatBody = Quaternion.LookRotation(Camera.main.transform.position - mummoBody.transform.position);
 
 
-        return angleVSPlayer;
+        return bodyAngleVSPlayer;
        /* if (headAngle > 15f && bodyAngle < 60 && isListening)
         {
             quatBody.x = 0f;

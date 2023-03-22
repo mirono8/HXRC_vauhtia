@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2238053259677155662, guid: 84ef6b74c92d54cfcbd639dbf91128b0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2238053259677155663, guid: 84ef6b74c92d54cfcbd639dbf91128b0, type: 3}
       propertyPath: AppId
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiTools: {fileID: 0}
+  wasEmpty: 1
   common:
   - name: Suodatinpussi
     value: 0

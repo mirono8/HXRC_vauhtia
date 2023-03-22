@@ -15,6 +15,8 @@ public class DoomsdayClock : MonoBehaviour
     public float triggerSeconds;
 
     public GameOverUI endScreen;
+
+    private bool startTimer = false;
     private void Start()
     {
         var temp = GameObject.FindGameObjectWithTag("Mummo");
@@ -23,9 +25,12 @@ public class DoomsdayClock : MonoBehaviour
     }
     void Update()
     {
-        timer += Time.deltaTime;
+        if (startTimer)
+        {
+            timer += Time.deltaTime;
 
-        Countdown();
+            Countdown();
+        }
     }
 
     public void Countdown()
@@ -44,5 +49,10 @@ public class DoomsdayClock : MonoBehaviour
 
             endScreen.chaosesCaused++;
         }
+    }
+
+    public void StartCountdown()
+    {
+        startTimer = true;
     }
 }
