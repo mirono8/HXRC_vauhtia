@@ -81,11 +81,12 @@ namespace Fusion.XR.Host.Grabbing
             // To limit the number of GetComponent calls, we cache the latest checked collider grabbable result
             lastCheckedCollider = other;
             lastCheckColliderGrabbable = grabbable;
+            
             if (grabbable != null)
             {
                 if (grabbable.currentGrabber != null)
                 {
-                    // We don't allow multihand grabbing (it would have to be defined), nor hand swap (it would require to track hovering and do not allow grabbing while the hand is already close - or any other mecanism to avoid infinit swapping between the hands)
+                    // We don't allow multihand grabbing (it would have to be defined), nor hand swap (it would require to track hovering and do not allow grabbing while the hand is already close - or any other mechanism to avoid infinite swapping between the hands)
                     return;
                 }
                 if (hand.isGrabbing) Grab(grabbable);

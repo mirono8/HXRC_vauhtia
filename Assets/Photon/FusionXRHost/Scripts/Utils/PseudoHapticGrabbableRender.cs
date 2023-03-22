@@ -12,7 +12,7 @@ namespace Fusion.XR.Host.Grabbing
     [OrderAfter(typeof(NetworkPhysicsGrabbable))]
     public class PseudoHapticGrabbableRender : MonoBehaviour
     {
-        public Material ghostMetarial;
+        public Material ghostMaterial;
 
         NetworkPhysicsGrabbable networkGrabbable;
         bool isPseudoHapticDisplayed = false;
@@ -31,19 +31,19 @@ namespace Fusion.XR.Host.Grabbing
             ghostObject.transform.localScale = networkGrabbable.networkTransform.InterpolationTarget.transform.lossyScale;
             ghostObject.transform.parent = networkGrabbable.networkTransform.InterpolationTarget.transform;
             ghostRenderers = ghostObject.GetComponentsInChildren<Renderer>();
-            if(ghostMetarial == null)
+            if(ghostMaterial == null)
             {
                 if (networkGrabbable.currentGrabber && networkGrabbable.currentGrabber.hand.LocalHardwareHand && networkGrabbable.currentGrabber.hand.LocalHardwareHand.localHandRepresentation != null)
                 {
-                    ghostMetarial = networkGrabbable.currentGrabber.hand.LocalHardwareHand.localHandRepresentation.SharedHandMaterial;
+                    ghostMaterial = networkGrabbable.currentGrabber.hand.LocalHardwareHand.localHandRepresentation.SharedHandMaterial;
                 }
             }
-            if (ghostMetarial)
+            if (ghostMaterial)
             {
                 var material = networkGrabbable.currentGrabber.hand.LocalHardwareHand.localHandRepresentation.SharedHandMaterial;
                 foreach(var renderer in ghostRenderers)
                 {
-                    renderer.sharedMaterial = ghostMetarial = networkGrabbable.currentGrabber.hand.LocalHardwareHand.localHandRepresentation.SharedHandMaterial;
+                    renderer.sharedMaterial = ghostMaterial = networkGrabbable.currentGrabber.hand.LocalHardwareHand.localHandRepresentation.SharedHandMaterial;
                 }
             }
         }
