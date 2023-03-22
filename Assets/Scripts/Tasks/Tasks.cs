@@ -156,16 +156,6 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
             }
         }
 
-        public void LearnTool(string t)
-        {
-            for (int i = 0; i < mummo.aiTools.tools.Count; i++)
-            {
-                if (mummo.aiTools.tools[i].toolName == t)
-                {
-                    mummo.aiTools.tools[i].toolLearned = true;
-                }
-            }
-        }
 
         public void Combine(Transform intoThis)
         {
@@ -204,8 +194,22 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
             
             t.counter++;
         }
+
+        public void LearnTool(string t)
+        {
+            for (int i = 0; i < mummo.aiTools.tools.Count; i++)
+            {
+                if (mummo.aiTools.tools[i].toolName == t)
+                {
+                    mummo.aiTools.tools[i].toolLearned = true;
+                }
+            }
+        }
     }
 
+
+
+    // ACTUAL TASKS HERE --------------------------------------------------------------------------------------------
 
     public IEnumerator GrabTargetPutDownStep(Transform grabTarget, Transform place, int stepIndex, GameObject taskHolder) //Ota asia ja aseta jonnekin
     {
@@ -740,5 +744,31 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
         fi.mummo.isListening = true;
 
         Destroy(fi);
+    }
+
+    public IEnumerator ShowTime(GameObject taskholder)
+    {
+        var g = taskholder.AddComponent<GeneralInteraction>();
+
+        g.Init(taskholder);
+
+        string tool;
+        g.mummo.isListening = false;
+
+        g.RotateTowardsTaskTarget(Camera.main.transform.position);
+
+        yield return new WaitUntil(g.mummo.aiTools.DemonstrationOver);
+
+        tool = g.mummo.aiTools.GetCurrentLesson();
+
+        g.LearnTool(tool);
+
+        //DIALOG
+
+        //PEUKKU?
+
+        g.mummo.isListening = true;
+
+        Destroy(g);
     }
 }

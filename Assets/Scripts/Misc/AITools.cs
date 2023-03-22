@@ -89,4 +89,15 @@ public class AITools : MonoBehaviour
 
         toolIsActive = false;
     }
+
+    public bool DemonstrationOver()
+    {
+        return true;
+    }
+
+    public string GetCurrentLesson()
+    {
+        string tool = "sad";
+        return tool;
+    }
 }

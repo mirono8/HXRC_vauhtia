@@ -296,6 +296,7 @@ public class AI : MonoBehaviour
         switch (toDo)
         {
             case 0: StartCoroutine(tasks.CombineHoldingItems(interactThis, grabThis, taskHolder)); break; // Asia vasemmasta kädestä kiinni oikeaan käteen (grabThis)
+            case 1: StartCoroutine(tasks.ShowTime(taskHolder)); break;  //Katso demonstraatio apuvälineelle
         }
         endScreen.commandsUnderstood++;
     }

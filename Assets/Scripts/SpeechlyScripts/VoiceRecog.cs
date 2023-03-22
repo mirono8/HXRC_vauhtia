@@ -320,6 +320,16 @@ public class VoiceRecog : MonoBehaviour
                         }
                         break;
 
+                    case "demonstraatio":
+                        if (bools.IsThisTrue("Demonstraatio"))
+                        {
+                            bools.NullBools();
+                            mummo.ToolsDo(1);
+                            break; 
+                        }
+                        break;
+
+
                     default: bools.NullBools(); mummo.InstructionMiss(1); break;
                 }
             }
@@ -380,6 +390,9 @@ public class VoiceRecog : MonoBehaviour
         if (segment.entities.Select(entry => entry.Value).ToList().Where(entity => entity.type == "liukueste").Select(entity => entity.value).Reverse().ToArray().FirstOrDefault() != null)
             bools.SetTrue("Liukueste");
         //odota ei ole entity vaan intent joten ei ole t��ll� :)
+
+        if (segment.entities.Select(entry => entry.Value).ToList().Where(entity => entity.type == "demo").Select(entity => entity.value).Reverse().ToArray().FirstOrDefault() != null)
+            bools.SetTrue("Demonstraatio");
 
         if (bools.wasEmpty)
         {
