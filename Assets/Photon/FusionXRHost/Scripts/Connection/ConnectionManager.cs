@@ -24,6 +24,7 @@ namespace Fusion.XR.Host {
         public GameObject roomNameSaver;
         public bool connectOnStart = false;
         public GameObject speechly;  // sit ku host on tullu servulle voi laittaa speechlyn p‰‰lle (?)
+        public DoomsdayClock timer; //start timer after voice recognition is on
 
         [Header("Fusion settings")]
         [Tooltip("Fusion runner. Automatically created if not set")]
@@ -63,13 +64,15 @@ namespace Fusion.XR.Host {
             if (connectOnStart) await Connect();
         }
 
-        public async Task Connect() {
+        public async Task Connect()
+        {
             // Create the scene manager if it does not exist
             if (sceneManager == null) sceneManager = gameObject.AddComponent<NetworkSceneManagerDefault>();
 
             if (onWillConnect != null) onWillConnect.Invoke();
             // Start or join (depends on gamemode) a session with a specific name
-            var args = new StartGameArgs() {
+            var args = new StartGameArgs()
+            {
                 GameMode = mode,
                 SessionName = roomName,
                 Scene = SceneManager.GetActiveScene().buildIndex,
@@ -80,9 +83,13 @@ namespace Fusion.XR.Host {
             {
                 speechly.SetActive(true);
                 Debug.Log("Restarting Speechly, " + TaskList._taskListInstance.taskList[0]);
+                timer.StartCountdown();
             }
             else
+            {
                 SpeechlyRestarter._restarterInstance.RestartSpeechly();
+                timer.StartCountdown();
+            }
         }
 
 

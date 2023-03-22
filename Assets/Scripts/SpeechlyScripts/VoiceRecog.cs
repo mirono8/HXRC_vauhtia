@@ -76,9 +76,11 @@ public class VoiceRecog : MonoBehaviour
                                 if (bools.ToolLearned("Paksunnos"))
                                 {
                                     bools.NullBools();
-                                   /* GameObject iPak;   //// uus setuptools aitoolsissa vvvvv
-                                    iPak = mummo.aiTools.SetUpTool("Paksunnos", mummo.dropTargets.Find(target => target.name == "LeftHand").target.transform);
-                                    mummo.interactThis = iPak;*/
+                                    /* GameObject iPak;   //// uus setuptools aitoolsissa vvvvv
+                                     iPak = mummo.aiTools.SetUpTool("Paksunnos", mummo.dropTargets.Find(target => target.name == "LeftHand").target.transform);
+                                     mummo.interactThis = iPak;*/
+                                    mummo.aiTools.SetupTool("Paksunnos");
+                                    InitByIntent.InitInteract(mummo, "paksunnos", false);
                                     InitByIntent.InitOtaLaita(mummo, "lusikka", "pöytä1");
                                     mummo.ToolsDo(0);
                                     break;
@@ -291,12 +293,16 @@ public class VoiceRecog : MonoBehaviour
                         mummo.KahviDo(4, 10); //Odoteta kahvin tippumista                    
                         break;*/
 
-                   /* case "apuvaline":
+                    case "apuvaline":
                         if (bools.IsThisTrue("Paksunnos"))
                         {
+                            bools.NullBools();
+
+                            mummo.aiTools.SetupTool("Paksunnos");
+
                             if (bools.ToolLearned("Paksunnos"))
                             {
-                                bools.NullBools();
+                                InitByIntent.InitOtaLaita(mummo, "lusikka", "pöytä1");
                                 break;
                             }
                             else
@@ -312,7 +318,7 @@ public class VoiceRecog : MonoBehaviour
                             else
                                 Debug.Log("Tool not learned"); break;
                         }
-                        break;*/
+                        break;
 
                     default: bools.NullBools(); mummo.InstructionMiss(1); break;
                 }

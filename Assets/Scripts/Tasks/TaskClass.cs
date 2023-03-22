@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -12,7 +13,9 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
     public TaskTracker tracker;
     public GameObject taskHolder;
 
-    protected int step_id_value ;
+    protected int step_id_value;
+
+    private bool done = false;
    /* protected bool optional;
     protected bool rigid_order; //Cant be done out of order*/
 
@@ -67,6 +70,8 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
 
     public IEnumerator GrabObject()
     {
+        mummo.anims.SetLookTarget(mummo.grabThis.position);
+
         if (!mummo.hasItem)
         {
             if (mummo.grabThis.GetComponent<Collider>() != null)
@@ -74,6 +79,19 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
                 mummo.grabThis.GetComponent<Collider>().enabled = true;
             }
 
+
+            if (mummo.anims.FacingLookTarget())
+            {
+                //
+            }
+            else
+            {
+               // mummo.anims.ChangeRotationStatus(true);
+                yield return new WaitUntil(mummo.anims.FacingLookTarget);
+               // mummo.anims.ChangeRotationStatus(false);
+            }
+
+            
             if (!DoesThisHaveRequiredSteps(mummo, step_id_value))
             {
 
@@ -99,6 +117,7 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
                     mummo.grabThis.transform.localRotation = mummo.mummoGrabber.localRotation; //Quaternion.Euler(new Vector3(72.2023849f, 114.251907f, 203.216797f));
                     mummo.hasItem = true;
                     
+
                    //return true;
                 }
                 else
@@ -115,11 +134,14 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
             mummo.InstructionMiss(1);
            // return false;
         }
+        done = true;
     }
 
 
-    public void DropObject()
+    public IEnumerator DropObject()
     {
+
+        mummo.anims.SetLookTarget(mummo.dropHere.position);
         if (mummo.hasItem)
         {
             if(mummo.dropHere.GetComponent<Collider>() != null)
@@ -127,8 +149,19 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
                 mummo.dropHere.GetComponent<Collider>().enabled = true;
             }
 
+            if (mummo.anims.FacingLookTarget())
+            {
+                //
+            }
+            else
+            {
+               // mummo.anims.ChangeRotationStatus(true);
+                yield return new WaitUntil(mummo.anims.FacingLookTarget);
+               // mummo.anims.ChangeRotationStatus(false);
+            }
+
             mummo.anims.DropAnim();
-            //yield return new WaitUntil(mummo.anims.EndAnimResumeTask);
+            yield return new WaitUntil(mummo.anims.EndAnimResumeTask);
             mummo.grabThis.transform.parent = mummo.dropHere;
             mummo.grabThis.transform.localPosition = new Vector3(0, 0, 0);
             mummo.grabThis.transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
@@ -137,7 +170,30 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
             mummo.dropHere = null;
             
         }
+        done = true;
     }
 
-    
+    public void RotateTowardsTaskTarget(Vector3 t)
+    {
+        mummo.anims.SetLookTarget(t);
+
+        if (mummo.anims.FacingLookTarget())
+        {
+            //
+        }
+        else
+        {
+            mummo.anims.ChangeRotationStatus(true);
+        }
+    }
+
+    public bool ObjectManipulationDone()
+    {
+        if (done)
+        {
+            done = false; return true;
+        }
+        else
+            return false;
+    }
 }

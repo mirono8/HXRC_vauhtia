@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5717565874807432505, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
       propertyPath: interactTargets.Array.size
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5717565874807432505, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
       propertyPath: dropTargets.Array.data[0].name
@@ -130,6 +130,14 @@ PrefabInstance:
     - target: {fileID: 5717565874807432505, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
       propertyPath: interactTargets.Array.data[8].name
       value: virtakytkin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5717565874807432505, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
+      propertyPath: interactTargets.Array.data[9].name
+      value: paksunnos
+      objectReference: {fileID: 0}
+    - target: {fileID: 5717565874807432505, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
+      propertyPath: interactTargets.Array.data[10].name
+      value: liukueste
       objectReference: {fileID: 0}
     - target: {fileID: 8093065483354980796, guid: 64d59e8a3fd06f44bbaee989fa428f3b, type: 3}
       propertyPath: m_Name

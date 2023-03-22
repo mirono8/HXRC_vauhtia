@@ -1,69 +1,91 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class AIAnimations : MonoBehaviour 
+public class AIAnimations : MonoBehaviour
 {
     public AI mummo;
     public Animator animator;
 
-    private bool done = false;
-    public  bool ikActive = false;
+    private bool done = true;
+    public bool ikActive = false;
     private float lookAtWeight;
 
-    private bool headReset;
+    private float lookDir;
 
     [SerializeField]
     private float dampVelocity = 0;
+
+    private Vector3 target;
+
+    private bool rotate = false;
+
     private void Update()
     {
-        if (mummo.CalculateHeadVsPlayer() < 90 ) //90f(mummo.mummoHead.rotation.y < 0.45f) && (mummo.mummoHead.rotation.y > -0.45f)
+        /*// if (mummo.CalculateAngleVsPlayer() < 90 ) //90f(mummo.mummoHead.rotation.y < 0.45f) && (mummo.mummoHead.rotation.y > -0.45f)
+        // {
+             if ((mummo.mummoHead.rotation.y > 0.5f) || (mummo.mummoHead.rotation.y < -0.5f))
+             {
+             //P‰‰ ei k‰‰nny en‰‰
+             // Debug.Log(lookAtWeight);
+             //  lookAtWeight = 0.5f;
+             //lookAtWeight = Mathf.SmoothDamp(lookAtWeight, 0.5f, ref dampVelocity, 3f);  //kinda wonky
+
+
+                // BodyRotation();
+             }
+             else
+             {
+                 // lookAtWeight = Mathf.Lerp(lookAtWeight, 1, Time.deltaTime * 2.5f);
+
+             }
+         }
+         else
+         {
+
+             //lookAtWeight = Mathf.Lerp(lookAtWeight, 0, Time.deltaTime * 2.5f);   
+             lookAtWeight = Mathf.SmoothDamp(lookAtWeight, 0, ref dampVelocity, 2f);
+
+         } */
+
+        if (mummo.isListening)
         {
-            if ((mummo.mummoHead.rotation.y > 0.5f) || (mummo.mummoHead.rotation.y < -0.5f))
-            {
-                //P‰‰ ei k‰‰nny en‰‰
-                Debug.Log(lookAtWeight);
-              //  lookAtWeight = 0.5f;
-                lookAtWeight = Mathf.SmoothDamp(lookAtWeight, 0.5f, ref dampVelocity, 3f);  //kinda wonky
+            SetLookTarget(Camera.main.transform.position);
+            BodyRotation();
 
-            }
-            else
-            {
-                // lookAtWeight = Mathf.Lerp(lookAtWeight, 1, Time.deltaTime * 2.5f);
-                lookAtWeight = Mathf.SmoothDamp(lookAtWeight, 1, ref dampVelocity, 2f);
-            }
         }
-        else
+
+        if (rotate)
         {
-            headReset = true;
-            //lookAtWeight = Mathf.Lerp(lookAtWeight, 0, Time.deltaTime * 2.5f);   
-            lookAtWeight = Mathf.SmoothDamp(lookAtWeight, 0, ref dampVelocity, 2f);
-
+            BodyRotation();
         }
-
-       
     }
 
-    private void OnAnimatorIK()
-    {
-        if (ikActive)
-        {
-            if (mummo.isListening)
-            {
+    /* private void OnAnimatorIK()
+     {
+         if (ikActive)
+         {
+             if (mummo.isListening)
+             {
 
-                animator.SetLookAtWeight(lookAtWeight);
-                animator.SetLookAtPosition(Camera.main.transform.position);
-            }
-        }
-    }
+                 animator.SetLookAtWeight(lookAtWeight);
+                 animator.SetLookAtPosition(Camera.main.transform.position);
+
+             }
+
+
+         }
+     }*/
+
     public void GrabAnim()
     {
         done = false;
-       // animator.SetLayerWeight(2, 1);
+        // animator.SetLayerWeight(2, 1);
         animator.ResetTrigger("dropTrigger");
         animator.SetTrigger("grabTrigger");
-         
+
     }
 
     public void DropAnim()
@@ -105,6 +127,67 @@ public class AIAnimations : MonoBehaviour
     {
         done = true;
         //animator.SetTrigger("reset");
+    }
+
+    public void ChangeRotationStatus(bool b)
+    {
+        rotate = b;
+    }
+    public void BodyRotation()
+    {
+
+        Vector3 rotationOffset = target - gameObject.transform.position;
+        rotationOffset.y = 0;
+
+        lookDir = Vector3.SignedAngle(gameObject.transform.forward, rotationOffset, Vector3.up);
+        animator.SetFloat("LookDirection", lookDir);
+
+        gameObject.transform.forward += Vector3.Lerp(gameObject.transform.forward, rotationOffset, Time.deltaTime * 1.5f);
+
+        /*  if (lookDir <= 10f && !(lookDir < -10f) || !(lookDir > 10f) && lookDir >= -10f)
+                  lookAtWeight = Mathf.SmoothDamp(lookAtWeight, 1, ref dampVelocity, 2f);
+          else
+          {
+              gameObject.transform.forward += Vector3.Lerp(gameObject.transform.forward, rotationOffset, Time.deltaTime * 1.5f);
+            //  lookAtWeight = Mathf.SmoothDamp(lookAtWeight, 0.1f, ref dampVelocity, 2f);   //jostai syyst 180 asteinen p‰‰ ku tekee taskin
+
+          }
+
+          */
+    }
+
+    public void CalculateLookDir()
+    {
+        Vector3 rotationOffset = target - gameObject.transform.position;
+        rotationOffset.y = 0;
+
+        lookDir = Vector3.SignedAngle(gameObject.transform.forward, rotationOffset, Vector3.up);
+        animator.SetFloat("LookDirection", lookDir);
+    }
+
+    public void SetLookTarget(Vector3 t)
+    {
+        target = t;
+    }
+
+    public float GetLookDir()
+    {
+        CalculateLookDir();
+        return lookDir;
+    }
+
+    public bool FacingLookTarget()  ///triple checkaa t‰‰ antaaks oikeen boolin, saatta olla ettei p‰ivity
+    {
+        // Debug.Log("Facing target " + target + "? " + ((mummo.anims.GetLookDir() <= 10f && !(mummo.anims.GetLookDir() < -10f)) || (!(mummo.anims.GetLookDir() > 10f) && mummo.anims.GetLookDir() >= -10f)));
+        if ((mummo.anims.GetLookDir() <= 10f && !(mummo.anims.GetLookDir() < -10f)) || (!(mummo.anims.GetLookDir() > 10f) && mummo.anims.GetLookDir() >= -10f))
+        {
+            animator.SetFloat("LookDirection", 0); ChangeRotationStatus(false); return true;
+        }
+        else
+        {
+            ChangeRotationStatus(true);
+            return false;
+        }
     }
 
     public bool EndAnimResumeTask()
