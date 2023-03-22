@@ -790,7 +790,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7768797752334113000, guid: a887b8dcff7b58e43b4ad38797c6e1d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.386
+      value: -5.434
       objectReference: {fileID: 0}
     - target: {fileID: 7768797752334113000, guid: a887b8dcff7b58e43b4ad38797c6e1d8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1033,7 +1033,7 @@ MonoBehaviour:
   tools:
   - toolName: Paksunnos
     toolObj: {fileID: 2823600265821303815}
-    toolLearned: 1
+    toolLearned: 0
   - toolName: Liukueste
     toolObj: {fileID: 4720222860693392173}
     toolLearned: 0
