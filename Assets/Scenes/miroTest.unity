@@ -738,24 +738,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72aacf5ad018ef84f8c2f1796da09345, type: 3}
---- !u!1 &316267586 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6051592487458664561, guid: 0a64a4f859569e44f873306180fe56d2, type: 3}
-  m_PrefabInstance: {fileID: 503680937}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &316267589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 316267586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cea428d5516dcee46a04df2916b29fc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  taskList: []
 --- !u!1001 &330836169
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -945,6 +927,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1703835128639157667, guid: 0a64a4f859569e44f873306180fe56d2, type: 3}
+      propertyPath: endCanvas
+      value: 
+      objectReference: {fileID: 103740648}
+    - target: {fileID: 1703835128639157667, guid: 0a64a4f859569e44f873306180fe56d2, type: 3}
       propertyPath: victoryCanvas
       value: 
       objectReference: {fileID: 1335924866}
@@ -1028,16 +1014,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: AIMummo
       objectReference: {fileID: 0}
-    - target: {fileID: 7069905459914455824, guid: 0a64a4f859569e44f873306180fe56d2, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896710623660025889, guid: 0a64a4f859569e44f873306180fe56d2, type: 3}
-      propertyPath: tools.Array.data[0].toolLearned
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4774465373794945079, guid: 0a64a4f859569e44f873306180fe56d2, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a64a4f859569e44f873306180fe56d2, type: 3}
 --- !u!114 &511282773 stripped
 MonoBehaviour:
@@ -1144,6 +1121,50 @@ PrefabInstance:
       propertyPath: myTool
       value: 
       objectReference: {fileID: 595962859}
+    - target: {fileID: 8087843746723368098, guid: 5f7ddd2118154c145973ba3fd30ca6f9, type: 3}
+      propertyPath: myEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087843746723368098, guid: 5f7ddd2118154c145973ba3fd30ca6f9, type: 3}
+      propertyPath: myEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087843746723368098, guid: 5f7ddd2118154c145973ba3fd30ca6f9, type: 3}
+      propertyPath: myEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 2009286903}
+    - target: {fileID: 8087843746723368098, guid: 5f7ddd2118154c145973ba3fd30ca6f9, type: 3}
+      propertyPath: myEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 2009286903}
+    - target: {fileID: 8087843746723368098, guid: 5f7ddd2118154c145973ba3fd30ca6f9, type: 3}
+      propertyPath: myEvent.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087843746723368098, guid: 5f7ddd2118154c145973ba3fd30ca6f9, type: 3}
+      propertyPath: myEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetCurrentDemoTool
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087843746723368098, guid: 5f7ddd2118154c145973ba3fd30ca6f9, type: 3}
+      propertyPath: myEvent.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: SetCurrentLesson
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087843746723368098, guid: 5f7ddd2118154c145973ba3fd30ca6f9, type: 3}
+      propertyPath: myEvent.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: AITools, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087843746723368098, guid: 5f7ddd2118154c145973ba3fd30ca6f9, type: 3}
+      propertyPath: myEvent.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: AITools, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087843746723368098, guid: 5f7ddd2118154c145973ba3fd30ca6f9, type: 3}
+      propertyPath: myEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
+      value: Liukueste
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087843746723368098, guid: 5f7ddd2118154c145973ba3fd30ca6f9, type: 3}
+      propertyPath: myEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8087843746723368099, guid: 5f7ddd2118154c145973ba3fd30ca6f9, type: 3}
       propertyPath: m_Name
       value: SnapPoint
@@ -1191,22 +1212,6 @@ PrefabInstance:
     - target: {fileID: 8087843746723368100, guid: 5f7ddd2118154c145973ba3fd30ca6f9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8087843746723368101, guid: 5f7ddd2118154c145973ba3fd30ca6f9, type: 3}
-      propertyPath: m_Size.y
-      value: 0.015430093
-      objectReference: {fileID: 0}
-    - target: {fileID: 8087843746723368101, guid: 5f7ddd2118154c145973ba3fd30ca6f9, type: 3}
-      propertyPath: m_Center.x
-      value: 1.776353e-16
-      objectReference: {fileID: 0}
-    - target: {fileID: 8087843746723368101, guid: 5f7ddd2118154c145973ba3fd30ca6f9, type: 3}
-      propertyPath: m_Center.y
-      value: 0.0077150464
-      objectReference: {fileID: 0}
-    - target: {fileID: 8087843746723368101, guid: 5f7ddd2118154c145973ba3fd30ca6f9, type: 3}
-      propertyPath: m_Center.z
-      value: -0.050000012
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f7ddd2118154c145973ba3fd30ca6f9, type: 3}
@@ -2325,6 +2330,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2009286903}
+        m_TargetAssemblyTypeName: AITools, Assembly-CSharp
+        m_MethodName: SetCurrentDemoTool
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Paksunnos
+          m_BoolArgument: 0
+        m_CallState: 2
+  snapCompleted: 0
 --- !u!65 &1145053706
 BoxCollider:
   m_ObjectHideFlags: 0

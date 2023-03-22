@@ -12,6 +12,7 @@ public class SnapPoint : MonoBehaviour {
     public GameObject myTool;
     public UnityEvent myEvent;
 
+    private string toolName;
     public bool snapCompleted;
     private void OnTriggerStay(Collider other) {
         if (snapCompleted == false) {

@@ -7,6 +7,10 @@ public class AITools : MonoBehaviour
 {
     public bool toolIsActive;
 
+    private bool doneWatching = false;
+
+    private string demoTool;
+
     [System.Serializable]
     public class Tools
     {
@@ -90,14 +94,30 @@ public class AITools : MonoBehaviour
         toolIsActive = false;
     }
 
-    public bool DemonstrationOver()
+    public void SetDoneWatching()
     {
-        return true;
+        doneWatching = true;
     }
 
-    public string GetCurrentLesson()
+    public bool DemonstrationOver()
     {
-        string tool = "sad";
-        return tool;
+        if (doneWatching)
+        {
+            doneWatching = false;
+            return true;
+        }
+        else
+            return false;
+    }
+
+    public void SetCurrentDemoTool(string name) 
+    {
+        demoTool = name;
+        SetDoneWatching();
+    }
+
+    public string GetCurrentDemoTool()
+    {
+        return demoTool;
     }
 }

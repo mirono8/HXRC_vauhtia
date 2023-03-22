@@ -759,7 +759,7 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
 
         yield return new WaitUntil(g.mummo.aiTools.DemonstrationOver);
 
-        tool = g.mummo.aiTools.GetCurrentLesson();
+        tool = g.mummo.aiTools.GetCurrentDemoTool();
 
         g.LearnTool(tool);
 
