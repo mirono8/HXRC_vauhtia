@@ -15,7 +15,7 @@ public class SnapPoint : MonoBehaviour {
     private string toolName;
     public bool snapCompleted;
     private void OnTriggerStay(Collider other) {
-        if (snapCompleted == false) {
+        if (snapCompleted == false && other.CompareTag("Grabbable")) {
             if (other.GetComponentInParent<Rigidbody>().gameObject == myTool) {
                 if (other.GetComponentInParent<PhysicsGrabbable>().currentGrabber == null) { //Do stuff only after grip is released
                     Destroy(other.GetComponentInParent<Rigidbody>().gameObject);
