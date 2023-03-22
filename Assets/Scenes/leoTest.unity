@@ -579,26 +579,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 1.58, y: -90, z: 0}
---- !u!1 &639936013 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6355765732087808517, guid: bca397805e93f94418bc7e7684f39e32, type: 3}
-  m_PrefabInstance: {fileID: 1206360826}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &639936022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 639936013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d2bd5d615a0dde428bd492d93410adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timerHasBeenSet: 0
-  resetTime: 5
-  timeToReset: 0
 --- !u!1001 &647103331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1252,17 +1232,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6355765732087808516, guid: bca397805e93f94418bc7e7684f39e32, type: 3}
-      propertyPath: ghostMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: 6ace20f02fe0f0c4f806636981788f97, type: 2}
     - target: {fileID: 6355765732087808517, guid: bca397805e93f94418bc7e7684f39e32, type: 3}
       propertyPath: m_Name
       value: GrabbableExample
-      objectReference: {fileID: 0}
-    - target: {fileID: 6355765732087808517, guid: bca397805e93f94418bc7e7684f39e32, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6355765732087808573, guid: bca397805e93f94418bc7e7684f39e32, type: 3}
       propertyPath: m_RootOrder
@@ -1314,11 +1286,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6355765732087808575, guid: bca397805e93f94418bc7e7684f39e32, type: 3}
       propertyPath: NetworkGuid.RawGuidValue.Array.data[0]
-      value: 1103260957141884580
+      value: 1389919495554471710
       objectReference: {fileID: 0}
     - target: {fileID: 6355765732087808575, guid: bca397805e93f94418bc7e7684f39e32, type: 3}
       propertyPath: NetworkGuid.RawGuidValue.Array.data[1]
-      value: -3006382002067794269
+      value: -5977385029309763669
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca397805e93f94418bc7e7684f39e32, type: 3}
@@ -2403,6 +2375,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrabbableSpoon
       objectReference: {fileID: 0}
+    - target: {fileID: 1509138701212441766, guid: 285c71fb7ab358b4bba07d51590ae87c, type: 3}
+      propertyPath: m_TagString
+      value: Grabbable
+      objectReference: {fileID: 0}
     - target: {fileID: 1509138701212441767, guid: 285c71fb7ab358b4bba07d51590ae87c, type: 3}
       propertyPath: ghostMaterial
       value: 
@@ -2617,6 +2593,10 @@ PrefabInstance:
     - target: {fileID: 8547337894326116342, guid: c487c67178353f2499db05e7976315f3, type: 3}
       propertyPath: m_Name
       value: GrabbableLiukueste
+      objectReference: {fileID: 0}
+    - target: {fileID: 8547337894326116342, guid: c487c67178353f2499db05e7976315f3, type: 3}
+      propertyPath: m_TagString
+      value: Grabbable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c487c67178353f2499db05e7976315f3, type: 3}
@@ -2890,6 +2870,10 @@ PrefabInstance:
     - target: {fileID: 4392851338735315593, guid: 994a014b106f98745a9fd7334a279285, type: 3}
       propertyPath: m_Name
       value: GrabbablePaksunnos
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392851338735315593, guid: 994a014b106f98745a9fd7334a279285, type: 3}
+      propertyPath: m_TagString
+      value: Grabbable
       objectReference: {fileID: 0}
     - target: {fileID: 4392851338735315633, guid: 994a014b106f98745a9fd7334a279285, type: 3}
       propertyPath: m_RootOrder
