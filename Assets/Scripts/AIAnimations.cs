@@ -22,6 +22,11 @@ public class AIAnimations : MonoBehaviour
 
     private bool rotate = false;
 
+
+    [SerializeField]
+    private bool saveOriginalPos = false;
+
+    private Vector3 temp;
     private void Update()
     {
         /*// if (mummo.CalculateAngleVsPlayer() < 90 ) //90f(mummo.mummoHead.rotation.y < 0.45f) && (mummo.mummoHead.rotation.y > -0.45f)
@@ -136,14 +141,21 @@ public class AIAnimations : MonoBehaviour
     public void BodyRotation()
     {
 
+        if (!saveOriginalPos)
+        {
+            saveOriginalPos = true;
+            temp = gameObject.transform.forward;
+        }
         Vector3 rotationOffset = target - gameObject.transform.position;
         rotationOffset.y = 0;
 
         lookDir = Vector3.SignedAngle(gameObject.transform.forward, rotationOffset, Vector3.up);
         animator.SetFloat("LookDirection", lookDir);
 
-        gameObject.transform.forward += Vector3.Lerp(gameObject.transform.forward, rotationOffset, Time.deltaTime * 1.5f);
-
+        if (!((lookDir <= 5f && !(lookDir < -5f)) || (!(lookDir > 5f) && lookDir >= -5f)))
+            gameObject.transform.forward += Vector3.Lerp(gameObject.transform.forward, rotationOffset, Time.deltaTime * 1.5f);
+                else
+            saveOriginalPos = false;
         /*  if (lookDir <= 10f && !(lookDir < -10f) || !(lookDir > 10f) && lookDir >= -10f)
                   lookAtWeight = Mathf.SmoothDamp(lookAtWeight, 1, ref dampVelocity, 2f);
           else
@@ -168,6 +180,7 @@ public class AIAnimations : MonoBehaviour
     public void SetLookTarget(Vector3 t)
     {
         target = t;
+        
     }
 
     public float GetLookDir()
@@ -179,9 +192,9 @@ public class AIAnimations : MonoBehaviour
     public bool FacingLookTarget()  ///triple checkaa t‰‰ antaaks oikeen boolin, saatta olla ettei p‰ivity
     {
         // Debug.Log("Facing target " + target + "? " + ((mummo.anims.GetLookDir() <= 10f && !(mummo.anims.GetLookDir() < -10f)) || (!(mummo.anims.GetLookDir() > 10f) && mummo.anims.GetLookDir() >= -10f)));
-        if ((mummo.anims.GetLookDir() <= 10f && !(mummo.anims.GetLookDir() < -10f)) || (!(mummo.anims.GetLookDir() > 10f) && mummo.anims.GetLookDir() >= -10f))
+        if ((mummo.anims.GetLookDir() <= 5f && !(mummo.anims.GetLookDir() < -5f)) || (!(mummo.anims.GetLookDir() > 5f) && mummo.anims.GetLookDir() >= -5f))
         {
-            animator.SetFloat("LookDirection", 0); ChangeRotationStatus(false); return true;
+            ChangeRotationStatus(false); return true;
         }
         else
         {

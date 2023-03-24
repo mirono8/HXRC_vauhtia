@@ -20,10 +20,10 @@ public class TaskList : MonoBehaviour
         //taskList.Clear(); //Ei saa laittaa tasklistiin ennen buildia listoja, muuten tarvitsee tämän
     }
     public List<TaskListItem> taskList;
-    private void Start()
+  /*  private void Start()
     {
         
         taskList = new List<TaskListItem>();
-    }
+    }*/
 
 }

@@ -205,6 +205,13 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
                 }
             }
         }
+
+        public void DropTool()
+        {
+            mummo.interactThis.transform.SetParent(mummo.dropHere);
+            mummo.interactThis.transform.position = mummo.dropHere.position;
+            mummo.interactThis.transform.rotation = mummo.dropHere.rotation;
+        }
     }
 
 
@@ -755,6 +762,19 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
         string tool;
         g.mummo.isListening = false;
 
+        var points = g.mummo.FindSnapPoints();
+
+        for (int i = 0; i < points.Length; i++)
+        {
+            points[i].gameObject.GetComponentInChildren<Collider>().enabled = true;
+
+            if (points[i].gameObject.GetComponentInChildren<ParticleSystem>() != null)
+            {
+                var e = points[i].gameObject.GetComponentInChildren<ParticleSystem>().emission;
+                e.enabled = true;
+            }
+        }
+
         g.RotateTowardsTaskTarget(Camera.main.transform.position);
 
         yield return new WaitUntil(g.mummo.aiTools.DemonstrationOver);
@@ -767,8 +787,52 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
 
         //PEUKKU?
 
+        for (int i = 0; i < points.Length; i++)
+        {
+            points[i].gameObject.GetComponentInChildren<Collider>().enabled = false;
+
+            if (points[i].gameObject.GetComponentInChildren<ParticleSystem>() != null)
+            {
+                var e = points[i].gameObject.GetComponentInChildren<ParticleSystem>().emission;
+                e.enabled = false;
+            }
+        }
+
         g.mummo.isListening = true;
 
         Destroy(g);
+    }
+
+    public IEnumerator PutDownTool(GameObject taskholder)
+    {
+        var g = taskholder.AddComponent<GeneralInteraction>();
+
+        g.Init(taskholder);
+
+        g.mummo.isListening = false;
+
+        if (g.mummo.IsMovementNecessary(g.mummo.dropHere))
+        {
+            g.mummo.anims.WalkAnim(true);
+            yield return new WaitUntil(g.mummo.CloseEnough);
+            g.mummo.anims.WalkAnim(false);
+        }
+
+        g.RotateTowardsTaskTarget(g.mummo.dropHere.position);
+
+        yield return new WaitUntil(g.mummo.anims.FacingLookTarget);
+
+        g.mummo.anims.ChangeRotationStatus(false);
+
+        g.mummo.anims.DropAnim();
+
+        yield return new WaitUntil(g.mummo.anims.EndAnimResumeTask);
+
+        g.DropTool();
+
+        g.mummo.isListening = true;
+
+        Destroy(g);
+
     }
 }

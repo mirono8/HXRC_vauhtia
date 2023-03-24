@@ -42,6 +42,7 @@ public class AIBooleanHandler : MonoBehaviour
             if (tools[x].name == name)
             {
                 tools[x].value = true;
+                wasEmpty = false;
             }
         }
     }

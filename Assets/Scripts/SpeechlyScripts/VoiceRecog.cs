@@ -296,27 +296,43 @@ public class VoiceRecog : MonoBehaviour
                     case "apuvaline":
                         if (bools.IsThisTrue("Paksunnos"))
                         {
-                            bools.NullBools();
-
-                            mummo.aiTools.SetupTool("Paksunnos");
-
                             if (bools.ToolLearned("Paksunnos"))
                             {
+                                bools.NullBools();
+                                mummo.aiTools.SetupTool("Paksunnos");
+                                InitByIntent.InitInteract(mummo, "paksunnos", false);
                                 InitByIntent.InitOtaLaita(mummo, "lusikka", "pöytä1");
+                                mummo.ToolsDo(0);
                                 break;
                             }
                             else
-                                Debug.Log("Tool not learned");break;
-                        }
-                        if (bools.IsThisTrue("Liukuestealusta"))
-                        {
-                            if (bools.ToolLearned("Liukuestealusta"))
                             {
+                                //Show me how
+                                UnityEngine.Debug.Log("mummo ei osaa paksunnosta");
                                 bools.NullBools();
                                 break;
                             }
+                        }
+                        if (bools.IsThisTrue("Liukueste"))
+                        {
+                            Debug.Log("case apiväline liukueste vittu");
+                            if (bools.ToolLearned("Liukueste"))
+                            {
+                                Debug.Log("Laita liukueste");
+                                bools.NullBools();
+                                mummo.aiTools.SetupTool("Liukueste");
+                                InitByIntent.InitInteract(mummo, "liukueste", false);
+                                InitByIntent.InitOtaLaita(mummo, null, "liukuesteSpot");
+                                mummo.ToolsDo(2);
+                                break;
+                            }
                             else
-                                Debug.Log("Tool not learned"); break;
+                            {
+                                //Show me how
+                                UnityEngine.Debug.Log("mummo ei osaa liukuestettä");
+                                bools.NullBools();
+                                break;
+                            }
                         }
                         break;
 
@@ -330,7 +346,7 @@ public class VoiceRecog : MonoBehaviour
                         break;
 
 
-                    default: bools.NullBools(); mummo.InstructionMiss(1); break;
+                    default: UnityEngine.Debug.Log("bad instruction"); bools.NullBools(); mummo.InstructionMiss(1); break;
                 }
             }
         };
@@ -396,6 +412,7 @@ public class VoiceRecog : MonoBehaviour
 
         if (bools.wasEmpty)
         {
+            Debug.Log("No applicable entities");
             bools.NullBools(); mummo.InstructionMiss(1);
         }
     }

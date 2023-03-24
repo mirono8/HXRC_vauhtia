@@ -113,6 +113,7 @@ public class AI : MonoBehaviour
 
     public GameOverUI endScreen;
 
+
     private void Awake()
     {
         tasks = taskHolder.AddComponent<Tasks>();
@@ -137,6 +138,7 @@ public class AI : MonoBehaviour
                 }
         }
         endScreen = GameObject.Find("GameOverCanvas").GetComponent<GameOverUI>();
+        
     }
 
     private void Update()
@@ -295,8 +297,9 @@ public class AI : MonoBehaviour
     {
         switch (toDo)
         {
-            case 0: StartCoroutine(tasks.CombineHoldingItems(interactThis, grabThis, taskHolder)); break; // Asia vasemmasta kädestä kiinni oikeaan käteen (grabThis)
-            case 1: StartCoroutine(tasks.ShowTime(taskHolder)); break;  //Katso demonstraatio apuvälineelle
+            case 0: StartCoroutine(tasks.CombineHoldingItems(interactThis, grabThis, taskHolder)); mummoDialog.FillerTalk(1); break; // Asia vasemmasta kädestä kiinni oikeaan käteen (grabThis)
+            case 1: StartCoroutine(tasks.ShowTime(taskHolder)); mummoDialog.FillerTalk(1); break; //Katso demonstraatio apuvälineelle
+            case 2: StartCoroutine(tasks.PutDownTool(taskHolder)); mummoDialog.FillerTalk(1); break; //laita tool alas (liukueste)
         }
         endScreen.commandsUnderstood++;
     }
@@ -379,4 +382,10 @@ public class AI : MonoBehaviour
     {
         mummoHead.transform.rotation = Quaternion.Slerp(mummoHead.transform.rotation, origin, (1.2f * turnSpeed) * Time.deltaTime);
     }*/
+
+    public SnapPoint[] FindSnapPoints()
+    {
+        var snapPoints = FindObjectsOfType<SnapPoint>();
+        return snapPoints;
+    }
 }

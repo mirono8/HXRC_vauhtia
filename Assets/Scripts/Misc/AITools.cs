@@ -55,6 +55,7 @@ public class AITools : MonoBehaviour
 
     public void SetupTool(string tool)
     {
+        Debug.Log(tools.Count);
         for (int i = 0; i < tools.Count; i++)
         {
             if (tools[i].toolName == tool)
