@@ -110,7 +110,7 @@ public class AIAnimations : MonoBehaviour
         else
         {
             //animator.SetLayerWeight(0, 0);
-            animator.SetTrigger("reset"); // t‰‰ j‰tt‰‰ mummon jumii
+            animator.SetTrigger("reset");
             //SetDone(); 
         }//animator.ResetTrigger("dropTrigger");
     }
@@ -128,6 +128,11 @@ public class AIAnimations : MonoBehaviour
         //animator.ResetTrigger("dropTrigger");
     }
 
+    public void PourAnim()
+    {
+        done = false;
+        animator.SetTrigger("pourTrigger");
+    }
     public void SetDone()
     {
         done = true;

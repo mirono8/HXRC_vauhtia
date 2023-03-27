@@ -9,6 +9,7 @@ TagManager:
   - DropTag
   - Cheatsheet
   - Grabbable
+  - grabAI
   layers:
   - Default
   - TransparentFX

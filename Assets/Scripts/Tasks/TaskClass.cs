@@ -46,15 +46,19 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
         }
     }
 
-    public bool CheckReqCompletion(AI mummo, int step)
+    public bool CheckReqCompletion(AI mummo, int step) //ei katso useampaa required askelta, palauttaa ensimmäisestä
     {
-        for (int x = 0; x < TaskList._taskListInstance.taskList[mummo.tracker.doingNow].stepsList[step].requiredSteps.Count;)
+        var completedCount = 0;
+        for (int x = 0; x < TaskList._taskListInstance.taskList[mummo.tracker.doingNow].stepsList[step].requiredSteps.Count; x++)
         {
             if (TaskList._taskListInstance.taskList[mummo.tracker.doingNow].stepsList[TaskList._taskListInstance.taskList[mummo.tracker.doingNow].stepsList[step].requiredSteps[x]].isCompleted)
             {
                 Debug.Log("Prerequisite steps for this step have been completed");
                 Debug.Log("Prereq step: "+TaskList._taskListInstance.taskList[mummo.tracker.doingNow].stepsList[TaskList._taskListInstance.taskList[mummo.tracker.doingNow].stepsList[step].requiredSteps[x]].stepName);
-                return true;
+                completedCount++;
+
+                if(completedCount == TaskList._taskListInstance.taskList[mummo.tracker.doingNow].stepsList[step].requiredSteps.Count)
+                    return true;
             }
             else
             {
@@ -71,6 +75,18 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
     public IEnumerator GrabObject()
     {
         mummo.anims.SetLookTarget(mummo.grabThis.position);
+
+
+        var grabOffset = gameObject;
+
+        mummo.anims.animator.SetBool("holding", true);
+
+        foreach (Transform child in mummo.grabThis.transform)
+        {
+            if (child.CompareTag("grabAI"))
+                 grabOffset = child.gameObject;
+            
+        }
 
         if (!mummo.hasItem)
         {
@@ -97,11 +113,13 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
 
                 mummo.anims.GrabAnim();
                 yield return new WaitUntil(mummo.anims.EndAnimResumeTask);
+
                 mummo.grabThis.transform.parent = mummo.mummoGrabber;
-                    mummo.grabThis.transform.localPosition = new Vector3(0, 0, 0);
-                    mummo.grabThis.transform.localRotation = mummo.mummoGrabber.localRotation; //Quaternion.Euler(new Vector3(72.2023849f, 114.251907f, 203.216797f));
-                    mummo.hasItem = true;
-                
+                mummo.grabThis.transform.localPosition = new Vector3(0, 0, 0) - grabOffset.transform.localPosition;
+                mummo.grabThis.transform.rotation = mummo.mummoGrabber.localRotation;//Quaternion.Euler(mummo.mummoGrabber.localRotation.x - grabOffset.transform.rotation.x, mummo.mummoGrabber.localRotation.y - grabOffset.transform.rotation.y, mummo.mummoGrabber.localRotation.z - grabOffset.transform.rotation.z); //Quaternion.Euler(new Vector3(72.2023849f, 114.251907f, 203.216797f)); 
+
+                mummo.hasItem = true;
+
 
                 //return true;
             }
@@ -112,9 +130,11 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
 
                     mummo.anims.GrabAnim();
                     yield return new WaitUntil(mummo.anims.EndAnimResumeTask);
-                    mummo.grabThis.transform.parent = mummo.mummoGrabber;
-                    mummo.grabThis.transform.localPosition = new Vector3(0, 0, 0);
-                    mummo.grabThis.transform.localRotation = mummo.mummoGrabber.localRotation; //Quaternion.Euler(new Vector3(72.2023849f, 114.251907f, 203.216797f));
+
+                      mummo.grabThis.transform.parent = mummo.mummoGrabber;
+                      mummo.grabThis.transform.localPosition = new Vector3(0, 0, 0) - grabOffset.transform.localPosition;
+                    mummo.grabThis.transform.rotation = mummo.mummoGrabber.localRotation;//Quaternion.Euler(mummo.mummoGrabber.localRotation.x - grabOffset.transform.rotation.x, mummo.mummoGrabber.localRotation.y - grabOffset.transform.rotation.y, mummo.mummoGrabber.localRotation.z - grabOffset.transform.rotation.z); //Quaternion.Euler(new Vector3(72.2023849f, 114.251907f, 203.216797f));
+
                     mummo.hasItem = true;
                     
 
@@ -140,6 +160,7 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
 
     public IEnumerator DropObject()
     {
+        mummo.anims.animator.SetBool("holding", false);
 
         mummo.anims.SetLookTarget(mummo.dropHere.position);
         if (mummo.hasItem)

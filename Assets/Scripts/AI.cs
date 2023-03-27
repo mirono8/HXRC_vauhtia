@@ -253,8 +253,9 @@ public class AI : MonoBehaviour
                 }
                 else
                 {
-                    UnityEngine.Debug.Log(currentStep.stepName + " is already completed");
-                    InstructionMiss(4);
+                    StartCoroutine(tasks.OpenCloseThis(interactThis, taskHolder, -10, true, true));
+                    UnityEngine.Debug.Log(currentStep.stepName + " is already completed, opening lied");
+                   // InstructionMiss(4);
                     break;
                 }
             case 3:
@@ -298,7 +299,7 @@ public class AI : MonoBehaviour
         switch (toDo)
         {
             case 0: StartCoroutine(tasks.CombineHoldingItems(interactThis, grabThis, taskHolder)); mummoDialog.FillerTalk(1); break; // Asia vasemmasta kädestä kiinni oikeaan käteen (grabThis)
-            case 1: StartCoroutine(tasks.ShowTime(taskHolder)); mummoDialog.FillerTalk(1); break; //Katso demonstraatio apuvälineelle
+            case 1: StartCoroutine(tasks.ShowTime(taskHolder)); break; //Katso demonstraatio apuvälineelle
             case 2: StartCoroutine(tasks.PutDownTool(taskHolder)); mummoDialog.FillerTalk(1); break; //laita tool alas (liukueste)
         }
         endScreen.commandsUnderstood++;
@@ -319,6 +320,7 @@ public class AI : MonoBehaviour
         {
             case 1: mummoDialog.DontUnderstand();  break;
             case 2: mummoDialog.Whoops(); break;
+            case 3: mummoDialog.How();break;
             case 4: mummoDialog.AlreadyDone(); break;
         }
 

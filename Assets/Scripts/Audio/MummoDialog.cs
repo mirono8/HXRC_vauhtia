@@ -47,7 +47,11 @@ public class MummoDialog : MonoBehaviour
 
     public void WhatNext()
     {
-        clip = dialog[3];
+        i = Random.Range(0, 2);
+        if (i == 0)
+            clip = dialog[12];
+        else
+            clip = dialog[3];
 
         aSource.PlayOneShot(clip);
     }
@@ -67,6 +71,24 @@ public class MummoDialog : MonoBehaviour
         else
             clip = dialog[9];
 
+        aSource.PlayOneShot(clip);
+    }
+
+    public void CoffeeFinish()
+    {
+        clip = dialog[13];
+        aSource.PlayOneShot(clip);
+    }
+
+    public void WellInstructed()
+    {
+        clip = dialog[10];
+        aSource.PlayOneShot(clip);
+    }
+
+    public void How()
+    {
+        clip = dialog[11];
         aSource.PlayOneShot(clip);
     }
 

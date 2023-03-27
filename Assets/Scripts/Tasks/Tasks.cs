@@ -798,6 +798,7 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
             }
         }
 
+        g.mummo.mummoDialog.WellInstructed();
         g.mummo.isListening = true;
 
         Destroy(g);

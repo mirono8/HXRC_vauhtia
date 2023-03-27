@@ -12,7 +12,7 @@ public class WaterTap : Triggerable
     {
         triggered = true;
 
-        SoundEffectsCoffee._instance.aSource.loop = true;
+        //SoundEffectsCoffee._instance.aSource.loop = true;
         SoundEffectsCoffee._instance.TapSound(false);
 
         walter.SetActive(true);
@@ -24,8 +24,11 @@ public class WaterTap : Triggerable
     {
         triggered = false;
 
-        
+        SoundEffectsCoffee._instance.aSource.loop = false;
         SoundEffectsCoffee._instance.aSource.Stop();
+        SoundEffectsCoffee._instance.aSource.clip = SoundEffectsCoffee._instance.tap[3];
+        SoundEffectsCoffee._instance.aSource.PlayOneShot(SoundEffectsCoffee._instance.aSource.clip);
+
         SoundEffectsCoffee._instance.aSource.clip = null;
         SoundEffectsCoffee._instance.aSource.loop = false;
         walter.SetActive(false);

@@ -93,8 +93,13 @@ public class SoundEffectsCoffee : MonoBehaviour
         else
         {
             clip = tap[1];
+            //aSource.clip = clip;
+            aSource.PlayOneShot(clip);
+            clip = tap[2];
             aSource.clip = clip;
+            aSource.loop = true;
             aSource.Play();
+            
         }
     }
 

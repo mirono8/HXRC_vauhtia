@@ -18,17 +18,19 @@ public class TaskTracker : MonoBehaviour  //Initializes task for scene, tracks i
     
     */
 
+
     public int doingNow;
     public GameObject victoryCanvas;
     public GameObject speechlyCanvas;
     public GameOverUI endCanvas;
+    public MummoDialog mummoDialog;
     private void Start()
     {
         // _taskList=
         // ();
         /* taskListItem = new();
          step = new();*/
-        doingNow = 0;
+        doingNow = 0; //kahvinkeitto :D
     }
     public void StepComplete(int step_id_value)
     {
@@ -144,6 +146,9 @@ public class TaskTracker : MonoBehaviour  //Initializes task for scene, tracks i
         speechlyCanvas.SetActive(false);
         if (endCanvas != null)
             endCanvas.ActivateMenu();
+
+        mummoDialog.CoffeeFinish();
+        
     }
 
     private void Update()
