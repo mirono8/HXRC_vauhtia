@@ -180,11 +180,14 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
 
         public void TooVagueFail() //activoi triggerable
         {
-            var t = mummo.interactThis.GetComponent<Triggerable>();
 
-            t.triggered = true;
-            t.enabled= true;
+            if (mummo.grabThis.GetComponent<Triggerable>().enabled)  //onko kädessä oleva asia täynnä = voi sotkea sillä? vähän purkkaratkasu
+            {
+                var t = mummo.interactThis.GetComponent<Triggerable>();
 
+                t.triggered = true;
+                t.enabled = true;
+            }
         }
 
         public void InsertAndCount()
@@ -460,48 +463,58 @@ public class Tasks : MonoBehaviour  //Task-Objects (actions) for AI
 
         f.mummo.isListening = false;
 
-        if (f.mummo.IsMovementNecessary(f.mummo.grabThis))
+
+        if (f.IsTargetRetrieved(f.mummo.grabThis.gameObject))
         {
-            f.mummo.anims.WalkAnim(true);
-            yield return new WaitUntil(f.mummo.CloseEnough);
-            f.mummo.anims.WalkAnim(false);
+            if (f.mummo.IsMovementNecessary(f.mummo.grabThis))
+            {
+                f.mummo.anims.WalkAnim(true);
+                yield return new WaitUntil(f.mummo.CloseEnough);
+                f.mummo.anims.WalkAnim(false);
+            }
+
+
+
+            StartCoroutine(f.GrabObject());
+
+            yield return new WaitUntil(f.ObjectManipulationDone);
+            /*if (!f.GrabObject())
+            {
+                Debug.Log("Mummo already has item, called from InteractFail");
+                f.mummo.InstructionMiss(4);
+            }*/
+
+            f.RotateTowardsTaskTarget(f.mummo.interactThis.transform.position);
+
+            yield return new WaitUntil(f.mummo.anims.FacingLookTarget);
+            f.mummo.anims.ChangeRotationStatus(false);
+
+            f.mummo.anims.ActionAnim();
+
+            yield return new WaitUntil(f.mummo.anims.EndAnimResumeTask);
+
+            f.TooVagueFail();
+
+            if (f.mummo.IsMovementNecessary(f.mummo.dropHere))
+            {
+                f.mummo.anims.WalkAnim(true);
+                yield return new WaitUntil(f.mummo.CloseEnough);
+                f.mummo.anims.WalkAnim(false);
+            }
+
+
+            StartCoroutine(f.DropObject());
+
+            yield return new WaitUntil(f.ObjectManipulationDone);
+
+            f.mummo.InstructionMiss(2);
+        }
+        else
+        {
+            f.mummo.InstructionMiss(1);
         }
 
-        
 
-        StartCoroutine(f.GrabObject());
-
-        yield return new WaitUntil(f.ObjectManipulationDone);
-        /*if (!f.GrabObject())
-        {
-            Debug.Log("Mummo already has item, called from InteractFail");
-            f.mummo.InstructionMiss(4);
-        }*/
-
-        f.RotateTowardsTaskTarget(f.mummo.interactThis.transform.position);
-
-        yield return new WaitUntil(f.mummo.anims.FacingLookTarget);
-        f.mummo.anims.ChangeRotationStatus(false);
-
-        f.mummo.anims.ActionAnim();
-
-        yield return new WaitUntil(f.mummo.anims.EndAnimResumeTask);
-
-        f.TooVagueFail();
-
-        if (f.mummo.IsMovementNecessary(f.mummo.dropHere))
-        {   
-            f.mummo.anims.WalkAnim(true);
-            yield return new WaitUntil(f.mummo.CloseEnough);
-            f.mummo.anims.WalkAnim(false);
-        }
-
-
-        StartCoroutine(f.DropObject());
-
-        yield return new WaitUntil(f.ObjectManipulationDone);
-
-        f.mummo.InstructionMiss(2);
         f.mummo.isListening = true;
 
         Destroy(f);

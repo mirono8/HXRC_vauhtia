@@ -111,19 +111,39 @@ public class VoiceRecog : MonoBehaviour
                         {
                             if (bools.IsThisTrue("Kahvinpurut") && !bools.IsThisTrue("Kahvinkeitin"))
                             {
-                                bools.NullBools();
-                                InitByIntent.InitOtaLaita(mummo, "kahvinpurut", "pöytä3");   //vaiha interactiksi, kahvipurut -> interactwith suodatinpussi !!!!!  tää laittaa kahvin näkymään // tää onki ok
-                                InitByIntent.InitInteract(mummo, "suodatinpussiInteract", false);
-                                mummo.KahviDo(1, 3); //Laita purut suodatinpussiin
-                                break;
+                                if (mummo.CheckThisFirst(mummo.interactTargets.interactTargets.Find(target => target.name == "kansi").target.GetComponent<Triggerable>()))
+                                {
+                                    bools.NullBools();
+                                    InitByIntent.InitOtaLaita(mummo, "kahvinpurut", "pöytä3");   //vaiha interactiksi, kahvipurut -> interactwith suodatinpussi !!!!!  tää laittaa kahvin näkymään // tää onki ok
+                                    InitByIntent.InitInteract(mummo, "suodatinpussiInteract", false);
+                                    mummo.KahviDo(1, 3); //Laita purut suodatinpussiin
+                                    break;
+                                }
+                                else
+                                {
+                                    Debug.Log("Kansi on kiinni");
+                                    bools.NullBools();
+                                    mummo.mummoDialog.DontUnderstand();
+                                    break;
+                                }
                             }
                             else if (bools.IsThisTrue("Kahvinkeitin"))
                             {
-                                bools.NullBools();
-                                InitByIntent.InitOtaLaita(mummo, "suodatinpussi", "suppilo");
-                                InitByIntent.InitInteract(mummo, "suodatinpussiInteract", false);
-                                mummo.KahviDo(1, 1); //Laita suodatinpussi kahvinkeittimeen
-                                break;
+                                if (mummo.CheckThisFirst(mummo.interactTargets.interactTargets.Find(target => target.name == "kansi").target.GetComponent<Triggerable>()))
+                                {
+                                    bools.NullBools();
+                                    InitByIntent.InitOtaLaita(mummo, "suodatinpussi", "suppilo");
+                                    InitByIntent.InitInteract(mummo, "suodatinpussiInteract", false);
+                                    mummo.KahviDo(1, 1); //Laita suodatinpussi kahvinkeittimeen
+                                    break;
+                                }
+                                else
+                                {
+                                    Debug.Log("Kansi on kiinni");
+                                    bools.NullBools();
+                                    mummo.mummoDialog.DontUnderstand();
+                                    break;
+                                }
                             }
                         }
                         break;
@@ -136,7 +156,7 @@ public class VoiceRecog : MonoBehaviour
                             mummo.GeneralDo(0, InitByIntent.InitInteract(mummo, "vesihana", true)); //Avaa vesihana, ei step
                             break;
                         }
-                        else if (bools.IsThisTrue("Kansi"))   // tästä once jotenki
+                        else if (bools.IsThisTrue("Kansi"))  
                         {
                             bools.NullBools();
 
@@ -158,10 +178,20 @@ public class VoiceRecog : MonoBehaviour
                         }
                         else if (bools.IsThisTrue("Kahvinkeitin"))
                         {
-                            bools.NullBools();
-                            InitByIntent.InitInteract(mummo, "vesisäiliö", false);
-                            InitByIntent.InitOtaLaita(mummo, "vesikannu", "pöytä4");
-                            mummo.KahviDo(1, 6); //kaadetaan vesi kahvinkeittimeen
+                            if (mummo.CheckThisFirst(mummo.interactTargets.interactTargets.Find(target => target.name == "kansi").target.GetComponent<Triggerable>()))
+                            {
+                                bools.NullBools();
+                                InitByIntent.InitInteract(mummo, "vesisäiliö", false);
+                                InitByIntent.InitOtaLaita(mummo, "vesikannu", "pöytä4");
+                                mummo.KahviDo(1, 6); //kaadetaan vesi kahvinkeittimeen
+                            }
+                            else
+                            {
+                                bools.NullBools();
+                                mummo.mummoDialog.DontUnderstand();
+                                break;
+
+                            }
                         }
                         /* else
                          {
@@ -209,7 +239,6 @@ public class VoiceRecog : MonoBehaviour
                         }
                         else if (bools.IsThisTrue("VedenKaato"))
                         {
-                            UnityEngine.Debug.Log("Vesi huti");
                             bools.NullBools();
                             InitByIntent.InitInteract(mummo, "tahraSpot2", false);
                             InitByIntent.InitOtaLaita(mummo, "vesikannu", "pöytä4");

@@ -12,6 +12,7 @@ public class TaskTargets : MonoBehaviour
      {
          [SerializeField] public string name;
          [SerializeField] public GameObject target;
+         [SerializeField] public bool isRetrieved;
      }
 
      [Serializable]

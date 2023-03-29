@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 
 
-public class AI : MonoBehaviour
+public class AI : MonoBehaviour 
 {
     [Header("AI Targets")]
     [Tooltip("Possible grab targets")]
@@ -390,4 +390,15 @@ public class AI : MonoBehaviour
         var snapPoints = FindObjectsOfType<SnapPoint>();
         return snapPoints;
     }
+
+    public bool CheckThisFirst(Triggerable t)
+    {
+        if (!t.isOpen)
+        {
+            return false;
+        }
+
+        return true;
+    }
+    
 }

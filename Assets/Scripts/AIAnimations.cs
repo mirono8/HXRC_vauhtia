@@ -133,11 +133,18 @@ public class AIAnimations : MonoBehaviour
         done = false;
         animator.SetTrigger("pourTrigger");
     }
+    public void ThumbsUpAnim()
+    {
+        done = false;
+        animator.SetTrigger("thumbsTrigger");
+    }
+
     public void SetDone()
     {
         done = true;
         //animator.SetTrigger("reset");
     }
+
 
     public void ChangeRotationStatus(bool b)
     {

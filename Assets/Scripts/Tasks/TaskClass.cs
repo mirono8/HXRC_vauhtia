@@ -114,12 +114,21 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
                 mummo.anims.GrabAnim();
                 yield return new WaitUntil(mummo.anims.EndAnimResumeTask);
 
+                
                 mummo.grabThis.transform.parent = mummo.mummoGrabber;
                 mummo.grabThis.transform.localPosition = new Vector3(0, 0, 0) - grabOffset.transform.localPosition;
                 mummo.grabThis.transform.rotation = mummo.mummoGrabber.localRotation;//Quaternion.Euler(mummo.mummoGrabber.localRotation.x - grabOffset.transform.rotation.x, mummo.mummoGrabber.localRotation.y - grabOffset.transform.rotation.y, mummo.mummoGrabber.localRotation.z - grabOffset.transform.rotation.z); //Quaternion.Euler(new Vector3(72.2023849f, 114.251907f, 203.216797f)); 
 
                 mummo.hasItem = true;
 
+                for (int i = 0; i < mummo.grabTargets.grabTargets.Count; i++)
+                {
+                    if(mummo.grabThis.name == mummo.grabTargets.grabTargets[i].target.name)
+                    {
+                        if(!mummo.grabTargets.grabTargets[i].isRetrieved)
+                            mummo.grabTargets.grabTargets[i].isRetrieved = true;
+                    }
+                }
 
                 //return true;
             }
@@ -136,9 +145,18 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
                     mummo.grabThis.transform.rotation = mummo.mummoGrabber.localRotation;//Quaternion.Euler(mummo.mummoGrabber.localRotation.x - grabOffset.transform.rotation.x, mummo.mummoGrabber.localRotation.y - grabOffset.transform.rotation.y, mummo.mummoGrabber.localRotation.z - grabOffset.transform.rotation.z); //Quaternion.Euler(new Vector3(72.2023849f, 114.251907f, 203.216797f));
 
                     mummo.hasItem = true;
-                    
 
-                   //return true;
+                    for (int i = 0; i < mummo.grabTargets.grabTargets.Count; i++)
+                    {
+                        if (mummo.grabThis.name == mummo.grabTargets.grabTargets[i].target.name)
+                        {
+                            if (!mummo.grabTargets.grabTargets[i].isRetrieved)
+                                mummo.grabTargets.grabTargets[i].isRetrieved = true;
+                        }
+                    }
+
+
+                    //return true;
                 }
                 else
                 {
@@ -217,5 +235,23 @@ public class TaskClass : MonoBehaviour   //Default parameters for a Task
         }
         else
             return false;
+    }
+
+    public bool IsTargetRetrieved(GameObject t)
+    {
+        for (int i = 0; i < mummo.grabTargets.grabTargets.Count; i++)
+        {
+            if (t.name == mummo.grabTargets.grabTargets[i].target.name)
+            {
+                if (!mummo.grabTargets.grabTargets[i].isRetrieved)
+                    return false;
+                else
+                    return true;
+            }
+        }
+
+        Debug.Log("target not in grabbable list, returning false");
+
+        return false;
     }
 }

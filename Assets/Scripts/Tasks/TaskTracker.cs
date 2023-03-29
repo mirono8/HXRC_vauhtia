@@ -24,6 +24,7 @@ public class TaskTracker : MonoBehaviour  //Initializes task for scene, tracks i
     public GameObject speechlyCanvas;
     public GameOverUI endCanvas;
     public MummoDialog mummoDialog;
+    private AI mummo;
     private void Start()
     {
         // _taskList=
@@ -31,6 +32,8 @@ public class TaskTracker : MonoBehaviour  //Initializes task for scene, tracks i
         /* taskListItem = new();
          step = new();*/
         doingNow = 0; //kahvinkeitto :D
+
+        mummo = FindObjectOfType<AI>();
     }
     public void StepComplete(int step_id_value)
     {
@@ -148,9 +151,11 @@ public class TaskTracker : MonoBehaviour  //Initializes task for scene, tracks i
             endCanvas.ActivateMenu();
 
         mummoDialog.CoffeeFinish();
+
+        mummo.anims.ThumbsUpAnim();
         
     }
-
+    
     private void Update()
     {
         /*  if (!TaskList._taskListInstance.taskList[doingNow].t_isCompleted && (TaskList._taskListInstance.taskList[doingNow].t_stepsComplete == TaskList._taskListInstance.taskList[doingNow].t_stepTotal)) 
