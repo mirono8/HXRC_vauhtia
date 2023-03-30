@@ -25,11 +25,21 @@ public class GameOverUI : MonoBehaviour
         // Set the rotation of the canvas to match the camera's rotation
         gameObject.transform.rotation = Quaternion.LookRotation(transform.position - vrCam.transform.position);
 
+        
+
+        menuBg.SetActive(true);
+    }
+
+    private void Update()
+    {
+        // Set the position of the canvas
+        gameObject.transform.position = vrCam.transform.position + vrCam.transform.forward * menuDist;
+        // Set the rotation of the canvas to match the camera's rotation
+        gameObject.transform.rotation = Quaternion.LookRotation(transform.position - vrCam.transform.position);
+
         timeText.text = Time.time.ToString();
         commandsText.text = commandsGiven.ToString();
         doneCmdsText.text = commandsUnderstood.ToString();
-        chaosText.text = (chaosesCaused.ToString() + " kertaa");
-
-        menuBg.SetActive(true);
+        chaosText.text = chaosesCaused.ToString() + " kertaa";
     }
 }

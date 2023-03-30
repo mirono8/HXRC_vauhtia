@@ -14,6 +14,8 @@ public class VoiceRecog : MonoBehaviour
     [SerializeField]
     public AI mummo;
 
+    public GameOverUI endScreen;
+
     void Start()
     {
         client = MicToSpeechly.Instance.SpeechlyClient;
@@ -462,6 +464,8 @@ public class VoiceRecog : MonoBehaviour
             Debug.Log("No applicable entities");
             bools.NullBools(); mummo.InstructionMiss(1);
         }
+
+        endScreen.commandsGiven++;
     }
 
     void Update()

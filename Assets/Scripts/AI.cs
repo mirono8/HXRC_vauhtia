@@ -215,6 +215,8 @@ public class AI : MonoBehaviour
 
     public void KahviDo(int toDo, int stepIndex)
     {
+        endScreen.commandsUnderstood++;
+
         var currentStep = TaskList._taskListInstance.taskList[tracker.doingNow].stepsList[stepIndex];
 
         switch (toDo)
@@ -281,11 +283,12 @@ public class AI : MonoBehaviour
         CleanLearnedSteps();
 
         UnityEngine.Debug.Log("Kahvi DO: " + toDo);
-        endScreen.commandsUnderstood++;
+        
     }
 
     public void GeneralDo(int toDo, bool open) //Asioita mit� AI voi tehd� mit� ei lasketa askeleiksi
     {
+        endScreen.commandsUnderstood++;
         switch (toDo)
         {
             case 0: StartCoroutine(tasks.OpenCloseThis(interactThis, taskHolder, -10, open, true)); mummoDialog.FillerTalk(1); break;  //avaa tai sulje
@@ -293,18 +296,19 @@ public class AI : MonoBehaviour
             case 2: StartCoroutine(tasks.FreeGrabDrop(grabThis, taskHolder)); mummoDialog.FillerTalk(1); break; //ota asioita ilman step
             case 3: StartCoroutine(tasks.FreeGrabInsert(taskHolder)); mummoDialog.FillerTalk(1); break; //insert ilman step
         } //TOOLS INTERACTIONS
-        endScreen.commandsUnderstood++;
+        
     }
 
     public void ToolsDo(int toDo)
     {
+        endScreen.commandsUnderstood++;
         switch (toDo)
         {
             case 0: StartCoroutine(tasks.CombineHoldingItems(interactThis, grabThis, taskHolder)); mummoDialog.FillerTalk(1); break; // Asia vasemmasta kädestä kiinni oikeaan käteen (grabThis)
             case 1: StartCoroutine(tasks.ShowTime(taskHolder)); break; //Katso demonstraatio apuvälineelle
             case 2: StartCoroutine(tasks.PutDownTool(taskHolder)); mummoDialog.FillerTalk(1); break; //laita tool alas (liukueste)
         }
-        endScreen.commandsUnderstood++;
+        
     }
     /* public void SetUpTool(string toolName, Transform dropHere)
      {
