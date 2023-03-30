@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static SingularStep;
 
 
 public class TaskTracker : MonoBehaviour  //Initializes task for scene, tracks it and gives feedback
@@ -19,12 +20,14 @@ public class TaskTracker : MonoBehaviour  //Initializes task for scene, tracks i
     */
 
 
-    public int doingNow;
+    public int doingNow=0;
     public GameObject victoryCanvas;
     public GameObject speechlyCanvas;
     public GameOverUI endCanvas;
     public MummoDialog mummoDialog;
     private AI mummo;
+
+    public SingularStep singular;
     private void Start()
     {
         // _taskList=
@@ -155,7 +158,12 @@ public class TaskTracker : MonoBehaviour  //Initializes task for scene, tracks i
         mummo.anims.ThumbsUpAnim();
         
     }
-    
+
+    public void CreateSingular(Transform g, Transform d, GameObject i)
+    {
+        singular.singulars.Add(new Singular(g, d, i));
+    }
+
     private void Update()
     {
         /*  if (!TaskList._taskListInstance.taskList[doingNow].t_isCompleted && (TaskList._taskListInstance.taskList[doingNow].t_stepsComplete == TaskList._taskListInstance.taskList[doingNow].t_stepTotal)) 

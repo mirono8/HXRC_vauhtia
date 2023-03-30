@@ -15,6 +15,7 @@ public static class InitByIntent
         
         Debug.Log("Laita " + i_grabThis + " paikkaan " + i_dropHere);
 
+     //   _mummo.tracker.CreateSingular(_mummo.grabThis, _mummo.dropHere, null);
     }
 
     public static bool InitInteract(AI _mummo, string i_target, bool i_multipleBinaryTarget) // bool true jos haluaa useampaan otteeseen aktivoida jotain

@@ -499,6 +499,7 @@ MonoBehaviour:
   victoryCanvas: {fileID: 0}
   speechlyCanvas: {fileID: 0}
   endCanvas: {fileID: 0}
+  mummoDialog: {fileID: 2009286905}
 --- !u!1 &6051592487458664561
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,6 +969,7 @@ MonoBehaviour:
   animator: {fileID: 7069905459914455824}
   ikActive: 1
   dampVelocity: 0
+  saveOriginalPos: 0
 --- !u!114 &4319024118879139079
 MonoBehaviour:
   m_ObjectHideFlags: 0

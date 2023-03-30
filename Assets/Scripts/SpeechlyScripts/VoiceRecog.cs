@@ -35,6 +35,8 @@ public class VoiceRecog : MonoBehaviour
             {
                 AnalyzeSegment(segment);
 
+                mummo.CleanLearnedSteps();
+
                 switch (intent)
                 {
                     case "ota":
@@ -377,6 +379,16 @@ public class VoiceRecog : MonoBehaviour
                         }
                         break;
 
+                    case "jatko":
+                        if (bools.IsThisTrue("Itse"))
+                        {
+                            bools.NullBools();
+                            mummo.TryDoIndependentStep(); break;
+
+                        }
+                        break;
+                        
+
 
                     default: UnityEngine.Debug.Log("bad instruction"); bools.NullBools(); mummo.InstructionMiss(1); break;
                 }
@@ -441,6 +453,9 @@ public class VoiceRecog : MonoBehaviour
 
         if (segment.entities.Select(entry => entry.Value).ToList().Where(entity => entity.type == "demo").Select(entity => entity.value).Reverse().ToArray().FirstOrDefault() != null)
             bools.SetTrue("Demonstraatio");
+
+        if (segment.entities.Select(entry => entry.Value).ToList().Where(entity => entity.type == "itse").Select(entity => entity.value).Reverse().ToArray().FirstOrDefault() != null)
+            bools.SetTrue("Itse");
 
         if (bools.wasEmpty)
         {
