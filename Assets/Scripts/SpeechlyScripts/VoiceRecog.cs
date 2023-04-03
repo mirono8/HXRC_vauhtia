@@ -95,6 +95,7 @@ public class VoiceRecog : MonoBehaviour
                                     mummo.mummoDialog.How();
                                     UnityEngine.Debug.Log("mummo ei osaa paksunnosta");
                                     bools.NullBools();
+                                    mummo.ToolsDo(1);
                                     break;
                                 }
                             }
@@ -342,9 +343,10 @@ public class VoiceRecog : MonoBehaviour
                             else
                             {
                                 //Show me how
-                                mummo.mummoDialog.How();
-                                UnityEngine.Debug.Log("mummo ei osaa paksunnosta");
                                 bools.NullBools();
+                                mummo.mummoDialog.How();
+                                mummo.ToolsDo(1);
+                                UnityEngine.Debug.Log("mummo ei osaa paksunnosta");
                                 break;
                             }
                         }
@@ -364,9 +366,10 @@ public class VoiceRecog : MonoBehaviour
                             else
                             {
                                 //Show me how
+                                bools.NullBools();
                                 mummo.mummoDialog.How();
                                 UnityEngine.Debug.Log("mummo ei osaa liukuestettä");
-                                bools.NullBools();
+                                mummo.ToolsDo(1);
                                 break;
                             }
                         }
