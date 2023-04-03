@@ -428,6 +428,7 @@ public class AI : MonoBehaviour
             }
         }
     }
+
     public bool GetIndependentStepRequirements(int index)
     {
         var reqAmount = TaskList._taskListInstance.taskList[tracker.doingNow].stepsList[index].requiredSteps.Count;
@@ -460,7 +461,6 @@ public class AI : MonoBehaviour
                     return true;
             }
         }
-
         return false;
     }
 

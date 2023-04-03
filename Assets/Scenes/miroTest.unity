@@ -1862,7 +1862,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 162135710, guid: b4e77e455b37a9342aac92b34fd9d85a, type: 3}
   m_PrefabInstance: {fileID: 1758122151}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1758122152}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -5229,33 +5229,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2099063229649831151, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
-      propertyPath: m_Material
-      value: 
+    - target: {fileID: 3156450875188491540, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
+      propertyPath: m_Name
+      value: DebugOff
       objectReference: {fileID: 0}
-    - target: {fileID: 3754003398553731680, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
-      propertyPath: m_Enabled
+    - target: {fileID: 4732178237062647762, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1758122152}
+    - target: {fileID: 5998621992524868873, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1758122152}
+    - target: {fileID: 5998621992524868873, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 5998621992524868873, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4095673073930079708, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
-      propertyPath: m_text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4777059385999227366, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4777059385999227366, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
-      propertyPath: m_TagString
-      value: Cheatsheet
-      objectReference: {fileID: 0}
-    - target: {fileID: 6271247946975765981, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6271247946975765983, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
-      propertyPath: m_Material
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6271247947158035312, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
       propertyPath: m_RootOrder
@@ -5305,14 +5297,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenuV2
       objectReference: {fileID: 0}
-    - target: {fileID: 6271247947158035326, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6271247947158035327, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
       propertyPath: vrCam
       value: 
       objectReference: {fileID: 2015498572}
+    - target: {fileID: 9192640859269537298, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
+      propertyPath: m_Name
+      value: DebugOn
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de2086ec807dbfa42bfeda91efb99cc6, type: 3}
 --- !u!1 &1642407217 stripped
@@ -5584,6 +5576,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4e77e455b37a9342aac92b34fd9d85a, type: 3}
+--- !u!1 &1758122152 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 162135708, guid: b4e77e455b37a9342aac92b34fd9d85a, type: 3}
+  m_PrefabInstance: {fileID: 1758122151}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1763308766 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3473379889905724571, guid: b4e77e455b37a9342aac92b34fd9d85a, type: 3}
