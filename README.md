@@ -41,7 +41,7 @@ Esimerkkilauseiden kirjoittamisessa voi suoraviivaistaa koulutusta kirjoittamall
 Muuttujat alustetaan ennen esimerkkilauseita ja merkataan syntaksissa $-merkillä
 
 Listoissa (merkintätapa [ x | y | z] ) applikaatio valitsee yhden sanan listassa koulutuksen aikana,
-toisin sanoen harjoittaa saman lauseen kolmella eri muuttujalla, ilman että jokaista variaatiota tarvitsisi kirjoittaa uudestaan
+toisin sanoen harjoittaa saman lauseen tässä tapauksessa kolmella eri muuttujalla, ilman että jokaista variaatiota tarvitsisi kirjoittaa uudestaan
 
 
 ## Syntaksi
@@ -52,7 +52,7 @@ Lause koostuu osista:
 
 	- *paina = intent
 
-	- [&laita_lause] = lista-muuttuja
+	- [$laita_lause] = lista-muuttuja
 
 	- $kahvinkeitin(kahvinkeitin) = lista-muuttuja, joka on merkattu entity:llä (kahvinkeitin)
 
