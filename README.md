@@ -71,6 +71,7 @@ Tämä yksi esimerkkilause vastaa näitä lauseita:
 	laittakaa keitin päälle…
 
 ja 12 muuta variaatiota lauseista
+
 jokainen lause tulkitaan intent:n “paina” alle
 
 
