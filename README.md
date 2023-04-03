@@ -60,6 +60,7 @@ Lause koostuu osista:
 	             Toisin sanoen lause on tunnistettavissa tämän sanan kanssa ja ilman sitä
 
 Tämä yksi esimerkkilause vastaa näitä lauseita:
+
 	laita kahvinkeitin
 	laita kahvinkeitin päälle
 	laita keitin
@@ -69,8 +70,8 @@ Tämä yksi esimerkkilause vastaa näitä lauseita:
 	laittakaa keitin 
 	laittakaa keitin päälle…
 
-	 ja 12 muuta variaatiota lauseista
-	 jokainen lause tulkitaan intent:n “paina” alle
+ja 12 muuta variaatiota lauseista
+jokainen lause tulkitaan intent:n “paina” alle
 
 
 ![image](/uploads/eed23301e1ec9e495660911516568b7d/image.png)
