@@ -135,14 +135,14 @@ public class TaskTracker : MonoBehaviour  //Initializes task for scene, tracks i
             if (x != currentTask.stepsList[x].stepCompletionOrder)
             {  //Onko askel listassa eri kohdassa kuin pitäisi?
                 Debug.Log("Teit vaiheen numero " + (1 + currentTask.stepsList[x].stepCompletionOrder) + ": '" + currentTask.stepsList[currentTask.stepsList[x].stepCompletionOrder].stepName.ToString()
-                    + "' kohdassa numero " + (x + 1) + ": '" + currentTask.stepsList[x].stepName.ToString() + "'");
-                endCanvas.feedbackText.text = "Teit vaiheen numero " + (1 + currentTask.stepsList[x].stepCompletionOrder) + ": '" + currentTask.stepsList[currentTask.stepsList[x].stepCompletionOrder].stepName.ToString()
-                    + "' kohdassa numero " + (x + 1) + ": '" + currentTask.stepsList[x].stepName.ToString() + "'";
+                    + "' kohdassa numero " + (x + 1) + ": '" + currentTask.stepsList[currentTask.stepsList[x].stepCompletionOrder].stepName.ToString() + "'"); //currentTask.stepsList[x].stepName.ToString()
+                endCanvas.feedbackText.text += "\nTeit vaiheen numero " + (1 + currentTask.stepsList[x].stepCompletionOrder) + ": '" + currentTask.stepsList[currentTask.stepsList[x].stepCompletionOrder].stepName.ToString()
+                    + "' kohdassa numero " + (x + 1) + ": '" + currentTask.stepsList[currentTask.stepsList[x].stepCompletionOrder].stepName.ToString() + "'";
             }
             if (!currentTask.stepsList.Contains(currentTask.stepsList[x]))
             {
                 Debug.Log("Jätit vaiheen numero " + ": '" + currentTask.stepsList[x].stepName.ToString() + "' tekemättä");
-                endCanvas.feedbackText.text = "Jätit vaiheen numero " + ": '" + currentTask.stepsList[x].stepName.ToString() + "' tekemättä";
+                endCanvas.feedbackText.text += "\nJätit vaiheen numero " + ": '" + currentTask.stepsList[x].stepName.ToString() + "' tekemättä";
             }
         }
 
