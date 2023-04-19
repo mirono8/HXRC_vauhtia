@@ -57,4 +57,13 @@ public class CustomVRUIActions : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene(); 
         SceneManager.LoadScene(scene.name);
     }
+
+    public void FlipInstructions(GameObject obj)
+    {
+        if (!obj.activeSelf)
+            obj.SetActive(true);
+        else if (obj.activeSelf)
+            obj.SetActive(false);
+    }
+
 }

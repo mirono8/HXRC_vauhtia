@@ -352,7 +352,7 @@ public class VoiceRecog : MonoBehaviour
                         }
                         if (bools.IsThisTrue("Liukueste"))
                         {
-                            Debug.Log("case apiväline liukueste vittu");
+
                             if (bools.ToolLearned("Liukueste"))
                             {
                                 Debug.Log("Laita liukueste");
