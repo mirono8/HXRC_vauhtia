@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ using static TaskTargets;
 public class SoundEffectsCoffee : MonoBehaviour
 {
     
-    public AudioSource aSource;
+    public AudioSource aiSource;
 
     public AI mummo;
 
@@ -27,6 +28,16 @@ public class SoundEffectsCoffee : MonoBehaviour
 
     public static SoundEffectsCoffee _instance { get; private set; }
 
+
+    [Serializable]
+    public class AudioSourcesCoffee
+    {
+        public string sourceName;
+        public AudioSource source;
+    }
+
+    public List<AudioSourcesCoffee> sources;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -43,12 +54,19 @@ public class SoundEffectsCoffee : MonoBehaviour
     public void BrewSound()
     {
         clip = brew[0];
-        aSource.PlayOneShot(clip);
+
+        var source = sources.Find(x => x.sourceName == "CoffeeMachine");
+
+        source?.source.PlayOneShot(clip);
+
+        if (source == null)
+            Debug.Log("no source found");
+
     }
     public void MugSound()
     {
         clip = mug.PickRandom();
-        aSource.PlayOneShot(clip);
+        aiSource.PlayOneShot(clip);
     }
 
     public void PotSound(bool potOut)
@@ -56,14 +74,16 @@ public class SoundEffectsCoffee : MonoBehaviour
         if (potOut)
         {
             clip = pot[0];
-            aSource.PlayOneShot(clip);
-            Debug.Log("naxx out");
+            var source = sources.Find(x => x.sourceName == "CoffeeMachine");
+
+            source?.source.PlayOneShot(clip);
         }
         else
         {
             clip = pot[1];
-            aSource.PlayOneShot(clip);
-            Debug.Log("naxx in");
+            var source = sources.Find(x => x.sourceName == "CoffeeMachine");
+
+            source?.source.PlayOneShot(clip);
 
         }
 
@@ -74,12 +94,12 @@ public class SoundEffectsCoffee : MonoBehaviour
         if (water)
         {
             clip = pour[0];
-            aSource.PlayOneShot(clip);
+            aiSource.PlayOneShot(clip);
         }
         else
         {
             clip = pour[1];
-            aSource.PlayOneShot(clip);
+            aiSource.PlayOneShot(clip);
         }
     }
 
@@ -88,17 +108,25 @@ public class SoundEffectsCoffee : MonoBehaviour
         if (jug)
         {
             clip = tap[0];
-            aSource.PlayOneShot(clip);
+            var source = sources.Find(x => x.sourceName == "Tap");
+
+            source?.source.PlayOneShot(clip);
+            if (source == null)
+                Debug.Log("no source found");
         }
         else
         {
             clip = tap[1];
             //aSource.clip = clip;
-            aSource.PlayOneShot(clip);
+            var source = sources.Find(x => x.sourceName == "Tap");
+
+            source?.source.PlayOneShot(clip);
+            if (source == null)
+                Debug.Log("no source found");
             clip = tap[2];
-            aSource.clip = clip;
-            aSource.loop = true;
-            aSource.Play();
+            source.source.clip = clip;
+            source.source.loop = true;
+            source.source.Play();
             
         }
     }
@@ -106,7 +134,9 @@ public class SoundEffectsCoffee : MonoBehaviour
     public void FilterSound()
     {
         clip = filter.PickRandom();
-        aSource.PlayOneShot(clip);
+        var source = sources.Find(x => x.sourceName == "CoffeeMachine");
+
+        source?.source.PlayOneShot(clip);
     }
 
     private void Update()

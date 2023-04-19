@@ -1,3 +1,4 @@
+using Photon.Voice;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,14 +24,16 @@ public class WaterTap : Triggerable
     public void CloseWater()
     {
         triggered = false;
+        var source = SoundEffectsCoffee._instance.sources.Find(x => x.sourceName == "Tap");
 
-        SoundEffectsCoffee._instance.aSource.loop = false;
-        SoundEffectsCoffee._instance.aSource.Stop();
-        SoundEffectsCoffee._instance.aSource.clip = SoundEffectsCoffee._instance.tap[3];
-        SoundEffectsCoffee._instance.aSource.PlayOneShot(SoundEffectsCoffee._instance.aSource.clip);
 
-        SoundEffectsCoffee._instance.aSource.clip = null;
-        SoundEffectsCoffee._instance.aSource.loop = false;
+        source.source.loop = false;
+        source.source.Stop();
+        source.source.clip = SoundEffectsCoffee._instance.tap[3];
+        source.source.PlayOneShot(source.source.clip);
+
+        source.source.clip = null;
+        source.source.loop = false;
         walter.SetActive(false);
         //vesijuttuja tähän
 
