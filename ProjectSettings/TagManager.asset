@@ -10,6 +10,7 @@ TagManager:
   - Cheatsheet
   - Grabbable
   - grabAI
+  - PauseToggle
   layers:
   - Default
   - TransparentFX

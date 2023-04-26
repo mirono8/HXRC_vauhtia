@@ -9,11 +9,11 @@ public class CustomVRUIActions : MonoBehaviour
 {
     public void OnHover()
     {
-        print("VR UI Entered");
+       // print("VR UI Entered");
     }
     public void OnClick()
     {
-        print("VR UI Clicked");
+      //  print("VR UI Clicked");
     }
     public void CloseApp()
     {
@@ -61,9 +61,15 @@ public class CustomVRUIActions : MonoBehaviour
     public void FlipInstructions(GameObject obj)
     {
         if (!obj.activeSelf)
+        {
             obj.SetActive(true);
-        else if (obj.activeSelf)
-            obj.SetActive(false);
+            GameObject.FindGameObjectWithTag("PauseToggle").SetActive(false);
+        }
     }
 
+    public void HideThisEnableThat(GameObject enableThis)
+    {
+        transform.parent.gameObject.SetActive(false);
+        enableThis.SetActive(true);
+    }
 }
